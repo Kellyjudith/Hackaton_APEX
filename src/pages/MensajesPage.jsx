@@ -3,7 +3,7 @@ import Mensajes from '../components/Mensajes';
 
 export default function MensajesPage() {
   return (
-    <div className="w-full pt-20 sm:pt-24 bg-surface min-h-[calc(100vh-80px)] flex-1 text-left">
+    <div className="w-full pt-28 sm:pt-32 bg-surface min-h-[calc(100vh-80px)] flex-1 text-left">
       <div className="w-full max-w-[760px] mx-auto px-4 sm:px-margin md:px-margin-tablet py-6 sm:py-space-xl flex flex-col gap-6">
         <header className="flex flex-col gap-1 text-center md:text-left">
           <div className="inline-flex items-center gap-1.5 self-center md:self-start px-3 py-1 bg-surface-container rounded-full text-on-surface-variant text-xs font-bold shadow-sm">

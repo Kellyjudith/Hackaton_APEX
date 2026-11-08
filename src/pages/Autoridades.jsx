@@ -6,7 +6,7 @@ import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tool
 import { SERIE_SEMANAL } from '../utils/reportesStore';
 
 export default function Autoridades() {
-  const { resumenTodasColonias, coloniasPiloto } = useApp();
+  const { resumenTodasColonias } = useApp();
   const [busqueda, setBusqueda] = useState('');
   const [ordenarPor, setOrdenarPor] = useState('reportes'); // 'reportes' | 'nombre' | 'tasa'
 
@@ -43,24 +43,24 @@ export default function Autoridades() {
   };
 
   return (
-    <div className="w-full pt-20 sm:pt-24 bg-background flex-1 text-left">
-      {/* Banner de Solo Lectura */}
+    <div className="w-full pt-28 sm:pt-32 bg-background flex-1 text-left">
+      {/* 2. Banner de Solo Lectura: En flujo normal, despejado del menú superior */}
       <section className="w-full bg-surface-container-high border-b border-surface-container-highest no-print">
         <div className="max-w-[1120px] mx-auto px-4 sm:px-margin-desktop py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm text-on-surface">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[20px] text-primary fill-1">visibility</span>
+            <span className="material-symbols-outlined text-[20px] text-primary fill-1 shrink-0">visibility</span>
             <span className="font-semibold">
               Vista de solo lectura institucional. Datos agregados; sin domicilios particulares ni fotos.
             </span>
           </div>
-          <div className="flex items-center gap-1.5 text-on-surface-variant text-xs">
+          <div className="flex items-center gap-1.5 text-on-surface-variant text-xs shrink-0">
             <span className="material-symbols-outlined text-[16px]">calendar_today</span>
-            <span>Periodo de análisis: Últimos 30 días</span>
+            <span>Periodo: Últimos 30 días</span>
           </div>
         </div>
       </section>
 
-      <div className="max-w-[1120px] mx-auto px-4 sm:px-margin-desktop py-6 sm:py-space-xl flex flex-col gap-6">
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-margin-desktop py-4 sm:py-space-xl flex flex-col gap-6">
 
         {/* Encabezado Principal */}
         <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -70,10 +70,10 @@ export default function Autoridades() {
               <span>•</span>
               <span className="text-on-surface-variant font-medium">8 Colonias piloto monitoreadas</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-primary tracking-tight">
               Panel de consulta de evidencia
             </h1>
-            <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed">
+            <p className="text-xs sm:text-base text-on-surface-variant leading-relaxed">
               Evidencia ciudadana organizada para consulta colectiva y seguimiento público. Muestra reportes acumulados durante los <strong className="font-semibold text-on-surface">últimos 30 días</strong> sin incluir domicilios particulares ni datos personales.
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function Autoridades() {
             <button
               type="button"
               onClick={handleExportarTodoCSV}
-              className="min-h-[48px] px-5 py-2 inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-on-primary font-bold text-sm shadow-sm hover:bg-primary-container active:scale-[0.99] transition-all"
+              className="min-h-[46px] px-5 py-2 inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-on-primary font-bold text-xs sm:text-sm shadow-sm hover:bg-primary-container active:scale-[0.99] transition-all"
               title="Descargar datos agregados en formato CSV"
             >
               <span className="material-symbols-outlined text-[20px]">download</span>
@@ -137,7 +137,7 @@ export default function Autoridades() {
                 <span className="text-4xl sm:text-5xl font-black text-primary tracking-tight">
                   {totalReportesCalidad}
                 </span>
-                <span className="text-sm text-on-surface-variant font-medium">
+                <span className="text-xs sm:text-sm text-on-surface-variant font-medium">
                   reportes de calidad del agua en 30 días
                 </span>
               </div>
@@ -159,7 +159,7 @@ export default function Autoridades() {
           <div className="lg:col-span-8 p-5 rounded-2xl bg-surface-container-lowest shadow-sm border border-outline-variant/30 flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-base font-bold text-on-surface">Evolución semanal de quejas ciudadanas</h3>
+                <h3 className="text-sm sm:text-base font-bold text-on-surface">Evolución semanal de quejas ciudadanas</h3>
                 <span className="text-xs text-on-surface-variant">Tendencia histórica en las últimas 8 semanas</span>
               </div>
               <span className="text-xs font-bold text-error bg-red-100 px-2.5 py-1 rounded-full flex items-center gap-1">
@@ -223,6 +223,7 @@ export default function Autoridades() {
                   <th className="py-3 px-4 text-center">Reportes calidad (30d)</th>
                   <th className="py-3 px-4 text-center">Por 1,000 viv.</th>
                   <th className="py-3 px-4 text-center">Riesgo (Atlas)</th>
+                  <th className="py-3 px-4 text-center">Falta de agua</th>
                   <th className="py-3 px-4 text-right">Acción</th>
                 </tr>
               </thead>
@@ -261,6 +262,14 @@ export default function Autoridades() {
                         {c.riesgo || 'Sin dato'}
                       </span>
                     </td>
+                    <td className="py-3.5 px-4 text-center">
+                      <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-bold ${
+                        c.faltaAguaCount > 0 ? 'bg-sky-100 text-sky-800' : 'text-slate-400'
+                      }`}>
+                        <span className="material-symbols-outlined text-[14px]">water_damage</span>
+                        <span>{c.faltaAguaCount > 0 ? `${c.faltaAguaCount} avisos` : 'Sin avisos'}</span>
+                      </span>
+                    </td>
                     <td className="py-3.5 px-4 text-right">
                       <Link
                         to={`/colonia/${c.id}`}
@@ -276,7 +285,7 @@ export default function Autoridades() {
             </table>
           </div>
 
-          {/* Versión Tarjetas (Mobile < 768px) */}
+          {/* Versión Tarjetas (Mobile < 768px y 360px) */}
           <div className="md:hidden divide-y divide-surface-container-high">
             {coloniasOrdenadas.map((c) => (
               <div key={c.id} className="p-4 flex flex-col gap-3">
@@ -314,8 +323,11 @@ export default function Autoridades() {
                 </div>
 
                 <div className="flex items-center justify-between pt-1">
-                  <span className="text-xs text-on-surface-variant">
-                    Riesgo: <strong className="uppercase">{c.riesgo}</strong>
+                  <span className={`text-xs font-bold inline-flex items-center gap-1 ${
+                    c.faltaAguaCount > 0 ? 'text-sky-700' : 'text-slate-400'
+                  }`}>
+                    <span className="material-symbols-outlined text-[14px]">water_damage</span>
+                    <span>{c.faltaAguaCount > 0 ? `${c.faltaAguaCount} falta de agua` : 'Sin falta de agua'}</span>
                   </span>
                   <Link
                     to={`/colonia/${c.id}`}

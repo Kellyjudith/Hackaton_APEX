@@ -8,7 +8,7 @@ import { descargarCSV } from '../utils/exportarCSV';
 export default function Colonia() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { coloniasPiloto, getColoniaResumen, viviendas, riesgo } = useApp();
+  const { coloniasPiloto, getColoniaResumen } = useApp();
 
   const coloniaActualId = id || 'oblatos';
   const dataColonia = getColoniaResumen(coloniaActualId);
@@ -58,21 +58,21 @@ export default function Colonia() {
   };
 
   return (
-    <div className="w-full pt-20 sm:pt-24 bg-background flex-1 text-left">
-      {/* Subbarra de navegación y selector rápido */}
-      <div className="w-full bg-surface-container-low/80 backdrop-blur-md border-b border-surface-container-high py-2.5 px-4 sm:px-margin-desktop">
+    <div className="w-full pt-28 sm:pt-32 bg-background flex-1 text-left">
+      {/* 2. Barra secundaria con selector de colonias: Flujo relativo con margen despejado del header */}
+      <div className="w-full bg-surface-container-low border-b border-surface-container-high py-2.5 px-4 sm:px-margin-desktop no-print">
         <div className="max-w-[1120px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-primary hover:text-primary-container text-sm font-bold"
+            className="inline-flex items-center gap-1.5 text-primary hover:text-primary-container text-xs sm:text-sm font-bold"
           >
-            <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+            <span className="material-symbols-outlined text-[18px]">arrow_back</span>
             <span>Volver al mapa</span>
           </Link>
 
-          {/* Selector de colonia */}
+          {/* Selector de colonia en la barra */}
           <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
-            <span className="text-xs text-on-surface-variant font-bold uppercase shrink-0">Colonia:</span>
+            <span className="text-[11px] sm:text-xs text-on-surface-variant font-bold uppercase shrink-0">Colonia:</span>
             <div className="flex items-center gap-1.5 shrink-0">
               {coloniasPiloto.map(c => (
                 <button
@@ -82,7 +82,7 @@ export default function Colonia() {
                   className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
                     c.id === coloniaActualId
                       ? 'bg-primary text-on-primary shadow-sm'
-                      : 'bg-surface-container text-on-surface hover:bg-surface-container-high'
+                      : 'bg-surface-container-lowest text-on-surface hover:bg-surface-container-high border border-outline-variant/30'
                   }`}
                 >
                   {c.nombre}
@@ -93,7 +93,7 @@ export default function Colonia() {
         </div>
       </div>
 
-      <div className="max-w-[1120px] mx-auto px-4 sm:px-margin-desktop py-6 sm:py-space-xl flex flex-col gap-6">
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-margin-desktop py-4 sm:py-space-lg flex flex-col gap-6">
 
         {/* Encabezado de la Ficha */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-3">
@@ -102,10 +102,10 @@ export default function Colonia() {
               <span className="material-symbols-outlined text-[18px]">location_on</span>
               <span>Ficha territorial de colonia</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-on-surface tracking-tight">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-on-surface tracking-tight">
               {dataColonia.nombre}
             </h1>
-            <p className="text-sm sm:text-base text-on-surface-variant mt-0.5">
+            <p className="text-xs sm:text-base text-on-surface-variant mt-0.5">
               {dataColonia.municipio}, Jalisco · Ventana de análisis de 30 días
             </p>
           </div>
@@ -131,7 +131,7 @@ export default function Colonia() {
           </div>
         </div>
 
-        {/* Banner prominente de Estado del Semáforo */}
+        {/* Banner de Estado del Semáforo */}
         <div
           className="rounded-2xl p-4 sm:p-5 shadow-sm border flex flex-col sm:flex-row sm:items-start justify-between gap-4"
           style={{
@@ -141,10 +141,10 @@ export default function Colonia() {
         >
           <div className="flex items-start gap-3.5">
             <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm"
+              className="w-11 sm:w-12 h-11 sm:h-12 rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm"
               style={{ backgroundColor: dataColonia.estado.color }}
             >
-              <span className="material-symbols-outlined text-[28px] fill-1">{dataColonia.estado.icon}</span>
+              <span className="material-symbols-outlined text-[26px] sm:text-[28px] fill-1">{dataColonia.estado.icon}</span>
             </div>
 
             <div className="space-y-1">
@@ -158,7 +158,7 @@ export default function Colonia() {
                 <span className="text-xs text-on-surface-variant font-medium">· Nivel de reportes vecinales</span>
               </div>
 
-              <h2 className="text-lg sm:text-xl font-bold pt-0.5" style={{ color: dataColonia.estado.text }}>
+              <h2 className="text-base sm:text-xl font-bold pt-0.5" style={{ color: dataColonia.estado.text }}>
                 En los últimos 30 días, {dataColonia.nombre} tiene {dataColonia.estado.nombre.toLowerCase()}.
               </h2>
               <p className="text-xs sm:text-sm leading-relaxed" style={{ color: dataColonia.estado.text }}>

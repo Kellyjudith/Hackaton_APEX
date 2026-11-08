@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Ayuda() {
   return (
-    <div className="w-full pt-20 sm:pt-24 bg-background flex-1 text-left">
+    <div className="w-full pt-28 sm:pt-32 bg-background flex-1 text-left">
       <div className="max-w-[1120px] mx-auto px-4 sm:px-margin-desktop py-6 sm:py-space-xl flex flex-col gap-8">
 
         {/* Encabezado */}

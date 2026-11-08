@@ -19,8 +19,8 @@ export default function Confirmacion() {
   }[reporte.tipo] || reporte.tipo;
 
   return (
-    <div className="w-full pt-20 sm:pt-24 bg-background flex-1">
-      <div className="w-full max-w-[768px] mx-auto px-4 sm:px-margin py-6 sm:py-space-xl flex flex-col items-center">
+    <div className="w-full pt-28 sm:pt-32 bg-background flex-1 text-left">
+      <div className="w-full max-w-[768px] mx-auto px-4 sm:px-margin py-4 sm:py-space-xl flex flex-col items-center">
         {/* Icono de confirmación animado */}
         <div className="relative mb-4 flex items-center justify-center">
           <div className="w-20 sm:w-24 h-20 sm:h-24 rounded-full bg-secondary-container/40 flex items-center justify-center animate-pulse"></div>

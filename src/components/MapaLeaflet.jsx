@@ -11,7 +11,7 @@ function MapController({ selectedFeature }) {
         const layer = L.geoJSON(selectedFeature);
         const bounds = layer.getBounds();
         if (bounds.isValid()) {
-          map.fitBounds(bounds, { padding: [50, 50], maxZoom: 15, animate: true });
+          map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15, animate: true });
         }
       } catch (e) {
         console.error('Error al recentrar mapa:', e);
@@ -26,23 +26,64 @@ export default function MapaLeaflet({
   resumenTodasColonias,
   coloniaSeleccionadaId,
   onSelectColonia,
+  filtroTipo = 'todos', // 'todos' | 'falta_agua'
 }) {
   const geoJsonRef = useRef(null);
 
-  // Mapa de estados por id de colonia
-  const estadosPorColonia = React.useMemo(() => {
+  // Mapeos rápidos
+  const dataPorColonia = React.useMemo(() => {
     const map = {};
     (resumenTodasColonias || []).forEach(c => {
-      map[c.id] = c.estado;
+      map[c.id] = c;
     });
     return map;
   }, [resumenTodasColonias]);
 
   const styleFeature = (feature) => {
     const id = feature.properties?.id;
-    const estado = estadosPorColonia[id];
+    const colData = dataPorColonia[id];
     const isSelected = id === coloniaSeleccionadaId;
 
+    // 1. Si el filtro activo es "Falta de agua"
+    if (filtroTipo === 'falta_agua') {
+      const count = colData?.faltaAguaCount || 0;
+
+      if (count === 0) {
+        // Colonias sin reportes de falta de agua se atenúan
+        return {
+          fillColor: '#F8FAFC',
+          weight: 1,
+          opacity: 0.3,
+          color: '#94A3B8',
+          fillOpacity: 0.1,
+          dashArray: '4',
+        };
+      }
+
+      // Escala propia de azul para falta de agua
+      let blueFill = '#BAE6FD'; // 1-2
+      let blueBorder = '#0284C7';
+
+      if (count >= 5) {
+        blueFill = '#0284C7';
+        blueBorder = '#075985';
+      } else if (count >= 3) {
+        blueFill = '#38BDF8';
+        blueBorder = '#0369A1';
+      }
+
+      return {
+        fillColor: blueFill,
+        weight: isSelected ? 4 : 2.5,
+        opacity: 1,
+        color: isSelected ? '#002020' : blueBorder,
+        fillOpacity: isSelected ? 0.9 : 0.75,
+        dashArray: '',
+      };
+    }
+
+    // 2. Filtro "Todas las colonias" (Semáforo de calidad normal)
+    const estado = colData?.estado;
     let fillColor = '#F1F5F9';
     let borderColor = '#64748B';
 
@@ -56,7 +97,7 @@ export default function MapaLeaflet({
       weight: isSelected ? 4 : 2,
       opacity: 1,
       color: isSelected ? '#00477F' : borderColor,
-      fillOpacity: isSelected ? 0.8 : 0.6,
+      fillOpacity: isSelected ? 0.85 : 0.65,
       dashArray: isSelected ? '' : '3',
     };
   };
@@ -64,18 +105,30 @@ export default function MapaLeaflet({
   const onEachFeature = (feature, layer) => {
     const props = feature.properties || {};
     const id = props.id;
-    const estado = estadosPorColonia[id];
+    const colData = dataPorColonia[id];
     const nombre = props.nombre || id;
 
-    // Tooltip flotante
-    layer.bindTooltip(`
-      <div style="font-family: Inter, sans-serif; padding: 4px;">
-        <strong style="font-size: 14px; color: #191c1e;">${nombre}</strong><br/>
-        <span style="font-size: 12px; color: ${estado ? estado.color : '#64748B'}; font-weight: 600;">
-          ${estado ? estado.nombre : 'Sin datos'} (${estado ? estado.n : 0} reportes)
-        </span>
-      </div>
-    `, { sticky: true, direction: 'top' });
+    if (filtroTipo === 'falta_agua') {
+      const count = colData?.faltaAguaCount || 0;
+      layer.bindTooltip(`
+        <div style="font-family: Inter, sans-serif; padding: 4px;">
+          <strong style="font-size: 14px; color: #0C4A6E;">${nombre}</strong><br/>
+          <span style="font-size: 12px; color: ${count > 0 ? '#0284C7' : '#64748B'}; font-weight: 700;">
+            ${count > 0 ? `${count} avisos de falta de agua` : 'Sin avisos de falta de agua'}
+          </span>
+        </div>
+      `, { sticky: true, direction: 'top' });
+    } else {
+      const estado = colData?.estado;
+      layer.bindTooltip(`
+        <div style="font-family: Inter, sans-serif; padding: 4px;">
+          <strong style="font-size: 14px; color: #191c1e;">${nombre}</strong><br/>
+          <span style="font-size: 12px; color: ${estado ? estado.color : '#64748B'}; font-weight: 700;">
+            ${estado ? estado.nombre : 'Sin datos'} (${estado ? estado.n : 0} reportes de calidad)
+          </span>
+        </div>
+      `, { sticky: true, direction: 'top' });
+    }
 
     layer.on({
       click: () => {
@@ -85,7 +138,7 @@ export default function MapaLeaflet({
       },
       mouseover: (e) => {
         const l = e.target;
-        l.setStyle({ fillOpacity: 0.85, weight: 3 });
+        l.setStyle({ fillOpacity: 0.95, weight: 3.5 });
       },
       mouseout: (e) => {
         if (geoJsonRef.current) {
@@ -114,7 +167,7 @@ export default function MapaLeaflet({
 
         {geojsonData && (
           <GeoJSON
-            key={JSON.stringify(coloniaSeleccionadaId)}
+            key={`${filtroTipo}-${coloniaSeleccionadaId}`}
             ref={geoJsonRef}
             data={geojsonData}
             style={styleFeature}
@@ -125,9 +178,11 @@ export default function MapaLeaflet({
         <MapController selectedFeature={selectedFeature} />
       </MapContainer>
 
-      {/* Nota de atribución visible y leyenda rápida de mapa */}
-      <div className="absolute bottom-2 left-2 z-20 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-md text-[11px] text-on-surface-variant shadow-sm border border-outline-variant/30">
-        Polígonos piloto de Guadalajara · Clic para ver ficha
+      {/* Indicador de capa en el mapa */}
+      <div className="absolute bottom-2 left-2 z-20 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-md text-[11px] font-semibold text-on-surface-variant shadow-sm border border-outline-variant/30">
+        {filtroTipo === 'falta_agua'
+          ? 'Capa: Falta de agua (escala azul independiente)'
+          : 'Capa: Semáforo de calidad de agua vecinal'}
       </div>
     </div>
   );

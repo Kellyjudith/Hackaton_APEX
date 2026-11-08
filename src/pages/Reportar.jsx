@@ -10,8 +10,8 @@ export default function Reportar() {
 
   // Estados del formulario
   const [coloniaId, setColoniaId] = useState('oblatos');
-  const [tipoCategoria, setTipoCategoria] = useState('calidad'); // 'calidad' | 'falta'
-  const [tipoProblema, setTipoProblema] = useState('turbia'); // 'turbia' | 'olor' | 'color' | 'falta_agua'
+  const [pestaña, setPestaña] = useState('calidad'); // 'calidad' | 'falta'
+  const [tipoSeleccionado, setTipoSeleccionado] = useState('turbia'); // 'turbia' | 'olor' | 'color' | 'falta_agua'
   const [sintomas, setSintomas] = useState(null); // true | false | null
   const [avisoAceptado, setAvisoAceptado] = useState(true);
 
@@ -36,7 +36,6 @@ export default function Reportar() {
         const { longitude, latitude } = pos.coords;
 
         if (modoDemo) {
-          // En modo demo aceptamos y asignamos
           setColoniaDetectadaNombre('Ubicación verificada (Modo Demostración)');
           return;
         }
@@ -59,15 +58,23 @@ export default function Reportar() {
     );
   };
 
+  const cambiarPestaña = (nuevaPestaña) => {
+    setPestaña(nuevaPestaña);
+    if (nuevaPestaña === 'falta') {
+      setTipoSeleccionado('falta_agua');
+    } else {
+      setTipoSeleccionado('turbia');
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const tipoFinal = tipoCategoria === 'falta' ? 'falta_agua' : tipoProblema;
     const hoy = new Date().toISOString().split('T')[0];
 
     const nuevo = {
       colonia: coloniaId,
-      tipo: tipoFinal,
+      tipo: tipoSeleccionado,
       sintomas: sintomas,
       fecha: hoy,
       simulado: modoDemo,
@@ -86,11 +93,11 @@ export default function Reportar() {
   };
 
   return (
-    <div className="w-full pt-20 sm:pt-24 bg-background flex-1">
+    <div className="w-full pt-28 sm:pt-32 bg-background flex-1 text-left">
       <div className="max-w-[760px] mx-auto px-4 sm:px-margin py-4 sm:py-space-xl flex flex-col gap-6">
 
         {/* Encabezado */}
-        <div className="text-left space-y-1">
+        <div className="space-y-1">
           <div className="inline-flex items-center gap-1.5 bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             <span className="material-symbols-outlined text-[18px]">assignment</span>
             <span>Reporte Vecinal Rápido · 3 Pasos</span>
@@ -98,8 +105,8 @@ export default function Reportar() {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight">
             Reportar problema con el agua
           </h1>
-          <p className="text-sm sm:text-base text-primary font-medium flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-[20px]">timer</span>
+          <p className="text-xs sm:text-sm text-primary font-medium flex items-center gap-1.5">
+            <span className="material-symbols-outlined text-[18px]">timer</span>
             <span>Solo te tomará 1 minuto. No pedimos nombre ni datos personales.</span>
           </p>
         </div>
@@ -114,7 +121,7 @@ export default function Reportar() {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           {/* PASO 1: Ubicación */}
-          <section className="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-outline-variant/30 flex flex-col gap-4 text-left">
+          <section className="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-outline-variant/30 flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <span className="w-9 h-9 rounded-full bg-primary-container text-on-primary font-bold text-lg flex items-center justify-center shrink-0">
                 1
@@ -181,15 +188,15 @@ export default function Reportar() {
             </div>
           </section>
 
-          {/* PASO 2: Tipo de problema */}
-          <section className="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-outline-variant/30 flex flex-col gap-4 text-left">
+          {/* PASO 2: Tipo de problema (3. Texto actualizado: "Elige el problema principal", UN solo tipo) */}
+          <section className="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-outline-variant/30 flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <span className="w-9 h-9 rounded-full bg-primary-container text-on-primary font-bold text-lg flex items-center justify-center shrink-0">
                 2
               </span>
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-on-surface">¿Qué problema tienes con el agua?</h2>
-                <p className="text-xs sm:text-sm text-on-surface-variant">Elige la opción que mejor describa la falla</p>
+                <h2 className="text-lg sm:text-xl font-bold text-on-surface">Elige el problema principal</h2>
+                <p className="text-xs sm:text-sm text-on-surface-variant">Selecciona un solo tipo de afectación para este reporte</p>
               </div>
             </div>
 
@@ -197,12 +204,9 @@ export default function Reportar() {
             <div className="p-1 bg-surface-container rounded-xl flex items-center gap-1 max-w-md">
               <button
                 type="button"
-                onClick={() => {
-                  setTipoCategoria('calidad');
-                  if (tipoProblema === 'falta_agua') setTipoProblema('turbia');
-                }}
+                onClick={() => cambiarPestaña('calidad')}
                 className={`flex-1 min-h-[44px] py-1 px-3 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all ${
-                  tipoCategoria === 'calidad'
+                  pestaña === 'calidad'
                     ? 'bg-surface-container-lowest text-primary shadow-sm'
                     : 'text-on-surface-variant hover:text-on-surface'
                 }`}
@@ -212,13 +216,10 @@ export default function Reportar() {
               </button>
               <button
                 type="button"
-                onClick={() => {
-                  setTipoCategoria('falta');
-                  setTipoProblema('falta_agua');
-                }}
+                onClick={() => cambiarPestaña('falta')}
                 className={`flex-1 min-h-[44px] py-1 px-3 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all ${
-                  tipoCategoria === 'falta'
-                    ? 'bg-surface-container-lowest text-falta-agua font-bold shadow-sm'
+                  pestaña === 'falta'
+                    ? 'bg-surface-container-lowest text-sky-800 font-bold shadow-sm'
                     : 'text-on-surface-variant hover:text-on-surface'
                 }`}
               >
@@ -228,19 +229,19 @@ export default function Reportar() {
             </div>
 
             {/* Opciones de Calidad del Agua */}
-            {tipoCategoria === 'calidad' && (
+            {pestaña === 'calidad' && (
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <label className={`flex flex-col p-4 rounded-xl border cursor-pointer transition-all ${
-                  tipoProblema === 'turbia'
-                    ? 'bg-primary-fixed/40 border-primary shadow-sm'
+                  tipoSeleccionado === 'turbia'
+                    ? 'bg-primary-fixed/40 border-primary ring-2 ring-primary/20 shadow-sm'
                     : 'bg-surface-container-low border-transparent hover:bg-surface-container'
                 }`}>
                   <input
                     type="radio"
                     name="tipoProblema"
                     value="turbia"
-                    checked={tipoProblema === 'turbia'}
-                    onChange={() => setTipoProblema('turbia')}
+                    checked={tipoSeleccionado === 'turbia'}
+                    onChange={() => setTipoSeleccionado('turbia')}
                     className="sr-only"
                   />
                   <div className="flex items-center gap-2 mb-1">
@@ -251,16 +252,16 @@ export default function Reportar() {
                 </label>
 
                 <label className={`flex flex-col p-4 rounded-xl border cursor-pointer transition-all ${
-                  tipoProblema === 'olor'
-                    ? 'bg-primary-fixed/40 border-primary shadow-sm'
+                  tipoSeleccionado === 'olor'
+                    ? 'bg-primary-fixed/40 border-primary ring-2 ring-primary/20 shadow-sm'
                     : 'bg-surface-container-low border-transparent hover:bg-surface-container'
                 }`}>
                   <input
                     type="radio"
                     name="tipoProblema"
                     value="olor"
-                    checked={tipoProblema === 'olor'}
-                    onChange={() => setTipoProblema('olor')}
+                    checked={tipoSeleccionado === 'olor'}
+                    onChange={() => setTipoSeleccionado('olor')}
                     className="sr-only"
                   />
                   <div className="flex items-center gap-2 mb-1">
@@ -271,16 +272,16 @@ export default function Reportar() {
                 </label>
 
                 <label className={`flex flex-col p-4 rounded-xl border cursor-pointer transition-all ${
-                  tipoProblema === 'color'
-                    ? 'bg-primary-fixed/40 border-primary shadow-sm'
+                  tipoSeleccionado === 'color'
+                    ? 'bg-primary-fixed/40 border-primary ring-2 ring-primary/20 shadow-sm'
                     : 'bg-surface-container-low border-transparent hover:bg-surface-container'
                 }`}>
                   <input
                     type="radio"
                     name="tipoProblema"
                     value="color"
-                    checked={tipoProblema === 'color'}
-                    onChange={() => setTipoProblema('color')}
+                    checked={tipoSeleccionado === 'color'}
+                    onChange={() => setTipoSeleccionado('color')}
                     className="sr-only"
                   />
                   <div className="flex items-center gap-2 mb-1">
@@ -292,23 +293,44 @@ export default function Reportar() {
               </div>
             )}
 
-            {/* Opciones de Falta de Agua */}
-            {tipoCategoria === 'falta' && (
-              <div className="p-4 rounded-xl bg-falta-agua-bg/40 border border-falta-agua-border flex items-start gap-3">
-                <span className="material-symbols-outlined text-falta-agua text-[32px] shrink-0">water_damage</span>
-                <div>
-                  <h3 className="font-bold text-base text-on-surface">Corte total o baja presión extrema</h3>
-                  <p className="text-xs sm:text-sm text-on-surface-variant mt-0.5 leading-relaxed">
-                    No hay suministro en toda la toma domiciliaria o la presión no alcanza a subir al tinaco.
-                    Este reporte se contabiliza por separado y no altera el semáforo de calidad.
-                  </p>
-                </div>
+            {/* 3. Tarjeta seleccionable en Falta de Agua: "No tengo agua en mi casa" */}
+            {pestaña === 'falta' && (
+              <div className="flex flex-col gap-3">
+                <label className={`flex items-start gap-3.5 p-4 rounded-xl border cursor-pointer transition-all ${
+                  tipoSeleccionado === 'falta_agua'
+                    ? 'bg-sky-50 border-sky-600 ring-2 ring-sky-300 shadow-sm'
+                    : 'bg-surface-container-low border-transparent hover:bg-surface-container'
+                }`}>
+                  <input
+                    type="radio"
+                    name="tipoProblema"
+                    value="falta_agua"
+                    checked={tipoSeleccionado === 'falta_agua'}
+                    onChange={() => setTipoSeleccionado('falta_agua')}
+                    className="sr-only"
+                  />
+                  <div className="w-10 h-10 rounded-lg bg-sky-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                    <span className="material-symbols-outlined text-[24px]">water_damage</span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-base text-sky-950">No tengo agua en mi casa</span>
+                      <span className="text-xs font-bold text-sky-700 bg-sky-200/60 px-2 py-0.5 rounded-full">
+                        Seleccionado
+                      </span>
+                    </div>
+                    <p className="text-xs text-sky-900 mt-1 leading-relaxed">
+                      Corte total en la toma domiciliaria o presión insuficiente para abastecer el tinaco.
+                      Este reporte se contabiliza en la capa de falta de agua, fuera del semáforo de calidad.
+                    </p>
+                  </div>
+                </label>
               </div>
             )}
           </section>
 
           {/* PASO 3: Pregunta opcional de salud + Aviso */}
-          <section className="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-outline-variant/30 flex flex-col gap-4 text-left">
+          <section className="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-outline-variant/30 flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <span className="w-9 h-9 rounded-full bg-surface-container-high text-on-surface font-bold text-lg flex items-center justify-center shrink-0">
                 3
