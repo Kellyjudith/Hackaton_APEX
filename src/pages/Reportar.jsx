@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { buscarColoniaPorPunto } from '../utils/geofencing';
 import Mensajes from '../components/Mensajes';
+import { verificarLimiteReporte } from '../utils/reportesStore';
 
 export default function Reportar() {
   const navigate = useNavigate();
@@ -13,12 +14,13 @@ export default function Reportar() {
   const [pestaña, setPestaña] = useState('calidad'); // 'calidad' | 'falta'
   const [tipoSeleccionado, setTipoSeleccionado] = useState(null); // 'turbia' | 'olor' | 'color' | 'falta_agua' | null
   const [sintomas, setSintomas] = useState(null); // true | false | null
-  const [avisoAceptado, setAvisoAceptado] = useState(true);
+  const [avisoAceptado, setAvisoAceptado] = useState(false);
 
   // Estados de geolocalización y mensajes
   const [detectandoGps, setDetectandoGps] = useState(false);
   const [estadoMensaje, setEstadoMensaje] = useState(null); // null | 'fuera_de_zona' | 'ubicacion_no_permitida' | 'limite_48h'
   const [coloniaDetectadaNombre, setColoniaDetectadaNombre] = useState('Colonia Oblatos, Guadalajara');
+  const [horasRestantes, setHorasRestantes] = useState(0);
 
   // Detección GPS
   const handleDetectarUbicacion = () => {
@@ -74,6 +76,17 @@ export default function Reportar() {
       return;
     }
 
+    // Límite de 48 h (no se valida en Modo Demostración)
+    if (!modoDemo) {
+      const limite = verificarLimiteReporte();
+      if (!limite.permitido) {
+        setHorasRestantes(limite.horasRestantes);
+        setEstadoMensaje('limite_48h');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+    }
+
     const hoy = new Date().toISOString().split('T')[0];
 
     const nuevo = {
@@ -119,6 +132,7 @@ export default function Reportar() {
         {estadoMensaje && (
           <Mensajes
             tipo={estadoMensaje}
+            horasRestantes={horasRestantes}
             onSeleccionarColonia={() => setEstadoMensaje(null)}
           />
         )}

@@ -2,6 +2,7 @@ import { CONFIG, COLONIAS_PILOTO } from '../config';
 
 const LOCAL_STORAGE_KEY = 'aguaclara_reportes_locales';
 const ENVIOS_STORAGE_KEY = 'aguaclara_envios_locales';
+const ULTIMO_REPORTE_KEY = 'aguaclara_ultimo_reporte';
 
 /**
  * Obtiene los reportes combinados (demo + locales).
@@ -51,15 +52,41 @@ export function agregarReporteLocal(nuevoReporte) {
     const reporteCompleto = {
       id,
       ...nuevoReporte,
-      simulado: false,
+      // Los reportes enviados en Modo Demostración quedan marcados como simulados.
+      simulado: nuevoReporte.simulado === true,
       timestamp: Date.now()
     };
     locales.unshift(reporteCompleto);
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(locales));
+    // El límite de 48 h solo cuenta reportes reales (no los de Modo Demostración).
+    if (!reporteCompleto.simulado) {
+      localStorage.setItem(ULTIMO_REPORTE_KEY, String(reporteCompleto.timestamp));
+    }
     return reporteCompleto;
   } catch (err) {
     console.error('Error guardando reporte local:', err);
     return null;
+  }
+}
+
+/**
+ * Límite de 1 reporte real cada CONFIG.LIMITE_HORAS (versión local de Fase 1+2;
+ * en la fase de Firebase lo reemplaza limites/{uid}).
+ */
+export function verificarLimiteReporte() {
+  try {
+    const raw = localStorage.getItem(ULTIMO_REPORTE_KEY);
+    if (!raw) return { permitido: true, horasRestantes: 0 };
+    const transcurridoHoras = (Date.now() - Number(raw)) / (1000 * 60 * 60);
+    if (transcurridoHoras >= CONFIG.LIMITE_HORAS) {
+      return { permitido: true, horasRestantes: 0 };
+    }
+    return {
+      permitido: false,
+      horasRestantes: Math.ceil(CONFIG.LIMITE_HORAS - transcurridoHoras),
+    };
+  } catch {
+    return { permitido: true, horasRestantes: 0 };
   }
 }
 
