@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /reportes_publicos/{id} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['colonia','tipo','sintomas','fecha','simulado'])
+        && request.resource.data.colonia in ['chapalita','oblatos','jardines_de_la_paz','miravalle',
+                                              'santa_cecilia','san_rafael','santa_teresita','centro']
+        && request.resource.data.tipo in ['turbia','olor','color','falta_agua']
+        && (request.resource.data.sintomas == null || request.resource.data.sintomas is bool)
+        && request.resource.data.simulado == false
+        && request.resource.data.fecha == request.time
+        && getAfter(/databases/$(database)/documents/limites/$(request.auth.uid)).data.ultimoReporte == request.time;
+      allow update, delete: if false;
+    }
+
+    match /limites/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['ultimoReporte'])
+        && request.resource.data.ultimoReporte == request.time;
+      allow update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['ultimoReporte'])
+        && request.resource.data.ultimoReporte == request.time
+        && request.time > resource.data.ultimoReporte + duration.value(48, 'h');
+      allow delete: if false;
+    }
+  }
+}

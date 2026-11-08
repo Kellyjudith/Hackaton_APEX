@@ -4,6 +4,8 @@ import { useApp } from '../context/AppContext';
 import { buscarColoniaPorPunto } from '../utils/geofencing';
 import Mensajes from '../components/Mensajes';
 import { verificarLimiteReporte } from '../utils/reportesStore';
+import { firebaseConfigurado, verificarLimiteFirestore } from '../firebase/firestoreService';
+import { CONFIG } from '../config';
 
 export default function Reportar() {
   const navigate = useNavigate();
@@ -21,6 +23,8 @@ export default function Reportar() {
   const [estadoMensaje, setEstadoMensaje] = useState(null); // null | 'fuera_de_zona' | 'ubicacion_no_permitida' | 'limite_48h'
   const [coloniaDetectadaNombre, setColoniaDetectadaNombre] = useState('Colonia Oblatos, Guadalajara');
   const [horasRestantes, setHorasRestantes] = useState(0);
+  const [enviando, setEnviando] = useState(false);
+  const [errorEnvio, setErrorEnvio] = useState(null);
 
   // Detección GPS
   const handleDetectarUbicacion = () => {
@@ -69,20 +73,33 @@ export default function Reportar() {
     setTipoSeleccionado(prev => (prev === tipo ? null : tipo));
   };
 
-  const handleSubmit = (e) => {
+  const mostrarLimite = (horas) => {
+    setHorasRestantes(horas || CONFIG.LIMITE_HORAS);
+    setEstadoMensaje('limite_48h');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!tipoSeleccionado) {
+    if (!tipoSeleccionado || enviando) {
       return;
     }
 
+    setErrorEnvio(null);
+
     // Límite de 48 h (no se valida en Modo Demostración)
     if (!modoDemo) {
-      const limite = verificarLimiteReporte();
+      let limite;
+      try {
+        limite = firebaseConfigurado ? await verificarLimiteFirestore() : verificarLimiteReporte();
+      } catch (err) {
+        console.error('No se pudo verificar el límite:', err);
+        setErrorEnvio('No pudimos conectar con el servidor. Revisa tu conexión e inténtalo de nuevo.');
+        return;
+      }
       if (!limite.permitido) {
-        setHorasRestantes(limite.horasRestantes);
-        setEstadoMensaje('limite_48h');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        mostrarLimite(limite.horasRestantes);
         return;
       }
     }
@@ -97,15 +114,35 @@ export default function Reportar() {
       simulado: modoDemo,
     };
 
-    const creado = agregarReporte(nuevo);
+    setEnviando(true);
+    try {
+      const creado = await agregarReporte(nuevo);
 
-    if (creado) {
-      navigate('/confirmacion', {
-        state: {
-          reporte: creado,
-          coloniaNombre: coloniasPiloto.find(c => c.id === coloniaId)?.nombre || coloniaId,
-        },
-      });
+      if (creado) {
+        navigate('/confirmacion', {
+          state: {
+            reporte: creado,
+            coloniaNombre: coloniasPiloto.find(c => c.id === coloniaId)?.nombre || coloniaId,
+          },
+        });
+      }
+    } catch (err) {
+      console.error('Error enviando reporte:', err);
+      if (err && err.code === 'permission-denied') {
+        // Las reglas rechazan un segundo reporte antes de 48 h.
+        let horas = CONFIG.LIMITE_HORAS;
+        try {
+          const l = await verificarLimiteFirestore();
+          if (!l.permitido) horas = l.horasRestantes;
+        } catch {
+          // se usa el valor por defecto
+        }
+        mostrarLimite(horas);
+      } else {
+        setErrorEnvio('No pudimos enviar tu reporte. Revisa tu conexión e inténtalo de nuevo.');
+      }
+    } finally {
+      setEnviando(false);
     }
   };
 
@@ -456,6 +493,12 @@ export default function Reportar() {
             </div>
           </section>
 
+          {errorEnvio && (
+            <div role="alert" className="rounded-xl border border-red-300 bg-red-50 text-red-900 text-sm p-3 font-medium">
+              {errorEnvio}
+            </div>
+          )}
+
           {/* Botón de Envío */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
             <Link
@@ -467,15 +510,15 @@ export default function Reportar() {
 
             <button
               type="submit"
-              disabled={!avisoAceptado || !tipoSeleccionado}
+              disabled={!avisoAceptado || !tipoSeleccionado || enviando}
               className={`w-full sm:w-auto min-h-[52px] px-8 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99] ${
-                avisoAceptado && tipoSeleccionado
+                avisoAceptado && tipoSeleccionado && !enviando
                   ? 'bg-primary hover:bg-primary-container text-on-primary cursor-pointer'
                   : 'bg-surface-container-high text-outline cursor-not-allowed'
               }`}
             >
               <span className="material-symbols-outlined text-[22px]">send</span>
-              <span>Enviar reporte vecinal</span>
+              <span>{enviando ? 'Enviando...' : 'Enviar reporte vecinal'}</span>
             </button>
           </div>
         </form>

@@ -1,17 +1,34 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { getTodosLosReportes, agregarReporteLocal } from '../utils/reportesStore';
 import { calcularEstadoSemaforo } from '../utils/semaforo';
-import { COLONIAS_PILOTO } from '../config';
+import { COLONIAS_PILOTO, CONFIG } from '../config';
+import {
+  firebaseConfigurado,
+  suscribirReportes,
+  crearReporteFirestore,
+} from '../firebase/firestoreService';
 
 const AppContext = createContext();
 
+function fechaISO(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const dia = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${dia}`;
+}
+
 export function AppProvider({ children }) {
   const [modoDemo, setModoDemo] = useState(true);
-  const [reportes, setReportes] = useState([]);
+  const [reportesBase, setReportesBase] = useState([]); // demo + simulados locales
+  const [reportesNube, setReportesNube] = useState([]); // reales desde Firestore
+  const [estadoNube, setEstadoNube] = useState(firebaseConfigurado ? 'conectando' : 'sin_configurar');
   const [viviendas, setViviendas] = useState({});
   const [riesgo, setRiesgo] = useState({});
   const [geojsonData, setGeojsonData] = useState(null);
   const [cargando, setCargando] = useState(true);
+
+  // Con Firebase activo, los reportes reales vienen de la nube; en el navegador solo quedan los simulados.
+  const soloSimulados = (reps) => (firebaseConfigurado ? reps.filter((r) => r.simulado === true) : reps);
 
   // Carga inicial de datos
   useEffect(() => {
@@ -24,7 +41,7 @@ export function AppProvider({ children }) {
           fetch('/data/colonias.geojson').then(r => r.json()).catch(() => null),
         ]);
 
-        setReportes(reps);
+        setReportesBase(soloSimulados(reps));
         setViviendas(vivRes);
         setRiesgo(riesRes);
         setGeojsonData(geoRes);
@@ -38,22 +55,49 @@ export function AppProvider({ children }) {
     cargarDatos();
   }, []);
 
+  // Suscripción en vivo a los reportes reales (Firestore)
+  useEffect(() => {
+    if (!firebaseConfigurado) return undefined;
+    const cancelar = suscribirReportes(
+      (reps) => {
+        setReportesNube(reps);
+        setEstadoNube('conectado');
+      },
+      () => setEstadoNube('error')
+    );
+    return cancelar;
+  }, []);
+
+  const reportes = useMemo(() => [...reportesNube, ...reportesBase], [reportesNube, reportesBase]);
+
   const refreshReportes = async () => {
     const reps = await getTodosLosReportes();
-    setReportes(reps);
+    setReportesBase(soloSimulados(reps));
   };
 
-  const agregarReporte = (nuevoReporte) => {
-    const res = agregarReporteLocal(nuevoReporte);
-    if (res) {
-      setReportes(prev => [res, ...prev]);
+  /**
+   * Agrega un reporte.
+   * - Modo Demostración (o sin Firebase): se guarda solo en este navegador, marcado como simulado.
+   * - Modo normal con Firebase: se guarda en Firestore (la suscripción lo muestra en el mapa).
+   */
+  const agregarReporte = async (nuevoReporte) => {
+    if (nuevoReporte.simulado || !firebaseConfigurado) {
+      const res = agregarReporteLocal(nuevoReporte);
+      if (res) {
+        setReportesBase(prev => [res, ...prev]);
+      }
+      return res;
     }
-    return res;
+    return crearReporteFirestore(nuevoReporte);
   };
 
-  // Resumen calculado por colonia
+  // Resumen calculado por colonia (ventana móvil de VENTANA_DIAS)
   const getColoniaResumen = (coloniaId) => {
-    const repsColonia = reportes.filter(r => r.colonia === coloniaId);
+    const hace = new Date();
+    hace.setDate(hace.getDate() - CONFIG.VENTANA_DIAS);
+    const desde = fechaISO(hace);
+
+    const repsColonia = reportes.filter(r => r.colonia === coloniaId && (!r.fecha || r.fecha >= desde));
     const viv = viviendas[coloniaId]?.viviendas || null;
     const ries = riesgo[coloniaId]?.nivel || 'bajo';
     const estado = calcularEstadoSemaforo(repsColonia, viv, ries);
@@ -85,6 +129,7 @@ export function AppProvider({ children }) {
         riesgo,
         geojsonData,
         cargando,
+        estadoNube,
         agregarReporte,
         refreshReportes,
         getColoniaResumen,

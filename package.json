@@ -11,6 +11,7 @@
   "dependencies": {
     "@turf/boolean-point-in-polygon": "^7.1.0",
     "@turf/helpers": "^7.1.0",
+    "firebase": "^13.2.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.460.0",
     "papaparse": "^5.4.1",
