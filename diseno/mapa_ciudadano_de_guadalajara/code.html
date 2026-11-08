@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>AguaClara Jalisco</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-container": "#944800", "error": "#ba1a1a", "secondary": "#006a6a", "inverse-on-surface": "#eff1f3", "error-container": "#ffdad6", "primary-fixed-dim": "#a2c9ff", "on-primary": "#ffffff", "surface-container-low": "#f2f4f6", "secondary-container": "#7cf2f3", "on-tertiary-fixed-variant": "#723600", "on-secondary-fixed": "#002020", "on-primary-fixed-variant": "#004881", "primary": "#00477f", "on-background": "#191c1e", "on-primary-fixed": "#001c38", "surface-container-lowest": "#ffffff", "surface-container": "#eceef0", "on-secondary": "#ffffff", "on-primary-container": "#bfd9ff", "on-secondary-fixed-variant": "#004f50", "secondary-fixed-dim": "#60d8d9", "secondary-fixed": "#7ff5f5", "surface-container-highest": "#e0e3e5", "primary-container": "#0b5fa5", "on-surface": "#191c1e", "on-error-container": "#93000a", "on-error": "#ffffff", "on-tertiary-container": "#ffccac", "tertiary-fixed": "#ffdcc7", "surface": "#f7f9fb", "surface-dim": "#d8dadc", "primary-fixed": "#d3e4ff", "on-secondary-container": "#006e6f", "surface-container-high": "#e6e8ea", "on-surface-variant": "#414751", "outline-variant": "#c1c7d2", "inverse-primary": "#a2c9ff", "inverse-surface": "#2d3133", "tertiary": "#703500", "outline": "#727782", "surface-bright": "#f7f9fb", "on-tertiary": "#ffffff", "tertiary-fixed-dim": "#ffb787", "surface-variant": "#e0e3e5", "surface-tint": "#0e60a6", "on-tertiary-fixed": "#311300", "background": "#f7f9fb" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-desktop": "2.5rem", "space-sm": "0.75rem", "margin": "1rem", "gutter-desktop": "1.5rem", "space-md": "1rem", "margin-tablet": "1.5rem", "space-xs": "0.5rem", "space-lg": "1.5rem", "space-xl": "2rem", "gutter": "1rem" }, "fontFamily": { "headline-lg": ["Inter"], "headline-sm": ["Inter"], "body-key-info": ["Inter"], "label-badge": ["Inter"], "headline-md": ["Inter"], "headline-lg-mobile": ["Inter"], "body-lg": ["Inter"], "display-hero": ["Inter"], "label-prominent": ["Inter"], "body-base": ["Inter"], "display-hero-mobile": ["Inter"] }, "fontSize": { "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-key-info": ["18px", { "lineHeight": "28px", "fontWeight": "500" }], "label-badge": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "display-hero": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-prominent": ["16px", { "lineHeight": "22px", "fontWeight": "600" }], "body-base": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "display-hero-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } };</script></head><body class="bg-background font-body-base text-body-base text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-surface-container-high px-margin-desktop py-space-xs"><div class="max-w-[1120px] mx-auto flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-tertiary-container">info</span><span class="font-label-badge text-label-badge">Prototipo con datos de demostración</span></div><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full text-on-surface"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-badge text-label-badge tracking-tight">MODO DEMOSTRACIÓN: la ubicación y el límite de 48 h no se validan</span></div></div></div><div class="h-20 max-w-[1120px] mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><a class="flex items-center gap-space-sm focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg pr-space-xs" data-path="mapa" href="#"><svg aria-label="Logotipo AguaClara" class="w-10 h-10 shrink-0" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 4C20 4 8 18.5 8 26.5C8 33.1274 13.3726 38.5 20 38.5C26.6274 38.5 32 33.1274 32 26.5C32 18.5 20 4 20 4Z" fill="#0B5FA5"></path><path d="M15 25C15 22.2386 17.2386 20 20 20" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path></svg><div class="flex flex-col text-left"><span class="font-headline-lg text-headline-lg leading-none text-primary tracking-tight">AguaClara</span><span class="font-label-badge text-label-badge leading-tight text-on-surface-variant font-medium">Jalisco · Reportes ciudadanos</span></div></a><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-headline-sm"><a aria-current="page" class="min-h-[48px] px-space-md py-space-xs flex items-center justify-center rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-secondary bg-surface-container-high text-on-surface font-headline-sm" data-path="mapa" href="#">Mapa</a><a class="min-h-[48px] px-space-md py-space-xs flex items-center justify-center font-body-key-info text-body-key-info text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-secondary" data-path="informe" href="#">Informe</a><a class="min-h-[48px] px-space-md py-space-xs flex items-center justify-center font-body-key-info text-body-key-info text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-secondary" data-path="ayuda" href="#">Ayuda</a></nav><a class="min-h-[52px] px-space-lg py-space-xs inline-flex items-center justify-center gap-space-xs rounded-xl bg-primary-container text-on-primary font-label-prominent text-label-prominent shadow-[0_1px_3px_rgba(15,23,42,0.06),0_4px_12px_rgba(15,23,42,0.04)] hover:bg-primary active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all" data-path="reportar-problema" href="#"><span class="material-symbols-outlined text-[20px]">add_alert</span><span class="">Reportar problema</span></a></div></div></header><main class="w-full pt-[120px] bg-background flex-1"><div class="max-w-[1120px] mx-auto px-margin-desktop py-space-xl"><div class="flex flex-col w-full">
+<section class="relative w-full rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="max-w-2xl">
+<span class="inline-flex items-center gap-space-xs text-primary font-label-badge text-label-badge uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+          Área Metropolitana de Guadalajara
+        </span>
+<h1 class="font-display-hero text-display-hero text-on-surface leading-tight">
+          ¿Cómo está el agua en tu colonia?
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Consulta los reportes de los vecinos de los últimos 30 días.</p>
+</div>
+<div class="flex items-center gap-space-xs self-start lg:self-center bg-secondary-container/30 px-space-md py-space-xs rounded-xl">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified</span>
+<div class="flex flex-col">
+<span class="font-label-prominent text-label-prominent text-on-surface leading-none">100% Ciudadano</span>
+<span class="font-body-base text-body-base text-on-surface-variant text-[14px] leading-tight">Sin trámites ni registros</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-space-md items-stretch pt-space-xs">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-space-md flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</div>
+<input class="w-full h-[52px] pl-12 pr-12 rounded-xl bg-surface-container-low text-on-surface font-body-key-info text-body-key-info placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="neighborhood-search" placeholder="Busca tu colonia (ej. Chapalita, Miravalle, Oblatos)..." type="search">
+<button class="absolute inset-y-0 right-0 pr-space-md flex items-center text-outline hover:text-on-surface transition-colors" id="clear-search" title="Limpiar búsqueda">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+</button>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs"><button class="min-h-[52px] px-space-lg rounded-xl bg-primary text-on-primary font-label-prominent text-label-prominent shadow-sm flex items-center gap-space-xs hover:bg-primary-container active:scale-[0.99] transition-all" id="btn-filter-all"><span class="material-symbols-outlined text-[20px]">tune</span><span class="">Todas las colonias</span></button><button class="min-h-[52px] px-space-lg rounded-xl bg-secondary-container/50 text-on-secondary-container font-label-prominent text-label-prominent flex items-center gap-space-xs hover:bg-secondary-container transition-all active:scale-[0.99]" id="btn-filter-watercut"><span class="material-symbols-outlined text-[20px]">water_drop</span><span class="">Falta de agua</span></button><div class="flex items-center bg-surface-container rounded-xl p-1 ml-auto"><button class="min-h-[44px] px-space-md py-1 rounded-lg bg-surface-container-lowest text-primary font-label-prominent text-[14px] shadow-sm flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">map</span><span class="">Mapa</span></button><button class="min-h-[44px] px-space-md py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-prominent text-[14px] flex items-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[18px]">view_list</span><span class="">Lista</span></button></div></div>
+</div>
+</section>
+<section class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-[22px]">analytics</span>
+<span class="font-label-prominent text-label-prominent">Semáforo de reportes vecinales</span>
+</div>
+<p class="font-body-base text-body-base text-tertiary-container bg-surface-container-low px-space-md py-1 rounded-lg flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">info</span><span class=""><strong>Nota importante:</strong> Indica cuántos vecinos reportaron un problema. No mide la calidad del agua. Se calcula con los reportes de los últimos 30 días, según el tamaño de la colonia.</span></p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-xs pt-space-xs"><div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low rounded-xl"><span class="w-10 h-10 rounded-xl bg-[#DCFCE7] text-[#14532D] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">check_circle</span></span><div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#16A34A]"></span><span class="font-label-badge text-label-badge text-on-surface">Pocos reportes</span></div></div><div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low rounded-xl"><span class="w-10 h-10 rounded-xl bg-[#FEF3C7] text-[#78350F] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">warning_amber</span></span><div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#D97706]"></span><span class="font-label-badge text-label-badge text-on-surface">Reportes moderados</span></div></div><div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low rounded-xl"><span class="w-10 h-10 rounded-xl bg-[#FEE2E2] text-[#7F1D1D] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">report</span></span><div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#DC2626]"></span><span class="font-label-badge text-label-badge text-on-surface">Muchos reportes</span></div></div><div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low rounded-xl"><span class="w-10 h-10 rounded-xl bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">help</span></span><div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-outline"></span><span class="font-label-badge text-label-badge text-on-surface">Sin datos suficientes</span></div></div></div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-space-md">
+<div class="relative bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden min-h-[580px] flex flex-col">
+<div class="p-space-md bg-surface-container flex flex-wrap items-center justify-between gap-space-xs"><button class="min-h-[52px] px-space-lg rounded-xl bg-primary text-on-primary font-label-prominent text-label-prominent shadow-sm flex items-center gap-space-xs hover:bg-primary-container active:scale-[0.99] transition-all" id="btn-filter-all"><span class="material-symbols-outlined text-[20px]">tune</span><span class="">Todas las colonias</span></button><button class="min-h-[52px] px-space-lg rounded-xl bg-secondary-container/50 text-on-secondary-container font-label-prominent text-label-prominent flex items-center gap-space-xs hover:bg-secondary-container transition-all active:scale-[0.99]" id="btn-filter-watercut"><span class="material-symbols-outlined text-[20px]">water_drop</span><span class="">Falta de agua</span></button><div class="flex items-center bg-surface-container rounded-xl p-1 ml-auto"><button class="min-h-[44px] px-space-md py-1 rounded-lg bg-surface-container-lowest text-primary font-label-prominent text-[14px] shadow-sm flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">map</span><span class="">Mapa</span></button><button class="min-h-[44px] px-space-md py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-prominent text-[14px] flex items-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[18px]">view_list</span><span class="">Lista</span></button></div></div>
+<div class="relative w-full h-[540px] bg-[#E8EEF5] flex items-center justify-center p-space-md select-none overflow-hidden">
+<svg class="w-full h-full max-w-[760px] max-h-[500px]" fill="none" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg"><defs><pattern height="40" id="grid" patternUnits="userSpaceOnUse" width="40"><path d="M 40 0 L 0 0 0 40" fill="none" opacity="0.6" stroke="#CBD5E1" stroke-width="0.8"></path></pattern></defs><rect fill="url(#grid)" height="100%" width="100%"></rect><path d="M-20 280 C 180 260, 260 380, 520 230 C 650 160, 750 200, 820 180" fill="none" opacity="0.7" stroke="#CBD5E1" stroke-linecap="round" stroke-width="16"></path><path d="M 280 -20 C 310 180, 420 320, 460 540" fill="none" opacity="0.7" stroke="#CBD5E1" stroke-linecap="round" stroke-width="14"></path><!-- Chapalita (Green) --><g class="colonia-poly cursor-pointer transition-all hover:opacity-95" id="map-chapalita" onclick="selectColonia('chapalita')"><polygon fill="#DCFCE7" points="120,200 240,180 270,270 170,300 110,250" stroke="#16A34A" stroke-width="3"></polygon><circle cx="180" cy="240" fill="#16A34A" r="14"></circle><path d="M175 240 L179 244 L186 237" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path><text fill="#14532D" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle" x="180" y="274">Chapalita</text></g><!-- Santa Teresita (Green) --><g class="colonia-poly cursor-pointer transition-all hover:opacity-95" id="map-santa-teresita" onclick="selectColonia('santa-teresita')"><polygon fill="#DCFCE7" points="210,90 310,70 330,160 230,175" stroke="#16A34A" stroke-width="3"></polygon><circle cx="270" cy="120" fill="#16A34A" r="13"></circle><path d="M266 120 L269 123 L274 117" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path><text fill="#14532D" font-family="Inter" font-size="13" font-weight="700" text-anchor="middle" x="270" y="150">Santa Teresita</text></g><!-- Centro (Green) --><g class="colonia-poly cursor-pointer transition-all hover:opacity-95" id="map-centro" onclick="selectColonia('centro')"><polygon fill="#DCFCE7" points="340,110 450,110 460,200 350,195" stroke="#16A34A" stroke-width="3"></polygon><circle cx="400" cy="150" fill="#16A34A" r="13"></circle><path d="M396 150 L399 153 L404 147" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path><text fill="#14532D" font-family="Inter" font-size="13" font-weight="700" text-anchor="middle" x="400" y="178">Centro</text></g><!-- Jardines de la Paz (Amber) --><g class="colonia-poly cursor-pointer transition-all hover:opacity-95" id="map-jardines" onclick="selectColonia('jardines')"><polygon fill="#FEF3C7" points="460,205 580,180 610,265 480,285" stroke="#D97706" stroke-width="3"></polygon><circle cx="530" cy="235" fill="#D97706" r="14"></circle><text fill="#FFFFFF" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle" x="530" y="240">!</text><text fill="#78350F" font-family="Inter" font-size="13" font-weight="700" text-anchor="middle" x="535" y="268">Jardines de la Paz</text></g><!-- Santa Cecilia (Red) --><g class="colonia-poly cursor-pointer transition-all hover:opacity-95" id="map-santa-cecilia" onclick="selectColonia('santa-cecilia')"><polygon fill="#FEE2E2" points="490,40 620,30 635,115 510,125" stroke="#DC2626" stroke-width="3"></polygon><circle cx="560" cy="78" fill="#DC2626" r="14"></circle><text fill="#FFFFFF" font-family="Inter" font-size="14" font-weight="900" text-anchor="middle" x="560" y="83">!</text><text fill="#7F1D1D" font-family="Inter" font-size="13" font-weight="700" text-anchor="middle" x="565" y="108">Santa Cecilia</text></g><!-- Oblatos (Red) --><g class="colonia-poly cursor-pointer transition-all" id="map-oblatos" onclick="selectColonia('oblatos')"><polygon fill="#FEE2E2" id="poly-oblatos" points="470,125 615,115 640,185 480,200" stroke="#DC2626" stroke-dasharray="2 0" stroke-width="4"></polygon><circle cx="550" cy="155" fill="#DC2626" r="16"></circle><text fill="#FFFFFF" font-family="Inter" font-size="16" font-weight="900" text-anchor="middle" x="550" y="161">!</text><text fill="#7F1D1D" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle" x="550" y="185">Oblatos</text></g><!-- San Rafael (Gray) --><g class="colonia-poly cursor-pointer transition-all hover:opacity-95" id="map-san-rafael" onclick="selectColonia('san-rafael')"><polygon fill="#F1F5F9" points="340,240 450,225 450,335 340,320" stroke="#64748B" stroke-width="3"></polygon><circle cx="395" cy="280" fill="#64748B" r="14"></circle><text fill="#FFFFFF" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle" x="395" y="285">?</text><text fill="#334155" font-family="Inter" font-size="13" font-weight="700" text-anchor="middle" x="395" y="310">San Rafael</text></g><!-- Miravalle (Amber) --><g class="colonia-poly cursor-pointer transition-all hover:opacity-95" id="map-miravalle" onclick="selectColonia('miravalle')"><polygon fill="#FEF3C7" points="260,340 420,345 400,450 250,420" stroke="#D97706" stroke-width="3"></polygon><circle cx="330" cy="385" fill="#D97706" r="15"></circle><text fill="#FFFFFF" font-family="Inter" font-size="15" font-weight="900" text-anchor="middle" x="330" y="391">!</text><text fill="#78350F" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle" x="330" y="418">Miravalle</text></g><!-- Map Pin / Selected Indicator for Oblatos --><g id="selection-pin" transform="translate(550, 105)"><circle cx="0" cy="0" fill="#0B5FA5" r="8"></circle><circle cx="0" cy="0" fill="#0B5FA5" opacity="0.3" r="14"><animate attributeName="r" dur="2s" repeatCount="indefinite" values="8;20;8"></animate><animate attributeName="opacity" dur="2s" repeatCount="indefinite" values="0.6;0;0.6"></animate></circle></g></svg>
+<!-- Interactive Map Controls Floating Overlay -->
+<div class="absolute bottom-4 right-4 flex flex-col gap-1.5 bg-surface-container-lowest/90 backdrop-blur rounded-xl p-1.5 shadow-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface transition-colors" title="Acercar">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface transition-colors" title="Alejar">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface transition-colors" title="Mi ubicación">
+<span class="material-symbols-outlined text-[20px]">my_location</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Colonias List Strip -->
+
+</div>
+<!-- Sidebar / Detail Panel (Oblatos Selected by default) -->
+<aside class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-md"><div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm flex flex-col gap-space-md" id="detail-card"><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider">Detalle de colonia</span><span class="font-body-base text-body-base text-on-surface-variant text-[14px] flex items-center gap-1" id="detail-updated"><span class="material-symbols-outlined text-[16px]">schedule</span> Hace 25 minutos</span></div><h2 class="font-headline-lg text-headline-lg text-on-surface" id="detail-title">Colonia Oblatos</h2><span class="font-body-base text-body-base text-on-surface-variant -mt-1" id="detail-municipality">Guadalajara, Jalisco</span></div><div class="p-space-sm rounded-xl bg-[#FEE2E2] flex items-center gap-space-sm text-[#7F1D1D]" id="detail-status-pill"><span class="material-symbols-outlined text-[28px] shrink-0">error</span><span class="font-headline-sm text-headline-sm leading-tight" id="detail-status-label">Muchos reportes</span></div><div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl"><div class="flex items-baseline justify-between"><span class="font-body-base text-body-base text-on-surface font-semibold">Reportes en los últimos 30 días:</span><span class="font-headline-md text-headline-md text-primary font-bold" id="detail-total-count">38 reportes</span></div><div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden flex my-space-xs"><div class="bg-[#944800] h-full" style="width: 50%" title="Agua turbia (19)"></div><div class="bg-[#D97706] h-full" style="width: 32%" title="Cambio de color (12)"></div><div class="bg-[#B45309] h-full" style="width: 18%" title="Mal olor (7)"></div></div><ul class="flex flex-col gap-2 pt-1 font-body-base text-body-base" id="detail-breakdown-list"><li class="flex items-center justify-between text-on-surface"><span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#944800]"></span>Agua turbia</span><span class="font-bold">19 reportes</span></li><li class="flex items-center justify-between text-on-surface"><span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#D97706]"></span>Cambio de color</span><span class="font-bold">12 reportes</span></li><li class="flex items-center justify-between text-on-surface"><span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#B45309]"></span>Mal olor</span><span class="font-bold">7 reportes</span></li></ul><div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between mt-1"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px] text-secondary">water_drop</span><span class="font-label-prominent text-on-surface text-[14px]">Falta de agua</span></div><span class="font-label-badge text-label-badge px-space-sm py-0.5 rounded-full bg-secondary-container/50 text-on-secondary-container font-bold">6 reportes</span></div></div><div class="flex flex-col gap-space-xs pt-space-xs"><button class="min-h-[52px] w-full px-space-lg py-space-xs inline-flex items-center justify-center gap-space-xs rounded-xl bg-primary text-on-primary font-label-prominent text-label-prominent shadow-md hover:bg-primary-container active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all text-center" type="button"><span class="material-symbols-outlined text-[20px]">visibility</span><span class="">Ver detalles</span></button><button class="min-h-[48px] w-full px-space-md py-space-xs inline-flex items-center justify-center gap-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-prominent text-label-prominent transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">add_alert</span><span class="">Reportar aquí</span></button><button class="min-h-[48px] w-full px-space-md py-space-xs inline-flex items-center justify-center gap-space-xs rounded-xl text-primary hover:bg-surface-container-low font-label-prominent text-label-prominent transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">download</span><span class="">Descargar informe</span></button></div></div></aside>
+</div>
+</div>
+<script>
+  const coloniasData = {
+    'oblatos': {
+      title: 'Colonia Oblatos',
+      municipality: 'Guadalajara, Jalisco',
+      statusType: 'red',
+      statusLabel: 'Muchos reportes',
+      statusSub: '8 o más avisos recientes de vecinos',
+      hasCutAlert: true,
+      updated: 'Hace 25 minutos',
+      totalCount: '12 reportes',
+      breakdown: [
+        { label: 'Agua turbia o color café', count: '7 reportes', pct: 58, color: '#944800' },
+        { label: 'Con olor desagradable', count: '3 reportes', pct: 25, color: '#B45309' },
+        { label: 'Baja presión severa', count: '2 reportes', pct: 17, color: '#0284C7' }
+      ]
+    },
+    'miravalle': {
+      title: 'Colonia Miravalle',
+      municipality: 'Guadalajara / Tlaquepaque',
+      statusType: 'red',
+      statusLabel: 'Muchos reportes',
+      statusSub: '8 o más avisos recientes de vecinos',
+      hasCutAlert: false,
+      updated: 'Hace 40 minutos',
+      totalCount: '9 reportes',
+      breakdown: [
+        { label: 'Sedimentos oscuros / lodo', count: '6 reportes', pct: 67, color: '#944800' },
+        { label: 'Baja presión de agua', count: '2 reportes', pct: 22, color: '#0284C7' },
+        { label: 'Olor a óxido', count: '1 reporte', pct: 11, color: '#B45309' }
+      ]
+    },
+    'jardines': {
+      title: 'Jardines de la Paz',
+      municipality: 'Guadalajara, Jalisco',
+      statusType: 'amber',
+      statusLabel: 'Reportes moderados',
+      statusSub: '3 a 7 reportes en las últimas 48h',
+      hasCutAlert: false,
+      updated: 'Hace 2 horas',
+      totalCount: '5 reportes',
+      breakdown: [
+        { label: 'Agua amarillenta tenue', count: '4 reportes', pct: 80, color: '#D97706' },
+        { label: 'Intermitencia de presión', count: '1 reporte', pct: 20, color: '#0284C7' }
+      ]
+    },
+    'santa-cecilia': {
+      title: 'Colonia Santa Cecilia',
+      municipality: 'Guadalajara, Jalisco',
+      statusType: 'amber',
+      statusLabel: 'Reportes moderados',
+      statusSub: '3 a 7 reportes en las últimas 48h',
+      hasCutAlert: true,
+      updated: 'Hace 1 hora',
+      totalCount: '4 reportes',
+      breakdown: [
+        { label: 'Baja presión en tomas', count: '3 reportes', pct: 75, color: '#0284C7' },
+        { label: 'Agua turbia ligera', count: '1 reporte', pct: 25, color: '#D97706' }
+      ]
+    },
+    'chapalita': {
+      title: 'Colonia Chapalita',
+      municipality: 'Guadalajara / Zapopan',
+      statusType: 'green',
+      statusLabel: 'Pocos reportes',
+      statusSub: '0 a 2 avisos de vecinos en 48h',
+      hasCutAlert: false,
+      updated: 'Hace 3 horas',
+      totalCount: '1 reporte',
+      breakdown: [
+        { label: 'Aviso aislado de baja presión', count: '1 reporte', pct: 100, color: '#16A34A' }
+      ]
+    },
+    'santa-teresita': {
+      title: 'Colonia Santa Teresita',
+      municipality: 'Guadalajara, Jalisco',
+      statusType: 'green',
+      statusLabel: 'Pocos reportes',
+      statusSub: 'Servicio reportado con normalidad',
+      hasCutAlert: false,
+      updated: 'Sin reportes hoy',
+      totalCount: '0 reportes',
+      breakdown: [
+        { label: 'Sin incidencias ciudadanas', count: '0 reportes', pct: 100, color: '#16A34A' }
+      ]
+    },
+    'centro': {
+      title: 'Centro de Guadalajara',
+      municipality: 'Guadalajara, Jalisco',
+      statusType: 'green',
+      statusLabel: 'Pocos reportes',
+      statusSub: '0 a 2 avisos de vecinos en 48h',
+      hasCutAlert: false,
+      updated: 'Hace 4 horas',
+      totalCount: '2 reportes',
+      breakdown: [
+        { label: 'Baja presión matutina', count: '2 reportes', pct: 100, color: '#16A34A' }
+      ]
+    },
+    'san-rafael': {
+      title: 'Colonia San Rafael',
+      municipality: 'Guadalajara, Jalisco',
+      statusType: 'gray',
+      statusLabel: 'Sin datos suficientes',
+      statusSub: 'Aún no hay reportes de vecinos',
+      hasCutAlert: false,
+      updated: 'Pendiente de reportes',
+      totalCount: '0 reportes',
+      breakdown: [
+        { label: 'Comparte el primer aviso de tu calle', count: '0', pct: 100, color: '#64748B' }
+      ]
+    }
+  };
+
+  const statusConfigs = {
+    red: {
+      bg: 'bg-[#FEE2E2]',
+      text: 'text-[#7F1D1D]',
+      icon: 'error'
+    },
+    amber: {
+      bg: 'bg-[#FEF3C7]',
+      text: 'text-[#78350F]',
+      icon: 'warning_amber'
+    },
+    green: {
+      bg: 'bg-[#DCFCE7]',
+      text: 'text-[#14532D]',
+      icon: 'check_circle'
+    },
+    gray: {
+      bg: 'bg-surface-container-highest',
+      text: 'text-on-surface-variant',
+      icon: 'help'
+    }
+  };
+
+  window.selectColonia = function(id) {
+    const data = coloniasData[id];
+    if (!data) return;
+
+    document.getElementById('detail-title').textContent = data.title;
+    document.getElementById('detail-municipality').textContent = data.municipality;
+    document.getElementById('detail-updated').innerHTML = '<span class="material-symbols-outlined text-[16px]">schedule</span> ' + data.updated;
+    document.getElementById('detail-total-count').textContent = data.totalCount;
+
+    const conf = statusConfigs[data.statusType];
+    const pill = document.getElementById('detail-status-pill');
+    pill.className = `p-space-sm rounded-xl ${conf.bg} flex items-center gap-space-sm ${conf.text}`;
+    pill.innerHTML = `
+      <span class="material-symbols-outlined text-[28px] shrink-0">${conf.icon}</span>
+      <div class="flex flex-col">
+        <span class="font-headline-sm text-headline-sm leading-tight">${data.statusLabel}</span>
+        <span class="font-body-base text-body-base text-[14px]">${data.statusSub}</span>
+      </div>
+    `;
+
+    const cutAlert = document.getElementById('detail-cut-alert');
+    if (data.hasCutAlert) {
+      cutAlert.classList.remove('hidden');
+    } else {
+      cutAlert.classList.add('hidden');
+    }
+
+    const list = document.getElementById('detail-breakdown-list');
+    list.innerHTML = data.breakdown.map(item => `
+      <li class="flex items-center justify-between text-on-surface">
+        <span class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full" style="background-color: ${item.color}"></span>
+          ${item.label}
+        </span>
+        <span class="font-bold">${item.count}</span>
+      </li>
+    `).join('');
+
+    const barContainer = document.getElementById('bar-turbio').parentElement;
+    barContainer.innerHTML = data.breakdown.map(item => `
+      <div style="width: ${item.pct}%; background-color: ${item.color}" class="h-full" title="${item.label} (${item.count})"></div>
+    `).join('');
+
+    // Smooth visual feedback on SVG selection pin
+    const pin = document.getElementById('selection-pin');
+    const targetMapItem = document.getElementById('map-' + id);
+    if (targetMapItem && pin) {
+      const bbox = targetMapItem.getBBox();
+      pin.setAttribute('transform', `translate(${bbox.x + bbox.width / 2}, ${bbox.y - 12})`);
+    }
+  };
+
+  // Search input filter logic
+  const searchInput = document.getElementById('neighborhood-search');
+  const clearBtn = document.getElementById('clear-search');
+
+  searchInput.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase().trim();
+    if (!term) return;
+
+    for (const [key, val] of Object.entries(coloniasData)) {
+      if (val.title.toLowerCase().includes(term) || key.includes(term)) {
+        selectColonia(key);
+        break;
+      }
+    }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    searchInput.focus();
+  });
+
+  // Filter watercut toggle
+  let cutActive = false;
+  document.getElementById('btn-filter-watercut').addEventListener('click', function() {
+    cutActive = !cutActive;
+    if (cutActive) {
+      this.classList.add('ring-2', 'ring-secondary', 'bg-secondary-container');
+      selectColonia('oblatos');
+    } else {
+      this.classList.remove('ring-2', 'ring-secondary', 'bg-secondary-container');
+    }
+  });
+
+  document.getElementById('btn-filter-all').addEventListener('click', function() {
+    cutActive = false;
+    document.getElementById('btn-filter-watercut').classList.remove('ring-2', 'ring-secondary', 'bg-secondary-container');
+    selectColonia('oblatos');
+  });
+</script></div></main><footer class="w-full bg-surface-container-low mt-auto"><div class="max-w-[1120px] mx-auto px-margin-desktop py-space-xl"><div class="flex flex-col gap-space-lg text-left"><div class="flex flex-col md:flex-row md:items-start justify-between gap-space-lg"><div class="max-w-2xl"><p class="font-body-base text-body-base text-on-surface-variant leading-relaxed">AguaClara es una iniciativa ciudadana independiente. No representa al gobierno ni a SIAPA. No mide la calidad de laboratorio del agua, únicamente cuenta reportes vecinales.</p></div><div class="flex flex-col gap-space-xs"><span class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider">Transparencia y Comunidad</span><div class="flex flex-wrap gap-x-space-lg gap-y-space-xs"><a class="min-h-[48px] inline-flex items-center font-body-base text-body-base text-on-surface-variant hover:text-primary underline transition-colors focus:outline-none focus:ring-2 focus:ring-secondary rounded" data-path="preguntas-frecuentes" href="#">Preguntas frecuentes</a><a class="min-h-[48px] inline-flex items-center font-body-base text-body-base text-on-surface-variant hover:text-primary underline transition-colors focus:outline-none focus:ring-2 focus:ring-secondary rounded" data-path="aviso-de-privacidad" href="#">Aviso de privacidad sencillo</a><a class="min-h-[48px] inline-flex items-center font-body-base text-body-base text-on-surface-variant hover:text-primary underline transition-colors focus:outline-none focus:ring-2 focus:ring-secondary rounded" data-path="contacto-comunitario" href="#">Panel de consulta</a></div></div></div><div class="pt-space-md flex items-center justify-between font-body-base text-body-base text-on-surface-variant"><p class="">© 2026 AguaClara Jalisco. Red de vigilancia cívica del agua.</p><span class="font-label-badge text-label-badge bg-surface-container-highest px-space-sm py-1 rounded text-on-surface-variant">Zona piloto: Guadalajara</span></div></div></div></footer>
+
+</body></html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface":"#faf8ff","outline":"#727782","on-primary":"#ffffff","on-error-container":"#93000a","surface-bright":"#faf8ff","primary":"#00477f","inverse-surface":"#283044","on-error":"#ffffff","tertiary-fixed-dim":"#71dc92","error-container":"#ffdad6","surface-variant":"#dae2fd","inverse-primary":"#a2c9ff","on-secondary-container":"#006e6f","outline-variant":"#c1c7d2","on-secondary-fixed-variant":"#004f50","surface-container-lowest":"#ffffff","secondary-fixed":"#7ff5f5","secondary":"#006a6a","on-primary-container":"#bfd9ff","on-tertiary-fixed":"#00210d","on-primary-fixed-variant":"#004881","surface-container-high":"#e2e7ff","primary-fixed":"#d3e4ff","on-background":"#131b2e","primary-container":"#0b5fa5","error":"#ba1a1a","on-secondary-fixed":"#002020","primary-fixed-dim":"#a2c9ff","on-secondary":"#ffffff","surface-tint":"#0e60a6","secondary-container":"#7cf2f3","tertiary-fixed":"#8df9ac","background":"#faf8ff","surface-container":"#eaedff","on-tertiary":"#ffffff","surface-container-low":"#f2f3ff","on-surface-variant":"#414751","inverse-on-surface":"#eef0ff","tertiary-container":"#006c37","on-tertiary-fixed-variant":"#005229","surface-dim":"#d2d9f4","secondary-fixed-dim":"#60d8d9","on-surface":"#131b2e","tertiary":"#005128","surface-container-highest":"#dae2fd","on-tertiary-container":"#81eda1","on-primary-fixed":"#001c38"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.375rem","margin-desktop":"2.5rem","gutter":"1rem","gutter-desktop":"1.5rem","space-xl":"2.5rem","space-sm":"0.75rem","space-md":"1rem","margin":"1rem","space-lg":"1.5rem"},"fontFamily":{"body-lg":["Inter"],"headline-sm":["Inter"],"headline-lg":["Inter"],"label-sm":["Inter"],"display":["Inter"],"headline-lg-mobile":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Inter"],"label-lg":["Inter"],"body-sm":["Inter"]},"fontSize":{"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["13px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-md":["16px",{"lineHeight":"20px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"label-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-[1120px] mx-auto px-margin md:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><img alt="AguaClara Jalisco Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBiL-F_ThgEkfS4JyyU1r004olt7GoS_pY9C6WVzvk0PnfY-vE0b85IP759ooRmhycrPWa78BmJYZoikV_N8NGhj7baJbzNLMqZyfGevRkLfGySp7kd82XEhc05s4jBqHI0PrFGxccgPIFDSRIDIPZGIKXaFulT-zFpAKBfulyDPjVEfyDAsvqNyw8K3uJ3eu-0vsNYnQmOpfOamFvmVdAZetJlgt1TJ5nVsgpSvrjo"/><div class="flex flex-col"><span class="font-label-md text-label-md text-primary leading-none">AguaClara</span><span class="font-label-sm text-label-sm text-on-surface-variant font-normal leading-none mt-0.5">Jalisco</span></div></div><nav class="hidden md:flex items-center gap-space-sm" data-active-classes="bg-surface-container-high text-primary font-label-md rounded-lg"><a class="px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="mapa-de-reportes" href="#">Mapa de reportes</a><a class="px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="como-funciona" href="#">Cómo funciona</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center px-space-md py-space-xs h-11 font-label-md text-label-md text-on-primary bg-primary-container hover:bg-primary rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.08)] transition-colors" data-path="reportar-problema" href="#">Reportar problema</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-140px)]"><div class="flex flex-col w-full">
+<!-- Micro Top Civic Sub-Nav Bar adhering to strict header specification -->
+<div class="w-full bg-surface-container-low/80 backdrop-blur-md sticky top-16 z-40 shadow-sm">
+<div class="max-w-[1120px] mx-auto px-margin md:px-margin-desktop h-14 flex items-center justify-between gap-space-md">
+<!-- Breadcrumb & Brand Badge -->
+<div class="flex items-center gap-space-md min-w-0">
+<a class="inline-flex items-center gap-space-xs font-label-prominent text-label-prominent text-primary hover:text-primary-container transition-colors py-2 group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span>Volver al mapa</span>
+</a>
+<span class="text-outline-variant select-none hidden sm:inline">|</span>
+<div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="font-label-badge text-label-badge text-primary">AguaClara Jalisco</span>
+</div>
+</div>
+<!-- Navigation links (Mapa, Informe, Ayuda) + Report button (NO profile avatar) -->
+<div class="flex items-center gap-space-md">
+<nav class="hidden md:flex items-center gap-space-sm font-label-prominent text-label-prominent">
+<a class="px-3 py-1.5 rounded-lg text-primary bg-surface-container font-semibold" href="#">Mapa</a>
+<a class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">Informe</a>
+<a class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">Ayuda</a>
+</nav>
+<a class="inline-flex items-center justify-center gap-space-xs h-[44px] px-space-lg rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-prominent text-label-prominent shadow-sm transition-all transform active:scale-95" href="#reportar">
+<span class="material-symbols-outlined text-[20px]">add_alert</span>
+<span>Reportar problema</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Container -->
+<div class="max-w-[1120px] mx-auto w-full px-margin md:px-margin-desktop py-space-lg space-y-space-xl">
+<!-- Header Block: Title, Location & Critical Status Banner -->
+<div class="space-y-space-md">
+<!-- Title & Location -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<div class="inline-flex items-center gap-space-xs text-on-surface-variant font-label-prominent text-label-prominent uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span>Ficha territorial de colonia</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:text-[34px] md:leading-[42px] text-on-surface tracking-tight font-bold">Oblatos</h1>
+<p class="font-body-key-info text-body-key-info text-on-surface-variant mt-0.5">Guadalajara, Jalisco · Sector Oriente Metropolitano</p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-base text-body-base bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>Ventana de análisis: <strong>Últimos 30 días</strong></span>
+</div>
+</div>
+<!-- Prominent Red Status Banner with Triple Sensory Redundancy (Color + Icon + Text) -->
+<div class="rounded-xl bg-[#FEE2E2] p-space-md md:p-space-lg shadow-sm">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<!-- Alert Badge / Icon -->
+<div class="w-12 h-12 rounded-xl bg-[#DC2626] text-white flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">report</span>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7F1D1D] text-white font-label-badge text-label-badge uppercase tracking-wider">
+<span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+                  Muchos reportes
+                </span>
+<span class="font-label-badge text-label-badge text-[#7F1D1D]">· Semáforo activo</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-[#7F1D1D] font-bold pt-1">
+                En los últimos 30 días, Oblatos tiene muchos reportes.
+              </p>
+<p class="font-body-base text-body-base text-[#991B1B] leading-relaxed max-w-3xl">
+                Esta colonia supera el umbral de recurrencia acumulada durante el periodo mensual.
+              </p>
+</div>
+</div>
+<div class="shrink-0 flex items-center self-start">
+<span class="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded bg-white/70 text-[#7F1D1D] font-semibold uppercase">
+              Actualizado hoy
+            </span>
+</div>
+</div>
+<!-- Strict Required Civic Disclaimer Banner -->
+<div class="mt-space-md pt-space-sm bg-white/60 p-3 rounded-lg text-on-surface">
+<p class="font-body-base text-[14px] text-on-surface leading-snug">
+<strong>Aviso cívico:</strong> El semáforo representa reportes ciudadanos de los últimos 30 días, no mide la calidad del agua ni certifica potabilidad.
+          </p>
+</div>
+</div>
+</div>
+<!-- SECTION: "Resumen de la colonia" (Two high-fidelity metric cards side-by-side) -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">analytics</span>
+          Resumen de la colonia
+        </h2>
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wider">
+          Datos oficiales e incidencias
+        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Card 1: Reportes de agua -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md space-y-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-3">
+<span class="font-label-prominent text-label-prominent text-on-surface-variant uppercase tracking-wide">Incidencias registradas</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FEE2E2] text-[#991B1B] font-label-badge text-xs">
+<span class="material-symbols-outlined text-[16px] font-bold">arrow_upward</span>
+                Sube ↑
+              </span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-[44px] leading-tight font-extrabold text-on-surface tracking-tight">38</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant font-medium">reportes en 30 días</span>
+</div>
+<!-- INEGI Normalization Metric -->
+<div class="mt-4 p-3 bg-surface-container-low rounded-lg flex items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">home_work</span>
+<div>
+<div class="font-headline-sm text-[18px] text-on-surface font-bold leading-none">4.1 reportes</div>
+<div class="font-body-base text-[13px] text-on-surface-variant leading-tight mt-1">por cada 1,000 viviendas (INEGI)</div>
+</div>
+</div>
+<span class="text-xs bg-surface-container px-2 py-1 rounded font-medium text-on-surface-variant">Censo habitacional</span>
+</div>
+</div>
+<div class="pt-space-sm text-xs text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span>Métrica calculada sobre el total de domicilios censados en Oblatos.</span>
+</div>
+</div>
+<!-- Card 2: Malestar estomacal (opcional) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md space-y-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-3">
+<span class="font-label-prominent text-label-prominent text-on-surface-variant uppercase tracking-wide">Malestar estomacal (opcional)</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-badge text-xs">
+                Muestra válida (&gt;10)
+              </span>
+</div>
+<div class="flex items-baseline gap-3">
+<span class="text-[44px] leading-tight font-extrabold text-on-surface tracking-tight">27%</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant font-medium">(6 de 22 respuestas afirmativas)</span>
+</div>
+<!-- Sample Threshold Clarification Box -->
+<div class="mt-4 p-3 bg-surface-container-low rounded-lg space-y-1">
+<div class="flex items-center gap-1.5 font-label-badge text-[13px] text-on-surface font-semibold">
+<span class="material-symbols-outlined text-secondary text-[18px]">fact_check</span>
+<span>Muestra superior a 10 respuestas</span>
+</div>
+<p class="font-body-base text-[13px] text-on-surface-variant leading-tight">
+                Mostrado solo al contar con 10 o más respuestas ciudadanas; de lo contrario se categoriza como "Datos insuficientes".
+              </p>
+</div>
+</div>
+<!-- Fixed Required Health Notice -->
+<div class="pt-space-xs p-3 rounded-lg bg-surface-container text-xs text-on-surface leading-snug">
+<strong>Aviso importante:</strong> Autorreporte ciudadano. No es un diagnóstico ni prueba de que el agua sea la causa.
+          </div>
+</div>
+</div>
+</section>
+<!-- MIDDLE SECTION: Tipos de Problema & Falta de Agua (Separated) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Water Quality Breakdown (8 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-xl shadow-md space-y-space-lg">
+<div>
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tipos de problema en calidad</h3>
+<span class="text-xs font-semibold text-primary">38 reportes totales</span>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant">
+            Distribución proporcional de reportes sobre características físicas del flujo en los últimos 30 días.
+          </p>
+</div>
+<div class="space-y-space-md">
+<!-- Item 1: Agua turbia -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-on-surface font-label-prominent">
+<span class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+                Agua turbia
+              </span>
+<span class="font-bold">19 reportes <span class="text-on-surface-variant font-normal">(50%)</span></span>
+</div>
+<div class="w-full bg-surface-container h-3.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 50%"></div>
+</div>
+</div>
+<!-- Item 2: Cambio de color -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-on-surface font-label-prominent">
+<span class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#006a6a]"></span>
+                Cambio de color
+              </span>
+<span class="font-bold">12 reportes <span class="text-on-surface-variant font-normal">(32%)</span></span>
+</div>
+<div class="w-full bg-surface-container h-3.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 32%"></div>
+</div>
+</div>
+<!-- Item 3: Mal olor -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-on-surface font-label-prominent">
+<span class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#703500]"></span>
+                Mal olor
+              </span>
+<span class="font-bold">7 reportes <span class="text-on-surface-variant font-normal">(18%)</span></span>
+</div>
+<div class="w-full bg-surface-container h-3.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full transition-all duration-500" style="width: 18%"></div>
+</div>
+</div>
+</div>
+<!-- Comparative context snippet -->
+<div class="p-3 bg-surface-container-low rounded-lg text-xs text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+<span>Los reportes físicos se agrupan por percepciones organolépticas registradas de forma directa.</span>
+</div>
+</div>
+<!-- SEPARATE CARD: "Falta de agua" (Strictly separated from quality) (5 Cols) -->
+<div class="lg:col-span-5 bg-[#E0F2FE] p-space-lg rounded-xl shadow-md flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[#0369A1] font-label-badge text-xs uppercase tracking-wide">
+<span class="material-symbols-outlined text-[16px]">water_damage</span>
+              Desabasto independiente
+            </div>
+<span class="material-symbols-outlined text-[#0369A1] text-[28px]">qr_code_2</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-[#0369A1] font-bold">Falta de agua</h3>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="text-[40px] leading-none font-extrabold text-[#0369A1]">6</span>
+<span class="font-body-base text-body-base font-semibold text-[#0369A1]">reportes de corte o baja presión</span>
+</div>
+</div>
+<div class="bg-white/90 p-space-md rounded-xl space-y-2 text-on-surface">
+<p class="font-body-base text-[14px] leading-snug">
+<strong>Registro independiente:</strong> Los eventos de corte de suministro o falta de agua total se contabilizan y canalizan por separado de los reportes de calidad visual o turbidez.
+            </p>
+<p class="font-body-base text-[13px] text-on-surface-variant">
+              No representan características físico-químicas, sino suspensión temporal del caudal en red.
+            </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm flex items-center justify-between text-xs text-[#0369A1] font-medium">
+<span>Incidencias de suministro: Oblatos</span>
+<span class="font-bold">Últimos 30 días</span>
+</div>
+</div>
+</section>
+<!-- SECTION: Benchmarking & Weekly Evolution Chart -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Card: Cómo va frente a otras colonias (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col justify-between space-y-space-md">
+<div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Comparativa territorial</h3>
+<span class="material-symbols-outlined text-primary text-[20px]">leaderboard</span>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant">
+            Cómo va frente a otras colonias del programa piloto en Guadalajara.
+          </p>
+<div class="mt-space-lg space-y-space-md">
+<!-- Oblatos bar -->
+<div class="space-y-1">
+<div class="flex justify-between items-baseline">
+<span class="font-label-prominent text-label-prominent font-bold text-on-surface">Oblatos</span>
+<span class="font-headline-sm text-[18px] font-extrabold text-[#B91C1C]">4.1 por 1,000 viv.</span>
+</div>
+<div class="w-full bg-surface-container h-4 rounded-full overflow-hidden">
+<div class="bg-[#DC2626] h-full rounded-full" style="width: 82%"></div>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>Nivel significativamente superior</span>
+<span>Tasa alta</span>
+</div>
+</div>
+<!-- Average Pilot Colonias bar -->
+<div class="space-y-1 pt-2">
+<div class="flex justify-between items-baseline">
+<span class="font-label-prominent text-label-prominent text-on-surface-variant">Promedio colonias piloto</span>
+<span class="font-headline-sm text-[18px] font-bold text-on-surface">1.8 por 1,000 viv.</span>
+</div>
+<div class="w-full bg-surface-container h-4 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 36%"></div>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>Promedio de 24 zonas monitoreadas</span>
+<span>Referencia metropolitana</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 p-3 bg-surface-container-low rounded-lg text-xs text-on-surface-variant leading-relaxed">
+          Oblatos presenta una concentración de reportes <strong>2.2 veces mayor</strong> que la media registrada en las colonias piloto del área oriente.
+        </div>
+</div>
+<!-- Card: Evolución por semana (8 semanas) (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col justify-between space-y-space-md">
+<div>
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Evolución semanal</h3>
+<span class="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded bg-[#FEE2E2] text-[#991B1B]">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+              8 semanas continuas
+            </span>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant">
+            Tendencia de reportes en las últimas 8 semanas continuas.
+          </p>
+<!-- Inline Bar / Trend Visual Representation -->
+<div class="mt-space-lg pt-2">
+<div class="h-44 w-full flex items-end justify-between gap-2 md:gap-4 px-2 pb-2">
+<!-- Week 1: 2 -->
+<div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+<span class="text-xs font-bold text-on-surface-variant">2</span>
+<div class="w-full max-w-[32px] bg-primary/30 rounded-t-lg transition-all group-hover:bg-primary" style="height: 14%;"></div>
+<span class="text-[11px] text-on-surface-variant mt-1 font-medium">Sem 1</span>
+</div>
+<!-- Week 2: 3 -->
+<div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+<span class="text-xs font-bold text-on-surface-variant">3</span>
+<div class="w-full max-w-[32px] bg-primary/30 rounded-t-lg transition-all group-hover:bg-primary" style="height: 21%;"></div>
+<span class="text-[11px] text-on-surface-variant mt-1 font-medium">Sem 2</span>
+</div>
+<!-- Week 3: 3 -->
+<div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+<span class="text-xs font-bold text-on-surface-variant">3</span>
+<div class="w-full max-w-[32px] bg-primary/30 rounded-t-lg transition-all group-hover:bg-primary" style="height: 21%;"></div>
+<span class="text-[11px] text-on-surface-variant mt-1 font-medium">Sem 3</span>
+</div>
+<!-- Week 4: 4 -->
+<div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+<span class="text-xs font-bold text-on-surface-variant">4</span>
+<div class="w-full max-w-[32px] bg-primary/40 rounded-t-lg transition-all group-hover:bg-primary" style="height: 28%;"></div>
+<span class="text-[11px] text-on-surface-variant mt-1 font-medium">Sem 4</span>
+</div>
+<!-- Week 5: 6 -->
+<div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+<span class="text-xs font-bold text-on-surface-variant">6</span>
+<div class="w-full max-w-[32px] bg-primary/50 rounded-t-lg transition-all group-hover:bg-primary" style="height: 42%;"></div>
+<span class="text-[11px] text-on-surface-variant mt-1 font-medium">Sem 5</span>
+</div>
+<!-- Week 6: 8 -->
+<div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+<span class="text-xs font-bold text-on-surface">8</span>
+<div class="w-full max-w-[32px] bg-primary/70 rounded-t-lg transition-all group-hover:bg-primary" style="height: 57%;"></div>
+<span class="text-[11px] text-on-surface-variant mt-1 font-medium">Sem 6</span>
+</div>
+<!-- Week 7: 10 -->
+<div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+<span class="text-xs font-bold text-[#DC2626]">10</span>
+<div class="w-full max-w-[32px] bg-primary-container rounded-t-lg transition-all" style="height: 71%;"></div>
+<span class="text-[11px] text-on-surface-variant mt-1 font-medium">Sem 7</span>
+</div>
+<!-- Week 8: 14 -->
+<div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+<span class="text-xs font-extrabold text-[#DC2626]">14</span>
+<div class="w-full max-w-[32px] bg-[#DC2626] rounded-t-lg transition-all shadow-sm" style="height: 100%;"></div>
+<span class="text-[11px] text-on-surface font-bold mt-1">Sem 8</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-2 text-xs text-on-surface-variant border-t border-transparent flex items-center justify-between">
+<span>Caption: Tendencia de reportes en las últimas 8 semanas continuas.</span>
+<span class="font-bold text-[#DC2626]">Curva ascendente</span>
+</div>
+</div>
+</section>
+<!-- SECTION: Territorial Context & Risk (Zona de riesgo + Evidencia enviada) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Card: Zona de riesgo -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[24px]">warning</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Zona de riesgo oficial</h3>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#FEE2E2] text-[#991B1B] font-label-badge text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+            Alto
+          </span>
+</div>
+<p class="font-body-base text-body-base text-on-surface leading-relaxed">
+          Riesgo de inundación o hundimiento, según el <strong>Atlas de Riesgos de Guadalajara</strong>.
+        </p>
+<div class="p-3 bg-surface-container-low rounded-lg text-xs text-on-surface-variant space-y-1">
+<div class="font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">map</span>
+            Clasificación de protección civil municipal
+          </div>
+<p>La geografía del subsuelo y pendientes pluviales de Oblatos condicionan la presión hidrostática en la tubería secundaria.</p>
+</div>
+</div>
+<!-- Card: Evidencia enviada -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md space-y-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">attachment</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Evidencia enviada</h3>
+</div>
+<span class="text-xs px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-medium">
+              Vía SIAPA Bot
+            </span>
+</div>
+<p class="font-body-base text-body-base text-on-surface leading-relaxed">
+            Último envío registrado por un usuario: <strong>5 de noviembre de 2026</strong> · SIAPA Bot. Días desde el envío: <strong>2</strong>.
+          </p>
+</div>
+<!-- Strict Required Note -->
+<div class="p-3 bg-surface-container rounded-lg text-xs text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Registrado por ciudadanos, sin verificar.</span>
+</div>
+</div>
+</section>
+<!-- SECTION: Action Bar (Desktop and Accessible Touch Floor) -->
+<section class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">¿Vives o trabajas en Oblatos?</h4>
+<p class="font-body-base text-body-base text-on-surface-variant mt-0.5">
+          Tu reporte anónimo ayuda a consolidar el mapa de calidad y suministro de la zona.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-md w-full sm:w-auto">
+<!-- Button: Descargar informe (Primary style) -->
+<button class="flex-1 sm:flex-none inline-flex items-center justify-center gap-space-xs h-[52px] px-space-lg rounded-xl bg-primary text-on-primary font-label-prominent text-label-prominent shadow hover:bg-primary-container transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Descargar informe</span>
+</button>
+<!-- Button: Reportar aquí (Secondary outline civic action style) -->
+<a class="flex-1 sm:flex-none inline-flex items-center justify-center gap-space-xs h-[52px] px-space-lg rounded-xl bg-surface-container text-primary hover:bg-surface-container-high font-label-prominent text-label-prominent transition-all active:scale-95 shadow-sm" href="#" id="reportar">
+<span class="material-symbols-outlined text-[20px]">add_location_alt</span>
+<span>Reportar aquí</span>
+</a>
+</div>
+</section>
+<!-- Dedicated Bottom Territorial Footer Content -->
+<div class="pt-space-lg pb-space-xl border-t border-transparent text-on-surface-variant space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<!-- Territorial Chip -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-badge text-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Zona piloto: Guadalajara</span>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap items-center gap-space-lg font-label-prominent text-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Panel de consulta</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Aviso de Privacidad</a>
+<a class="text-primary hover:underline inline-flex items-center gap-0.5" href="https://www.siapa.gob.mx" rel="noopener noreferrer" target="_blank">
+<span>SIAPA Oficial</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Mandatory Copyright & Civic Reality Disclaimer -->
+<p class="font-body-base text-[13px] text-on-surface-variant leading-relaxed">
+        © 2026 AguaClara Jalisco. Iniciativa cívica independiente para el Área Metropolitana de Guadalajara. La información es recopilada colaborativamente y no sustituye los canales oficiales de atención o emergencia.
+      </p>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="max-w-[1120px] mx-auto px-margin md:px-margin-desktop py-space-xl"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg mb-space-lg"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-sm"><img alt="AguaClara Jalisco Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBiL-F_ThgEkfS4JyyU1r004olt7GoS_pY9C6WVzvk0PnfY-vE0b85IP759ooRmhycrPWa78BmJYZoikV_N8NGhj7baJbzNLMqZyfGevRkLfGySp7kd82XEhc05s4jBqHI0PrFGxccgPIFDSRIDIPZGIKXaFulT-zFpAKBfulyDPjVEfyDAsvqNyw8K3uJ3eu-0vsNYnQmOpfOamFvmVdAZetJlgt1TJ5nVsgpSvrjo"/><span class="font-label-md text-label-md text-primary">AguaClara Jalisco</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-xl">AguaClara Jalisco es una iniciativa ciudadana independiente. Datos simulados para fines demostrativos.</p></div><div class="flex flex-wrap items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Aviso de Privacidad</a><a class="hover:text-primary transition-colors" href="#">Términos de Uso</a><a class="hover:text-primary transition-colors" href="#">SIAPA Oficial</a><a class="hover:text-primary transition-colors" href="#">Contacto Ciudadano</a></div></div><div class="pt-space-md border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2025 AguaClara Jalisco. Iniciativa de monitoreo hídrico ciudadano.</p><p>Guadalajara, Jalisco, México</p></div></div></footer></body></html>

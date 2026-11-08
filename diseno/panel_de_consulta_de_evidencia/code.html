@@ -1,0 +1,659 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>AguaClara Jalisco</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-container": "#944800", "error": "#ba1a1a", "secondary": "#006a6a", "inverse-on-surface": "#eff1f3", "error-container": "#ffdad6", "primary-fixed-dim": "#a2c9ff", "on-primary": "#ffffff", "surface-container-low": "#f2f4f6", "secondary-container": "#7cf2f3", "on-tertiary-fixed-variant": "#723600", "on-secondary-fixed": "#002020", "on-primary-fixed-variant": "#004881", "primary": "#00477f", "on-background": "#191c1e", "on-primary-fixed": "#001c38", "surface-container-lowest": "#ffffff", "surface-container": "#eceef0", "on-secondary": "#ffffff", "on-primary-container": "#bfd9ff", "on-secondary-fixed-variant": "#004f50", "secondary-fixed-dim": "#60d8d9", "secondary-fixed": "#7ff5f5", "surface-container-highest": "#e0e3e5", "primary-container": "#0b5fa5", "on-surface": "#191c1e", "on-error-container": "#93000a", "on-error": "#ffffff", "on-tertiary-container": "#ffccac", "tertiary-fixed": "#ffdcc7", "surface": "#f7f9fb", "surface-dim": "#d8dadc", "primary-fixed": "#d3e4ff", "on-secondary-container": "#006e6f", "surface-container-high": "#e6e8ea", "on-surface-variant": "#414751", "outline-variant": "#c1c7d2", "inverse-primary": "#a2c9ff", "inverse-surface": "#2d3133", "tertiary": "#703500", "outline": "#727782", "surface-bright": "#f7f9fb", "on-tertiary": "#ffffff", "tertiary-fixed-dim": "#ffb787", "surface-variant": "#e0e3e5", "surface-tint": "#0e60a6", "on-tertiary-fixed": "#311300", "background": "#f7f9fb" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-desktop": "2.5rem", "space-sm": "0.75rem", "margin": "1rem", "gutter-desktop": "1.5rem", "space-md": "1rem", "margin-tablet": "1.5rem", "space-xs": "0.5rem", "space-lg": "1.5rem", "space-xl": "2rem", "gutter": "1rem" }, "fontFamily": { "headline-lg": ["Inter"], "headline-sm": ["Inter"], "body-key-info": ["Inter"], "label-badge": ["Inter"], "headline-md": ["Inter"], "headline-lg-mobile": ["Inter"], "body-lg": ["Inter"], "display-hero": ["Inter"], "label-prominent": ["Inter"], "body-base": ["Inter"], "display-hero-mobile": ["Inter"] }, "fontSize": { "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-key-info": ["18px", { "lineHeight": "28px", "fontWeight": "500" }], "label-badge": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "display-hero": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-prominent": ["16px", { "lineHeight": "22px", "fontWeight": "600" }], "body-base": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "display-hero-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } };</script></head><body class="bg-background font-body-base text-body-base text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-surface-container-high px-margin-desktop py-space-xs"><div class="max-w-[1120px] mx-auto flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-tertiary-container">info</span><span class="font-label-badge text-label-badge">Prototipo con datos de demostración</span></div><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full text-on-surface"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-badge text-label-badge tracking-tight">MODO DEMOSTRACIÓN: la ubicación y el límite de 48 h no se validan</span></div></div></div><div class="h-20 max-w-[1120px] mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><a class="flex items-center gap-space-sm focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg pr-space-xs" data-path="mapa" href="#"><svg aria-label="Logotipo AguaClara" class="w-10 h-10 shrink-0" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 4C20 4 8 18.5 8 26.5C8 33.1274 13.3726 38.5 20 38.5C26.6274 38.5 32 33.1274 32 26.5C32 18.5 20 4 20 4Z" fill="#0B5FA5"></path><path d="M15 25C15 22.2386 17.2386 20 20 20" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path></svg><div class="flex flex-col text-left"><span class="font-headline-lg text-headline-lg leading-none text-primary tracking-tight">AguaClara</span><span class="font-label-badge text-label-badge leading-tight text-on-surface-variant font-medium">Jalisco · Reportes ciudadanos</span></div></a><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-headline-sm"><a class="min-h-[48px] px-space-md py-space-xs flex items-center justify-center font-body-key-info text-body-key-info text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-secondary" data-path="mapa" href="#">Mapa</a><a class="min-h-[48px] px-space-md py-space-xs flex items-center justify-center font-body-key-info text-body-key-info text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-secondary" data-path="informe" href="#">Informe</a><a class="min-h-[48px] px-space-md py-space-xs flex items-center justify-center font-body-key-info text-body-key-info text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-secondary" data-path="ayuda" href="#">Ayuda</a></nav><a class="min-h-[52px] px-space-lg py-space-xs inline-flex items-center justify-center gap-space-xs rounded-xl bg-primary-container text-on-primary font-label-prominent text-label-prominent shadow-[0_1px_3px_rgba(15,23,42,0.06),0_4px_12px_rgba(15,23,42,0.04)] hover:bg-primary active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all" data-path="reportar-problema" href="#"><span class="material-symbols-outlined text-[20px]">add_alert</span><span class="">Reportar problema</span></a></div></div></header><main class="w-full pt-[120px] bg-background flex-1"><div class="flex flex-col w-full">
+<!-- Notice Bar: Read-only Data Banner -->
+<section class="w-full bg-surface-container-high border-b border-surface-container-highest">
+<div class="max-w-[1120px] mx-auto px-margin-desktop py-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">visibility</span>
+<p class="font-body-key-info text-body-key-info text-on-surface">
+          Vista de solo lectura. Datos agregados; sin domicilios ni fotos.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-badge text-label-badge tracking-tight">Periodo de análisis: Últimos 30 días</span>
+</div>
+</div>
+</section>
+<!-- Main Content Wrapper -->
+<div class="max-w-[1120px] mx-auto px-margin-desktop py-space-xl flex flex-col gap-space-xl w-full">
+<!-- Header Block: Title & Context -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-badge text-label-badge text-primary font-bold uppercase tracking-wider">Metrópoli de Guadalajara</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant font-medium">8 Colonias piloto monitoreadas</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-primary tracking-tight">Panel de consulta de evidencia</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Evidencia ciudadana organizada para consulta colectiva vecinal. Muestra reportes acumulados durante los <strong class="font-semibold text-on-surface">últimos 30 días</strong> sin incluir domicilios particulares.
+        </p>
+</div>
+<!-- Single Action: Exportar CSV -->
+<div class="shrink-0">
+<button class="min-h-[52px] px-space-lg py-space-xs inline-flex items-center justify-center gap-space-sm rounded-xl bg-primary-container text-on-primary font-label-prominent text-label-prominent shadow-md hover:bg-primary active:scale-[0.99] transition-all" id="btnExportarCsv" title="Descargar datos agregados en formato CSV">
+<span class="material-symbols-outlined text-[22px]">download</span>
+<span class="">Exportar CSV</span>
+</button>
+</div>
+</header>
+<!-- Visual Dashboard Cards: Key Metrics & Weekly Evolution -->
+<div class="w-full p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm border border-surface-container-highest flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[22px]">insights</span><h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Resumen para quien decide</h2></div><span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-badge text-label-badge font-bold">Síntesis clave</span></div><div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs"><div class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">warning</span><p class="font-body-base text-body-base text-on-surface"><strong class="font-semibold text-on-surface">2 de 8 colonias</strong> tienen Muchos reportes: Oblatos y Santa Cecilia.</p></div><div class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">water_drop</span><p class="font-body-base text-body-base text-on-surface">El problema más frecuente es el <strong class="font-semibold text-on-surface">agua turbia</strong>.</p></div><div class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">trending_up</span><p class="font-body-base text-body-base text-on-surface">Oblatos y Santa Cecilia <strong class="font-semibold text-on-surface">van en aumento</strong>.</p></div></div></div><section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- Summary Metrics (Left, 4 cols) -->
+<div class="lg:col-span-4 flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm gap-space-lg">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant">Consolidado general</span>
+<div class="mt-space-xs flex items-baseline gap-space-xs">
+<span class="font-display-hero text-display-hero text-primary font-extrabold tracking-tight">109</span>
+<span class="font-body-key-info text-body-key-info text-on-surface-variant">reportes de calidad del agua en 30 días</span>
+</div>
+<p class="mt-space-xs font-body-base text-body-base text-on-surface-variant">
+            Registrados por vecinos en las 8 colonias prioritarias de Guadalajara durante el periodo activo.
+          </p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between text-on-surface"><span class="font-label-prominent text-label-prominent">Promedio de las 8 colonias piloto</span><span class="font-headline-sm text-headline-sm text-primary">1.8</span></div><span class="font-label-badge text-label-badge text-on-surface-variant">Por cada 1,000 viviendas (Censo INEGI)</span></div>
+
+</div>
+<!-- Weekly Evolution Visualization (Right, 8 cols) -->
+<div class="lg:col-span-8 p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Evolución de los reportes (8 semanas)</h2>
+<p class="font-body-base text-body-base text-on-surface-variant">Incremento en la participación ciudadana en el polígono piloto</p>
+</div>
+<div class="flex items-center gap-space-xs self-start sm:self-auto bg-surface-container-low px-space-sm py-1 rounded-full text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-label-badge text-label-badge font-semibold">Tendencia ascendente</span>
+</div>
+</div>
+<!-- Inline SVG Trend Bar Chart -->
+<div class="w-full pt-space-xs pb-space-xs">
+<div class="relative w-full h-44 flex items-end justify-between gap-2 sm:gap-4 px-2"><!-- Sem 1: 8 --><div class="flex-1 flex flex-col items-center gap-1 group"><span class="font-label-badge text-label-badge text-on-surface-variant group-hover:text-primary font-bold">8</span><div class="w-full max-w-[44px] bg-primary-fixed hover:bg-primary-container transition-all rounded-t-lg" style="height: 35px;"></div><span class="font-label-badge text-label-badge text-on-surface-variant">S1</span></div><!-- Sem 2: 10 --><div class="flex-1 flex flex-col items-center gap-1 group"><span class="font-label-badge text-label-badge text-on-surface-variant group-hover:text-primary font-bold">10</span><div class="w-full max-w-[44px] bg-primary-fixed hover:bg-primary-container transition-all rounded-t-lg" style="height: 44px;"></div><span class="font-label-badge text-label-badge text-on-surface-variant">S2</span></div><!-- Sem 3: 12 --><div class="flex-1 flex flex-col items-center gap-1 group"><span class="font-label-badge text-label-badge text-on-surface-variant group-hover:text-primary font-bold">12</span><div class="w-full max-w-[44px] bg-primary-fixed hover:bg-primary-container transition-all rounded-t-lg" style="height: 53px;"></div><span class="font-label-badge text-label-badge text-on-surface-variant">S3</span></div><!-- Sem 4: 15 --><div class="flex-1 flex flex-col items-center gap-1 group"><span class="font-label-badge text-label-badge text-on-surface-variant group-hover:text-primary font-bold">15</span><div class="w-full max-w-[44px] bg-primary-fixed hover:bg-primary-container transition-all rounded-t-lg" style="height: 66px;"></div><span class="font-label-badge text-label-badge text-on-surface-variant">S4</span></div><!-- Sem 5: 22 --><div class="flex-1 flex flex-col items-center gap-1 group"><span class="font-label-badge text-label-badge text-on-surface-variant group-hover:text-primary font-bold">22</span><div class="w-full max-w-[44px] bg-primary-container/70 hover:bg-primary transition-all rounded-t-lg" style="height: 97px;"></div><span class="font-label-badge text-label-badge text-on-surface-variant">S5</span></div><!-- Sem 6: 25 --><div class="flex-1 flex flex-col items-center gap-1 group"><span class="font-label-badge text-label-badge text-on-surface-variant group-hover:text-primary font-bold">25</span><div class="w-full max-w-[44px] bg-primary-container/85 hover:bg-primary transition-all rounded-t-lg" style="height: 110px;"></div><span class="font-label-badge text-label-badge text-on-surface-variant">S6</span></div><!-- Sem 7: 27 --><div class="flex-1 flex flex-col items-center gap-1 group"><span class="font-label-badge text-label-badge text-on-surface-variant group-hover:text-primary font-bold">27</span><div class="w-full max-w-[44px] bg-primary-container/85 hover:bg-primary transition-all rounded-t-lg" style="height: 119px;"></div><span class="font-label-badge text-label-badge text-on-surface-variant">S7</span></div><!-- Sem 8: 35 --><div class="flex-1 flex flex-col items-center gap-1 group"><span class="font-label-badge text-label-badge text-primary group-hover:text-primary font-bold">35</span><div class="w-full max-w-[44px] bg-primary-container hover:bg-primary transition-all rounded-t-lg" style="height: 154px;"></div><span class="font-label-badge text-label-badge font-bold text-primary">S8</span></div></div>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant">Puede reflejar mayor participación de los vecinos.</p>
+</div>
+</section>
+<!-- Filters Section -->
+<section class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-lg flex-1">
+<!-- Filter: Estado -->
+<div class="flex flex-col gap-1 flex-1">
+<label class="font-label-badge text-label-badge text-on-surface uppercase tracking-wider font-bold" for="filtroEstado">
+            Filtrar por Estado
+          </label>
+<div class="relative">
+<select class="w-full min-h-[52px] px-space-md py-space-xs rounded-xl bg-surface-container-low text-on-surface font-body-base text-body-base appearance-none focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer" id="filtroEstado">
+<option value="todos">Todos los estados</option>
+<option value="Muchos reportes">Muchos reportes</option>
+<option value="Reportes moderados">Reportes moderados</option>
+<option value="Pocos reportes">Pocos reportes</option>
+<option value="Sin datos suficientes">Sin datos suficientes</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[22px]">expand_more</span>
+</div>
+</div>
+<!-- Filter: Tipo de problema -->
+<div class="flex flex-col gap-1 flex-1">
+<label class="font-label-badge text-label-badge text-on-surface uppercase tracking-wider font-bold" for="filtroProblema">
+            Filtrar por Tipo de problema
+          </label>
+<div class="relative">
+<select class="w-full min-h-[52px] px-space-md py-space-xs rounded-xl bg-surface-container-low text-on-surface font-body-base text-body-base appearance-none focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer" id="filtroProblema">
+<option value="todos">Todos los problemas</option>
+<option value="turbia">Agua turbia o con color</option>
+<option value="sedimento">Presencia de tierra o sedimentos</option>
+<option value="olor">Olor inusual</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[22px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Quick Legend Summary (Sensory Redundancy: Color + Icon + Words) -->
+<div class="flex flex-wrap items-center gap-space-sm pt-2 md:pt-0">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-error-container text-on-error-container font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">report</span>
+<span class="">Muchos reportes</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+<span class="">Reportes moderados</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">Pocos reportes</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">do_not_disturb_on</span>
+<span class="">Sin datos suficientes</span>
+</div>
+</div>
+</section>
+<!-- Main Sortable Data Table -->
+<section class="w-full rounded-2xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-lg flex items-center justify-between border-b border-surface-container-highest">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Colonias piloto de Guadalajara</h2>
+<p class="font-body-base text-body-base text-on-surface-variant">Información consolidada de los últimos 30 días</p>
+</div>
+<span class="font-label-badge text-label-badge bg-surface-container px-space-sm py-1.5 rounded-lg text-on-surface font-semibold" id="contadorColonias">
+          Mostrando 8 de 8 colonias
+        </span>
+</div>
+<!-- Responsive Table Container -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse" id="tablaEvidencia">
+<thead>
+<tr class="bg-surface-container-low text-on-surface font-label-badge text-label-badge uppercase tracking-wider">
+<th class="py-space-md px-space-md font-bold cursor-pointer select-none" data-sort="colonia" scope="col">
+<div class="flex items-center gap-1">
+<span class="">Colonia</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span>
+</div>
+</th>
+<th class="py-space-md px-space-md font-bold cursor-pointer select-none" data-sort="estado" scope="col">
+<div class="flex items-center gap-1">
+<span class="">Estado</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span>
+</div>
+</th>
+<th class="py-space-md px-space-md font-bold cursor-pointer select-none text-right" data-sort="reportes" scope="col">
+<div class="flex items-center justify-end gap-1">
+<span class="">Reportes (30 días)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span>
+</div>
+</th>
+<th class="py-space-md px-space-md font-bold cursor-pointer select-none text-right" data-sort="tasa" scope="col">
+<div class="flex items-center justify-end gap-1">
+<span class="">Por 1,000 viv.</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span>
+</div>
+</th>
+<th class="py-space-md px-space-md font-bold" scope="col">Problema más frecuente</th>
+<th class="py-space-md px-space-md font-bold" scope="col">Tendencia</th>
+<th class="py-space-md px-space-md font-bold" scope="col">Zona de riesgo</th>
+<th class="py-space-md px-space-md font-bold" scope="col">Falta de agua</th>
+<th class="py-space-md px-space-md font-bold" scope="col">Malestar estomacal (autorreporte)</th><th class="py-space-md px-space-md font-bold" scope="col">Último envío de evidencia (registrado por ciudadanos)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high font-body-base text-body-base text-on-surface" id="tbodyColonias">
+<!-- Row 1: Oblatos -->
+<tr class="hover:bg-surface-container-low transition-colors" data-estado="Muchos reportes" data-nombre="Oblatos" data-problema="turbia" data-reportes="38" data-tasa="4.1">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Oblatos</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Guadalajara</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-error-container text-on-error-container font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">report</span>
+<span class="">Muchos reportes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-sm text-headline-sm font-bold text-error">
+                38
+              </td>
+<td class="py-space-md px-space-md text-right font-body-key-info text-body-key-info font-bold text-on-surface">
+                4.1 / mil viv.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="font-body-key-info text-body-key-info text-on-surface">Agua turbia / café</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-error font-semibold font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+<span class="">Sube</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-error-container/60 text-on-error-container font-label-badge text-label-badge font-semibold">Alta</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-1 rounded-lg bg-surface-container font-label-badge text-label-badge font-bold text-primary">
+<span class="material-symbols-outlined text-[16px]">water_drop</span>
+<span class="">6 avisos independientes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-error-container/60 text-on-error-container font-label-badge text-label-badge font-semibold">6 de 22 (27%)</span></td><td class="py-space-md px-space-md"><span class="font-body-base text-body-base text-on-surface">5 nov · SIAPA Bot</span></td>
+</tr>
+<!-- Row 2: Santa Cecilia -->
+<tr class="hover:bg-surface-container-low transition-colors" data-estado="Muchos reportes" data-nombre="Santa Cecilia" data-problema="sedimento" data-reportes="29" data-tasa="3.8">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Santa Cecilia</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Guadalajara</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-error-container text-on-error-container font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">report</span>
+<span class="">Muchos reportes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-sm text-headline-sm font-bold text-error">
+                29
+              </td>
+<td class="py-space-md px-space-md text-right font-body-key-info text-body-key-info font-bold text-on-surface">
+                3.8 / mil viv.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="font-body-key-info text-body-key-info text-on-surface">Tierra y sedimentos</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-error font-semibold font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+<span class="">Sube</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-error-container/60 text-on-error-container font-label-badge text-label-badge font-semibold">Alta</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-1 rounded-lg bg-surface-container font-label-badge text-label-badge font-bold text-primary">
+<span class="material-symbols-outlined text-[16px]">water_drop</span>
+<span class="">4 avisos independientes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-error-container/60 text-on-error-container font-label-badge text-label-badge font-semibold">4 de 15 (27%)</span></td><td class="py-space-md px-space-md"><span class="font-body-base text-body-base text-on-surface">3 nov · CEDHJ</span></td>
+</tr>
+<!-- Row 3: Jardines de la Paz -->
+<tr class="hover:bg-surface-container-low transition-colors" data-estado="Reportes moderados" data-nombre="Jardines de la Paz" data-problema="turbia" data-reportes="16" data-tasa="2.4">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Jardines de la Paz</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Guadalajara</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+<span class="">Reportes moderados</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-sm text-headline-sm font-bold text-tertiary">
+                16
+              </td>
+<td class="py-space-md px-space-md text-right font-body-key-info text-body-key-info font-bold text-on-surface">
+                2.4 / mil viv.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="font-body-key-info text-body-key-info text-on-surface">Agua con color amarillento</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-on-surface-variant font-semibold font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[18px]">horizontal_rule</span>
+<span class="">Estable</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">Media</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-1 rounded-lg bg-surface-container font-label-badge text-label-badge font-bold text-primary">
+<span class="material-symbols-outlined text-[16px]">water_drop</span>
+<span class="">2 avisos independientes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">3 de 12 (25%)</span></td><td class="py-space-md px-space-md"><span class="font-body-base text-body-base text-on-surface-variant">Sin registro</span></td>
+</tr>
+<!-- Row 4: Miravalle -->
+<tr class="hover:bg-surface-container-low transition-colors" data-estado="Reportes moderados" data-nombre="Miravalle" data-problema="turbia" data-reportes="14" data-tasa="2.1">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Miravalle</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Guadalajara</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+<span class="">Reportes moderados</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-sm text-headline-sm font-bold text-tertiary">
+                14
+              </td>
+<td class="py-space-md px-space-md text-right font-body-key-info text-body-key-info font-bold text-on-surface">
+                2.1 / mil viv.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="font-body-key-info text-body-key-info text-on-surface">Turbiedad</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-secondary font-semibold font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[18px]">trending_down</span>
+<span class="">Baja</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">Media</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-1 rounded-lg bg-surface-container font-label-badge text-label-badge font-bold text-primary">
+<span class="material-symbols-outlined text-[16px]">water_drop</span>
+<span class="">3 avisos independientes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">2 de 10 (20%)</span></td><td class="py-space-md px-space-md"><span class="font-body-base text-body-base text-on-surface-variant">Sin registro</span></td>
+</tr>
+<!-- Row 5: Centro -->
+<tr class="hover:bg-surface-container-low transition-colors" data-estado="Pocos reportes" data-nombre="Centro" data-problema="turbia" data-reportes="5" data-tasa="0.9">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Centro</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Guadalajara</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">Pocos reportes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-sm text-headline-sm font-bold text-secondary">
+                5
+              </td>
+<td class="py-space-md px-space-md text-right font-body-key-info text-body-key-info font-bold text-on-surface">
+                0.9 / mil viv.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="font-body-key-info text-body-key-info text-on-surface">Turbiedad leve</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-on-surface-variant font-semibold font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[18px]">horizontal_rule</span>
+<span class="">Estable</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-badge text-label-badge font-semibold">Baja</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-body-base text-body-base text-on-surface-variant">Sin avisos</span>
+</td>
+<td class="py-space-md px-space-md"><span class="font-label-badge text-label-badge text-on-surface-variant">Datos insuficientes</span></td><td class="py-space-md px-space-md"><span class="font-body-base text-body-base text-on-surface-variant">Sin registro</span></td>
+</tr>
+<!-- Row 6: El Sauz -->
+<tr class="hover:bg-surface-container-low transition-colors" data-estado="Pocos reportes" data-nombre="Santa Teresita" data-problema="sedimento" data-reportes="4" data-tasa="0.7">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Santa Teresita</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Guadalajara</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">Pocos reportes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-sm text-headline-sm font-bold text-secondary">
+                4
+              </td>
+<td class="py-space-md px-space-md text-right font-body-key-info text-body-key-info font-bold text-on-surface">
+                0.7 / mil viv.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="font-body-key-info text-body-key-info text-on-surface">Flujo con sedimento aislado</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-secondary font-semibold font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[18px]">trending_down</span>
+<span class="">Baja</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-badge text-label-badge font-semibold">Baja</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-body-base text-body-base text-on-surface-variant">Sin avisos</span>
+</td>
+<td class="py-space-md px-space-md"><span class="font-label-badge text-label-badge text-on-surface-variant">Datos insuficientes</span></td><td class="py-space-md px-space-md"><span class="font-body-base text-body-base text-on-surface-variant">Sin registro</span></td>
+</tr>
+<!-- Row 7: Chapalita -->
+<tr class="hover:bg-surface-container-low transition-colors" data-estado="Pocos reportes" data-nombre="Chapalita" data-problema="turbia" data-reportes="3" data-tasa="0.5">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Chapalita</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Guadalajara</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">Pocos reportes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-sm text-headline-sm font-bold text-secondary">
+                3
+              </td>
+<td class="py-space-md px-space-md text-right font-body-key-info text-body-key-info font-bold text-on-surface">
+                0.5 / mil viv.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="font-body-key-info text-body-key-info text-on-surface">Sin anomalías graves</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-on-surface-variant font-semibold font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[18px]">horizontal_rule</span>
+<span class="">Estable</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-badge text-label-badge font-semibold">Baja</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-body-base text-body-base text-on-surface-variant">Sin avisos</span>
+</td>
+<td class="py-space-md px-space-md"><span class="font-label-badge text-label-badge text-on-surface-variant">Datos insuficientes</span></td><td class="py-space-md px-space-md"><span class="font-body-base text-body-base text-on-surface-variant">Sin registro</span></td>
+</tr>
+<!-- Row 8: San Rafael -->
+<tr class="hover:bg-surface-container-low transition-colors" data-estado="Sin datos suficientes" data-nombre="San Rafael" data-problema="ninguno" data-reportes="0" data-tasa="0.0">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">San Rafael</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Guadalajara</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-badge text-label-badge font-bold">
+<span class="material-symbols-outlined text-[16px]">do_not_disturb_on</span>
+<span class="">Sin datos suficientes</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-sm text-headline-sm font-bold text-on-surface-variant">
+                0
+              </td>
+<td class="py-space-md px-space-md text-right font-body-key-info text-body-key-info font-bold text-on-surface-variant">
+                0.0 / mil viv.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="font-body-key-info text-body-key-info text-on-surface-variant">Sin reportes vecinales</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-on-surface-variant font-semibold font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[18px]">horizontal_rule</span>
+<span class="">Estable</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">Media</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-body-base text-body-base text-on-surface-variant">Sin avisos</span>
+</td>
+<td class="py-space-md px-space-md"><span class="font-label-badge text-label-badge text-on-surface-variant">Datos insuficientes</span></td><td class="py-space-md px-space-md"><span class="font-body-base text-body-base text-on-surface-variant">Sin registro</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footnote / Clarification Card (Mandatory wording) -->
+<div class="p-space-lg bg-surface-container-low flex items-start gap-space-md border-t border-surface-container-highest">
+<span class="material-symbols-outlined text-[24px] text-primary shrink-0 mt-0.5">info</span>
+<div class="flex flex-col gap-1">
+<p class="font-body-base text-body-base text-on-surface font-medium leading-relaxed">
+            Indica cuántos vecinos reportaron un problema. No mide la calidad del agua. Datos agregados de participación vecinal para respaldo ciudadano.
+          </p>
+<p class="font-label-badge text-label-badge text-on-surface-variant">
+            Fuente de viviendas: Censo de Población y Vivienda INEGI por colonia. Registro cívico autónomo sin fines partidistas.
+          </p>
+<p class="font-label-badge text-label-badge text-on-surface-variant font-medium text-tertiary">* Malestar estomacal: Se muestra solo con 10 o más respuestas. Es un autorreporte, no un diagnóstico ni prueba de que el agua sea la causa.</p></div>
+</div>
+</section>
+<!-- Context Information Tiles -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[22px]">history_toggle_off</span>
+<h3 class="font-headline-sm text-headline-sm">Ventana de 30 días</h3>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant">
+          Los datos se actualizan automáticamente en ciclos de 30 días naturales para reflejar la constancia de los reportes vecinales.
+        </p>
+</div>
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[22px]">lock_person</span>
+<h3 class="font-headline-sm text-headline-sm">Privacidad absoluta</h3>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant">
+          Este panel no almacena ni expone nombres de calles, números exteriores, domicilios particulares ni fotografías de inmuebles.
+        </p>
+</div>
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-tertiary">
+<span class="material-symbols-outlined text-[22px]">hub</span>
+<h3 class="font-headline-sm text-headline-sm">Canales de evidencia</h3>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant">
+          Se contabilizan reportes documentados por ciudadanos ante diversas instancias como SIAPATEL, SIAPA Bot, Ayuntamientos y CEDHJ.
+        </p>
+</div>
+</section>
+</div>
+<!-- Interactive Logic for CSV Export, Filters & Table Sorting -->
+<script>
+    (function () {
+      const filtroEstado = document.getElementById('filtroEstado');
+      const filtroProblema = document.getElementById('filtroProblema');
+      const tbody = document.getElementById('tbodyColonias');
+      const contadorColonias = document.getElementById('contadorColonias');
+      const btnExportarCsv = document.getElementById('btnExportarCsv');
+      const headers = document.querySelectorAll('th[data-sort]');
+
+      let currentSort = { column: null, ascending: true };
+
+      function aplicarFiltros() {
+        const valEstado = filtroEstado.value;
+        const valProblema = filtroProblema.value;
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        let visibles = 0;
+
+        rows.forEach(row => {
+          const rowEstado = row.getAttribute('data-estado');
+          const rowProblema = row.getAttribute('data-problema');
+
+          const matchEstado = (valEstado === 'todos' || rowEstado === valEstado);
+          const matchProblema = (valProblema === 'todos' || rowProblema === valProblema);
+
+          if (matchEstado && matchProblema) {
+            row.style.display = '';
+            visibles++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        contadorColonias.textContent = 'Mostrando ' + visibles + ' de 8 colonias';
+      }
+
+      filtroEstado.addEventListener('change', aplicarFiltros);
+      filtroProblema.addEventListener('change', aplicarFiltros);
+
+      // Sorting functionality
+      headers.forEach(th => {
+        th.addEventListener('click', () => {
+          const colKey = th.getAttribute('data-sort');
+          const rows = Array.from(tbody.querySelectorAll('tr'));
+          const isAsc = currentSort.column === colKey ? !currentSort.ascending : true;
+          currentSort = { column: colKey, ascending: isAsc };
+
+          rows.sort((a, b) => {
+            let valA, valB;
+            if (colKey === 'colonia') {
+              valA = a.getAttribute('data-nombre');
+              valB = b.getAttribute('data-nombre');
+              return isAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+            } else if (colKey === 'reportes') {
+              valA = parseInt(a.getAttribute('data-reportes'), 10);
+              valB = parseInt(b.getAttribute('data-reportes'), 10);
+              return isAsc ? valA - valB : valB - valA;
+            } else if (colKey === 'tasa') {
+              valA = parseFloat(a.getAttribute('data-tasa'));
+              valB = parseFloat(b.getAttribute('data-tasa'));
+              return isAsc ? valA - valB : valB - valA;
+            } else if (colKey === 'estado') {
+              valA = a.getAttribute('data-estado');
+              valB = b.getAttribute('data-estado');
+              return isAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+            }
+            return 0;
+          });
+
+          rows.forEach(r => tbody.appendChild(r));
+        });
+      });
+
+      // Export CSV of visible data
+      btnExportarCsv.addEventListener('click', () => {
+        const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display !== 'none');
+        let csvContent = 'data:text/csv;charset=utf-8,';
+        csvContent += 'Colonia,Municipio,Estado,Reportes_30_Dias,Tasa_Por_1000_Viviendas,Problema_Frecuente,Tendencia,Zona_Riesgo,Falta_De_Agua,Ultimo_Envio\n';
+
+        rows.forEach(row => {
+          const cells = row.querySelectorAll('td');
+          const colonia = cells[0].querySelector('span').textContent.trim();
+          const municipio = 'Guadalajara';
+          const estado = row.getAttribute('data-estado');
+          const reportes = row.getAttribute('data-reportes');
+          const tasa = row.getAttribute('data-tasa');
+          const problema = cells[4].textContent.trim();
+          const tendencia = cells[5].textContent.trim();
+          const zonaRiesgo = cells[6].textContent.trim();
+          const faltaAgua = cells[7].textContent.trim();
+          const ultimoEnvio = cells[8].textContent.replace(/\s+/g, ' ').trim();
+
+          const linea = [
+            '"' + colonia + '"',
+            '"' + municipio + '"',
+            '"' + estado + '"',
+            reportes,
+            tasa,
+            '"' + problema + '"',
+            '"' + tendencia + '"',
+            '"' + zonaRiesgo + '"',
+            '"' + faltaAgua + '"',
+            '"' + ultimoEnvio + '"'
+          ].join(',');
+
+          csvContent += linea + '\n';
+        });
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement('a');
+        link.setAttribute('href', encodedUri);
+        link.setAttribute('download', 'aguaclara_evidencia_30dias_gdl.csv');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low mt-auto"><div class="max-w-[1120px] mx-auto px-margin-desktop py-space-xl"><div class="flex flex-col gap-space-lg text-left"><div class="flex flex-col md:flex-row md:items-start justify-between gap-space-lg"><div class="max-w-2xl"><p class="font-body-base text-body-base text-on-surface-variant leading-relaxed">AguaClara es una iniciativa ciudadana independiente. No representa al gobierno ni a SIAPA. No mide la calidad de laboratorio del agua, únicamente cuenta reportes vecinales.</p></div><div class="flex flex-col gap-space-xs"><span class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider">Transparencia y Comunidad</span><div class="flex flex-wrap gap-x-space-lg gap-y-space-xs"><a class="min-h-[48px] inline-flex items-center font-body-base text-body-base text-on-surface-variant hover:text-primary underline transition-colors focus:outline-none focus:ring-2 focus:ring-secondary rounded" data-path="preguntas-frecuentes" href="#">Preguntas frecuentes</a><a class="min-h-[48px] inline-flex items-center font-body-base text-body-base text-on-surface-variant hover:text-primary underline transition-colors focus:outline-none focus:ring-2 focus:ring-secondary rounded" data-path="aviso-de-privacidad" href="#">Aviso de privacidad sencillo</a><a class="min-h-[48px] inline-flex items-center font-body-base text-body-base text-on-surface-variant hover:text-primary underline transition-colors focus:outline-none focus:ring-2 focus:ring-secondary rounded" data-path="panel-consulta" href="#" style="opacity: 0;">Panel de consulta</a></div></div></div><div class="pt-space-md flex items-center justify-between font-body-base text-body-base text-on-surface-variant"><p class="">© 2026 AguaClara Jalisco. Red de vigilancia cívica del agua.</p><span class="font-label-badge text-label-badge bg-surface-container-highest px-space-sm py-1 rounded text-on-surface-variant">Zona piloto: Guadalajara</span></div></div></div></footer>
+
+
+
+</body></html>
