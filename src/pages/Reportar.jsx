@@ -11,7 +11,7 @@ export default function Reportar() {
   // Estados del formulario
   const [coloniaId, setColoniaId] = useState('oblatos');
   const [pestaña, setPestaña] = useState('calidad'); // 'calidad' | 'falta'
-  const [tipoSeleccionado, setTipoSeleccionado] = useState('turbia'); // 'turbia' | 'olor' | 'color' | 'falta_agua'
+  const [tipoSeleccionado, setTipoSeleccionado] = useState(null); // 'turbia' | 'olor' | 'color' | 'falta_agua' | null
   const [sintomas, setSintomas] = useState(null); // true | false | null
   const [avisoAceptado, setAvisoAceptado] = useState(true);
 
@@ -60,15 +60,19 @@ export default function Reportar() {
 
   const cambiarPestaña = (nuevaPestaña) => {
     setPestaña(nuevaPestaña);
-    if (nuevaPestaña === 'falta') {
-      setTipoSeleccionado('falta_agua');
-    } else {
-      setTipoSeleccionado('turbia');
-    }
+    setTipoSeleccionado(null);
+  };
+
+  const toggleTipo = (tipo) => {
+    setTipoSeleccionado(prev => (prev === tipo ? null : tipo));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!tipoSeleccionado) {
+      return;
+    }
 
     const hoy = new Date().toISOString().split('T')[0];
 
@@ -231,106 +235,139 @@ export default function Reportar() {
             {/* Opciones de Calidad del Agua */}
             {pestaña === 'calidad' && (
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <label className={`flex flex-col p-4 rounded-xl border cursor-pointer transition-all ${
-                  tipoSeleccionado === 'turbia'
-                    ? 'bg-primary-fixed/40 border-primary ring-2 ring-primary/20 shadow-sm'
-                    : 'bg-surface-container-low border-transparent hover:bg-surface-container'
-                }`}>
-                  <input
-                    type="radio"
-                    name="tipoProblema"
-                    value="turbia"
-                    checked={tipoSeleccionado === 'turbia'}
-                    onChange={() => setTipoSeleccionado('turbia')}
-                    className="sr-only"
-                  />
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="material-symbols-outlined text-primary text-[24px]">opacity</span>
-                    <span className="font-bold text-base text-on-surface">Se ve turbia</span>
-                  </div>
-                  <p className="text-xs text-on-surface-variant">Aspecto lechoso, arenoso o lodo visible.</p>
-                </label>
-
-                <label className={`flex flex-col p-4 rounded-xl border cursor-pointer transition-all ${
-                  tipoSeleccionado === 'olor'
-                    ? 'bg-primary-fixed/40 border-primary ring-2 ring-primary/20 shadow-sm'
-                    : 'bg-surface-container-low border-transparent hover:bg-surface-container'
-                }`}>
-                  <input
-                    type="radio"
-                    name="tipoProblema"
-                    value="olor"
-                    checked={tipoSeleccionado === 'olor'}
-                    onChange={() => setTipoSeleccionado('olor')}
-                    className="sr-only"
-                  />
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="material-symbols-outlined text-tertiary text-[24px]">air</span>
-                    <span className="font-bold text-base text-on-surface">Huele mal</span>
-                  </div>
-                  <p className="text-xs text-on-surface-variant">Olor a caño, drenaje, azufre o cloro excesivo.</p>
-                </label>
-
-                <label className={`flex flex-col p-4 rounded-xl border cursor-pointer transition-all ${
-                  tipoSeleccionado === 'color'
-                    ? 'bg-primary-fixed/40 border-primary ring-2 ring-primary/20 shadow-sm'
-                    : 'bg-surface-container-low border-transparent hover:bg-surface-container'
-                }`}>
-                  <input
-                    type="radio"
-                    name="tipoProblema"
-                    value="color"
-                    checked={tipoSeleccionado === 'color'}
-                    onChange={() => setTipoSeleccionado('color')}
-                    className="sr-only"
-                  />
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="material-symbols-outlined text-amber-600 text-[24px]">palette</span>
-                    <span className="font-bold text-base text-on-surface">Tiene color</span>
-                  </div>
-                  <p className="text-xs text-on-surface-variant">Amarillenta, café oscuro o aspecto oxidado.</p>
-                </label>
+                {[
+                  {
+                    id: 'turbia',
+                    titulo: 'Se ve turbia',
+                    desc: 'Aspecto lechoso, arenoso o lodo visible.',
+                    icono: 'opacity',
+                    colorIcono: 'text-primary',
+                  },
+                  {
+                    id: 'olor',
+                    titulo: 'Huele mal',
+                    desc: 'Olor a caño, drenaje, azufre o cloro excesivo.',
+                    icono: 'air',
+                    colorIcono: 'text-tertiary',
+                  },
+                  {
+                    id: 'color',
+                    titulo: 'Tiene color',
+                    desc: 'Amarillenta, café oscuro o aspecto oxidado.',
+                    icono: 'palette',
+                    colorIcono: 'text-amber-600',
+                  },
+                ].map((op) => {
+                  const activo = tipoSeleccionado === op.id;
+                  return (
+                    <button
+                      key={op.id}
+                      type="button"
+                      onClick={() => toggleTipo(op.id)}
+                      className={`text-left flex flex-col justify-between p-4 rounded-xl border transition-all cursor-pointer ${
+                        activo
+                          ? 'bg-primary-fixed/40 border-2 border-primary ring-2 ring-primary/20 shadow-sm'
+                          : 'bg-surface-container-low border-outline-variant/30 hover:bg-surface-container hover:border-outline-variant/60'
+                      }`}
+                    >
+                      <div className="w-full">
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className={`material-symbols-outlined ${op.colorIcono} text-[24px]`}>
+                              {op.icono}
+                            </span>
+                            <span className="font-bold text-base text-on-surface">{op.titulo}</span>
+                          </div>
+                          {activo ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-primary bg-surface-container-lowest px-2 py-0.5 rounded-full border border-primary/30 shadow-xs shrink-0">
+                              <span className="material-symbols-outlined text-[15px]">check_circle</span>
+                              <span>Seleccionado</span>
+                            </span>
+                          ) : (
+                            <span className="w-5 h-5 rounded-full border-2 border-outline-variant/50 shrink-0"></span>
+                          )}
+                        </div>
+                        <p className="text-xs text-on-surface-variant leading-relaxed">{op.desc}</p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             )}
 
-            {/* 3. Tarjeta seleccionable en Falta de Agua: "No tengo agua en mi casa" */}
+            {/* Opciones de Falta de Agua: "No tengo agua en mi casa" */}
             {pestaña === 'falta' && (
               <div className="flex flex-col gap-3">
-                <label className={`flex items-start gap-3.5 p-4 rounded-xl border cursor-pointer transition-all ${
-                  tipoSeleccionado === 'falta_agua'
-                    ? 'bg-sky-50 border-sky-600 ring-2 ring-sky-300 shadow-sm'
-                    : 'bg-surface-container-low border-transparent hover:bg-surface-container'
-                }`}>
-                  <input
-                    type="radio"
-                    name="tipoProblema"
-                    value="falta_agua"
-                    checked={tipoSeleccionado === 'falta_agua'}
-                    onChange={() => setTipoSeleccionado('falta_agua')}
-                    className="sr-only"
-                  />
-                  <div className="w-10 h-10 rounded-lg bg-sky-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                    <span className="material-symbols-outlined text-[24px]">water_damage</span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-base text-sky-950">No tengo agua en mi casa</span>
-                      <span className="text-xs font-bold text-sky-700 bg-sky-200/60 px-2 py-0.5 rounded-full">
-                        Seleccionado
-                      </span>
-                    </div>
-                    <p className="text-xs text-sky-900 mt-1 leading-relaxed">
-                      Corte total en la toma domiciliaria o presión insuficiente para abastecer el tinaco.
-                      Este reporte se contabiliza en la capa de falta de agua, fuera del semáforo de calidad.
-                    </p>
-                  </div>
-                </label>
+                {(() => {
+                  const activo = tipoSeleccionado === 'falta_agua';
+                  return (
+                    <button
+                      type="button"
+                      onClick={() => toggleTipo('falta_agua')}
+                      className={`text-left flex items-start gap-3.5 p-4 rounded-xl border transition-all cursor-pointer ${
+                        activo
+                          ? 'bg-sky-50 border-2 border-sky-600 ring-2 ring-sky-300 shadow-sm'
+                          : 'bg-surface-container-low border-outline-variant/30 hover:bg-surface-container hover:border-outline-variant/60'
+                      }`}
+                    >
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm mt-0.5 transition-colors ${
+                        activo ? 'bg-sky-600 text-white' : 'bg-surface-container-lowest text-sky-700'
+                      }`}>
+                        <span className="material-symbols-outlined text-[24px]">water_damage</span>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-bold text-base text-on-surface">No tengo agua en mi casa</span>
+                          {activo ? (
+                            <span className="inline-flex items-center gap-1 text-xs font-bold text-sky-900 bg-sky-200/80 px-2.5 py-0.5 rounded-full border border-sky-300 shrink-0">
+                              <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                              <span>Seleccionado</span>
+                            </span>
+                          ) : (
+                            <span className="w-5 h-5 rounded-full border-2 border-outline-variant/50 shrink-0"></span>
+                          )}
+                        </div>
+                        <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                          Corte total en la toma domiciliaria o presión insuficiente para abastecer el tinaco.
+                          Este reporte se contabiliza en la capa de falta de agua, fuera del semáforo de calidad.
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })()}
               </div>
             )}
+
+            {/* Botón Continuar de Paso 2 */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-outline-variant/20">
+              <span className="text-xs text-on-surface-variant font-medium">
+                {tipoSeleccionado
+                  ? '✓ Opción seleccionada. Puedes pulsar Continuar.'
+                  : 'Toca una opción para seleccionarla (pulsa de nuevo para desmarcar).'}
+              </span>
+              <button
+                type="button"
+                disabled={!tipoSeleccionado}
+                onClick={() => {
+                  const paso3 = document.getElementById('paso-3-section');
+                  if (paso3) {
+                    paso3.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className={`min-h-[46px] px-6 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all ${
+                  tipoSeleccionado
+                    ? 'bg-primary hover:bg-primary-container text-on-primary shadow-sm cursor-pointer active:scale-95'
+                    : 'bg-surface-container-high text-on-surface-variant/40 cursor-not-allowed border border-outline-variant/30'
+                }`}
+              >
+                <span>Continuar</span>
+                <span className="material-symbols-outlined text-[18px]">arrow_downward</span>
+              </button>
+            </div>
           </section>
 
           {/* PASO 3: Pregunta opcional de salud + Aviso */}
-          <section className="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-outline-variant/30 flex flex-col gap-4">
+          <section id="paso-3-section" className="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-outline-variant/30 flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <span className="w-9 h-9 rounded-full bg-surface-container-high text-on-surface font-bold text-lg flex items-center justify-center shrink-0">
                 3
@@ -416,10 +453,10 @@ export default function Reportar() {
 
             <button
               type="submit"
-              disabled={!avisoAceptado}
+              disabled={!avisoAceptado || !tipoSeleccionado}
               className={`w-full sm:w-auto min-h-[52px] px-8 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99] ${
-                avisoAceptado
-                  ? 'bg-primary hover:bg-primary-container text-on-primary'
+                avisoAceptado && tipoSeleccionado
+                  ? 'bg-primary hover:bg-primary-container text-on-primary cursor-pointer'
                   : 'bg-surface-container-high text-outline cursor-not-allowed'
               }`}
             >
