@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -11,10 +11,20 @@ import Autoridades from './pages/Autoridades';
 import Ayuda from './pages/Ayuda';
 import MensajesPage from './pages/MensajesPage';
 
+// Al cambiar de página (ruta), regresa al inicio. Cambios solo de ?query (p. ej. Mapa|Lista) no mueven el scroll.
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   return (
     <AppProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-background font-sans antialiased">
           <Navbar />
           <main className="flex-1 flex flex-col">
