@@ -1,0 +1,321 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "oblatos",
+        "nombre": "Oblatos",
+        "municipio": "Guadalajara",
+        "aproximado": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.32,
+              20.685
+            ],
+            [
+              -103.295,
+              20.688
+            ],
+            [
+              -103.29,
+              20.702
+            ],
+            [
+              -103.315,
+              20.705
+            ],
+            [
+              -103.325,
+              20.693
+            ],
+            [
+              -103.32,
+              20.685
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "santa_cecilia",
+        "nombre": "Santa Cecilia",
+        "municipio": "Guadalajara",
+        "aproximado": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.31,
+              20.708
+            ],
+            [
+              -103.285,
+              20.71
+            ],
+            [
+              -103.28,
+              20.725
+            ],
+            [
+              -103.305,
+              20.728
+            ],
+            [
+              -103.315,
+              20.718
+            ],
+            [
+              -103.31,
+              20.708
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jardines_de_la_paz",
+        "nombre": "Jardines de la Paz",
+        "municipio": "Guadalajara",
+        "aproximado": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.315,
+              20.648
+            ],
+            [
+              -103.295,
+              20.646
+            ],
+            [
+              -103.29,
+              20.662
+            ],
+            [
+              -103.31,
+              20.665
+            ],
+            [
+              -103.32,
+              20.655
+            ],
+            [
+              -103.315,
+              20.648
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "miravalle",
+        "nombre": "Miravalle",
+        "municipio": "Guadalajara",
+        "aproximado": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.355,
+              20.61
+            ],
+            [
+              -103.332,
+              20.608
+            ],
+            [
+              -103.33,
+              20.625
+            ],
+            [
+              -103.35,
+              20.628
+            ],
+            [
+              -103.36,
+              20.618
+            ],
+            [
+              -103.355,
+              20.61
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "centro",
+        "nombre": "Centro",
+        "municipio": "Guadalajara",
+        "aproximado": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.358,
+              20.67
+            ],
+            [
+              -103.338,
+              20.67
+            ],
+            [
+              -103.336,
+              20.686
+            ],
+            [
+              -103.356,
+              20.688
+            ],
+            [
+              -103.36,
+              20.678
+            ],
+            [
+              -103.358,
+              20.67
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "santa_teresita",
+        "nombre": "Santa Teresita",
+        "municipio": "Guadalajara",
+        "aproximado": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.375,
+              20.68
+            ],
+            [
+              -103.358,
+              20.682
+            ],
+            [
+              -103.36,
+              20.695
+            ],
+            [
+              -103.377,
+              20.693
+            ],
+            [
+              -103.375,
+              20.68
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "chapalita",
+        "nombre": "Chapalita",
+        "municipio": "Guadalajara",
+        "aproximado": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.408,
+              20.658
+            ],
+            [
+              -103.388,
+              20.655
+            ],
+            [
+              -103.385,
+              20.672
+            ],
+            [
+              -103.405,
+              20.675
+            ],
+            [
+              -103.412,
+              20.665
+            ],
+            [
+              -103.408,
+              20.658
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "san_rafael",
+        "nombre": "San Rafael",
+        "municipio": "Guadalajara",
+        "aproximado": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.335,
+              20.65
+            ],
+            [
+              -103.318,
+              20.648
+            ],
+            [
+              -103.315,
+              20.663
+            ],
+            [
+              -103.332,
+              20.665
+            ],
+            [
+              -103.338,
+              20.656
+            ],
+            [
+              -103.335,
+              20.65
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,874 @@
+[
+  {
+    "id": "demo-001",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 1,
+    "simulado": true
+  },
+  {
+    "id": "demo-002",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 15,
+    "simulado": true
+  },
+  {
+    "id": "demo-003",
+    "colonia": "oblatos",
+    "tipo": "color",
+    "sintomas": false,
+    "diasAtras": 3,
+    "simulado": true
+  },
+  {
+    "id": "demo-004",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-005",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-006",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-007",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": null,
+    "diasAtras": 0,
+    "simulado": true
+  },
+  {
+    "id": "demo-008",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 7,
+    "simulado": true
+  },
+  {
+    "id": "demo-009",
+    "colonia": "oblatos",
+    "tipo": "color",
+    "sintomas": true,
+    "diasAtras": 7,
+    "simulado": true
+  },
+  {
+    "id": "demo-010",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 18,
+    "simulado": true
+  },
+  {
+    "id": "demo-011",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 15,
+    "simulado": true
+  },
+  {
+    "id": "demo-012",
+    "colonia": "oblatos",
+    "tipo": "color",
+    "sintomas": false,
+    "diasAtras": 8,
+    "simulado": true
+  },
+  {
+    "id": "demo-013",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": null,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-014",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 14,
+    "simulado": true
+  },
+  {
+    "id": "demo-015",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 6,
+    "simulado": true
+  },
+  {
+    "id": "demo-016",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 3,
+    "simulado": true
+  },
+  {
+    "id": "demo-017",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 7,
+    "simulado": true
+  },
+  {
+    "id": "demo-018",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 6,
+    "simulado": true
+  },
+  {
+    "id": "demo-019",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-020",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 4,
+    "simulado": true
+  },
+  {
+    "id": "demo-021",
+    "colonia": "oblatos",
+    "tipo": "color",
+    "sintomas": false,
+    "diasAtras": 13,
+    "simulado": true
+  },
+  {
+    "id": "demo-022",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": null,
+    "diasAtras": 18,
+    "simulado": true
+  },
+  {
+    "id": "demo-023",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 2,
+    "simulado": true
+  },
+  {
+    "id": "demo-024",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-025",
+    "colonia": "oblatos",
+    "tipo": "color",
+    "sintomas": false,
+    "diasAtras": 7,
+    "simulado": true
+  },
+  {
+    "id": "demo-026",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 21,
+    "simulado": true
+  },
+  {
+    "id": "demo-027",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 6,
+    "simulado": true
+  },
+  {
+    "id": "demo-028",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 11,
+    "simulado": true
+  },
+  {
+    "id": "demo-029",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-030",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 3,
+    "simulado": true
+  },
+  {
+    "id": "demo-031",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-032",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 3,
+    "simulado": true
+  },
+  {
+    "id": "demo-033",
+    "colonia": "oblatos",
+    "tipo": "color",
+    "sintomas": null,
+    "diasAtras": 10,
+    "simulado": true
+  },
+  {
+    "id": "demo-034",
+    "colonia": "oblatos",
+    "tipo": "color",
+    "sintomas": false,
+    "diasAtras": 1,
+    "simulado": true
+  },
+  {
+    "id": "demo-035",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 11,
+    "simulado": true
+  },
+  {
+    "id": "demo-036",
+    "colonia": "oblatos",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 4,
+    "simulado": true
+  },
+  {
+    "id": "demo-037",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 23,
+    "simulado": true
+  },
+  {
+    "id": "demo-038",
+    "colonia": "oblatos",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 10,
+    "simulado": true
+  },
+  {
+    "id": "demo-039",
+    "colonia": "santa_cecilia",
+    "tipo": "color",
+    "sintomas": true,
+    "diasAtras": 19,
+    "simulado": true
+  },
+  {
+    "id": "demo-040",
+    "colonia": "santa_cecilia",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-041",
+    "colonia": "santa_cecilia",
+    "tipo": "olor",
+    "sintomas": null,
+    "diasAtras": 11,
+    "simulado": true
+  },
+  {
+    "id": "demo-042",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 0,
+    "simulado": true
+  },
+  {
+    "id": "demo-043",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 21,
+    "simulado": true
+  },
+  {
+    "id": "demo-044",
+    "colonia": "santa_cecilia",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 7,
+    "simulado": true
+  },
+  {
+    "id": "demo-045",
+    "colonia": "santa_cecilia",
+    "tipo": "color",
+    "sintomas": true,
+    "diasAtras": 22,
+    "simulado": true
+  },
+  {
+    "id": "demo-046",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 3,
+    "simulado": true
+  },
+  {
+    "id": "demo-047",
+    "colonia": "santa_cecilia",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 4,
+    "simulado": true
+  },
+  {
+    "id": "demo-048",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 6,
+    "simulado": true
+  },
+  {
+    "id": "demo-049",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-050",
+    "colonia": "santa_cecilia",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-051",
+    "colonia": "santa_cecilia",
+    "tipo": "color",
+    "sintomas": false,
+    "diasAtras": 13,
+    "simulado": true
+  },
+  {
+    "id": "demo-052",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 4,
+    "simulado": true
+  },
+  {
+    "id": "demo-053",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-054",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 3,
+    "simulado": true
+  },
+  {
+    "id": "demo-055",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 20,
+    "simulado": true
+  },
+  {
+    "id": "demo-056",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-057",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 4,
+    "simulado": true
+  },
+  {
+    "id": "demo-058",
+    "colonia": "santa_cecilia",
+    "tipo": "olor",
+    "sintomas": null,
+    "diasAtras": 9,
+    "simulado": true
+  },
+  {
+    "id": "demo-059",
+    "colonia": "santa_cecilia",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 5,
+    "simulado": true
+  },
+  {
+    "id": "demo-060",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 8,
+    "simulado": true
+  },
+  {
+    "id": "demo-061",
+    "colonia": "santa_cecilia",
+    "tipo": "olor",
+    "sintomas": null,
+    "diasAtras": 13,
+    "simulado": true
+  },
+  {
+    "id": "demo-062",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 8,
+    "simulado": true
+  },
+  {
+    "id": "demo-063",
+    "colonia": "santa_cecilia",
+    "tipo": "color",
+    "sintomas": true,
+    "diasAtras": 6,
+    "simulado": true
+  },
+  {
+    "id": "demo-064",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 8,
+    "simulado": true
+  },
+  {
+    "id": "demo-065",
+    "colonia": "santa_cecilia",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 21,
+    "simulado": true
+  },
+  {
+    "id": "demo-066",
+    "colonia": "santa_cecilia",
+    "tipo": "color",
+    "sintomas": true,
+    "diasAtras": 11,
+    "simulado": true
+  },
+  {
+    "id": "demo-067",
+    "colonia": "santa_cecilia",
+    "tipo": "color",
+    "sintomas": null,
+    "diasAtras": 18,
+    "simulado": true
+  },
+  {
+    "id": "demo-068",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "color",
+    "sintomas": true,
+    "diasAtras": 27,
+    "simulado": true
+  },
+  {
+    "id": "demo-069",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 15,
+    "simulado": true
+  },
+  {
+    "id": "demo-070",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 1,
+    "simulado": true
+  },
+  {
+    "id": "demo-071",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-072",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 14,
+    "simulado": true
+  },
+  {
+    "id": "demo-073",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "olor",
+    "sintomas": null,
+    "diasAtras": 23,
+    "simulado": true
+  },
+  {
+    "id": "demo-074",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 22,
+    "simulado": true
+  },
+  {
+    "id": "demo-075",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 6,
+    "simulado": true
+  },
+  {
+    "id": "demo-076",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 17,
+    "simulado": true
+  },
+  {
+    "id": "demo-077",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 1,
+    "simulado": true
+  },
+  {
+    "id": "demo-078",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 27,
+    "simulado": true
+  },
+  {
+    "id": "demo-079",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 16,
+    "simulado": true
+  },
+  {
+    "id": "demo-080",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 19,
+    "simulado": true
+  },
+  {
+    "id": "demo-081",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "color",
+    "sintomas": true,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-082",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "color",
+    "sintomas": false,
+    "diasAtras": 7,
+    "simulado": true
+  },
+  {
+    "id": "demo-083",
+    "colonia": "jardines_de_la_paz",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 2,
+    "simulado": true
+  },
+  {
+    "id": "demo-084",
+    "colonia": "miravalle",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 16,
+    "simulado": true
+  },
+  {
+    "id": "demo-085",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 21,
+    "simulado": true
+  },
+  {
+    "id": "demo-086",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-087",
+    "colonia": "miravalle",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 14,
+    "simulado": true
+  },
+  {
+    "id": "demo-088",
+    "colonia": "miravalle",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 2,
+    "simulado": true
+  },
+  {
+    "id": "demo-089",
+    "colonia": "miravalle",
+    "tipo": "olor",
+    "sintomas": null,
+    "diasAtras": 18,
+    "simulado": true
+  },
+  {
+    "id": "demo-090",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 6,
+    "simulado": true
+  },
+  {
+    "id": "demo-091",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 11,
+    "simulado": true
+  },
+  {
+    "id": "demo-092",
+    "colonia": "miravalle",
+    "tipo": "color",
+    "sintomas": true,
+    "diasAtras": 11,
+    "simulado": true
+  },
+  {
+    "id": "demo-093",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 17,
+    "simulado": true
+  },
+  {
+    "id": "demo-094",
+    "colonia": "miravalle",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 25,
+    "simulado": true
+  },
+  {
+    "id": "demo-095",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 26,
+    "simulado": true
+  },
+  {
+    "id": "demo-096",
+    "colonia": "miravalle",
+    "tipo": "color",
+    "sintomas": null,
+    "diasAtras": 3,
+    "simulado": true
+  },
+  {
+    "id": "demo-097",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 3,
+    "simulado": true
+  },
+  {
+    "id": "demo-098",
+    "colonia": "centro",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 4,
+    "simulado": true
+  },
+  {
+    "id": "demo-099",
+    "colonia": "centro",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 22,
+    "simulado": true
+  },
+  {
+    "id": "demo-100",
+    "colonia": "centro",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 27,
+    "simulado": true
+  },
+  {
+    "id": "demo-101",
+    "colonia": "centro",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 28,
+    "simulado": true
+  },
+  {
+    "id": "demo-102",
+    "colonia": "centro",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 20,
+    "simulado": true
+  },
+  {
+    "id": "demo-103",
+    "colonia": "santa_teresita",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 0,
+    "simulado": true
+  },
+  {
+    "id": "demo-104",
+    "colonia": "santa_teresita",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 8,
+    "simulado": true
+  },
+  {
+    "id": "demo-105",
+    "colonia": "santa_teresita",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 22,
+    "simulado": true
+  },
+  {
+    "id": "demo-106",
+    "colonia": "santa_teresita",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 2,
+    "simulado": true
+  },
+  {
+    "id": "demo-107",
+    "colonia": "chapalita",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 4,
+    "simulado": true
+  },
+  {
+    "id": "demo-108",
+    "colonia": "chapalita",
+    "tipo": "olor",
+    "sintomas": false,
+    "diasAtras": 18,
+    "simulado": true
+  },
+  {
+    "id": "demo-109",
+    "colonia": "chapalita",
+    "tipo": "turbia",
+    "sintomas": false,
+    "diasAtras": 1,
+    "simulado": true
+  }
+]
