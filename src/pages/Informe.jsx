@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { descargarCSV } from '../utils/exportarCSV';
 import { calcularEstadisticasSalud } from '../utils/reportesStore';
+import { construirFilaResumen, calcularTendencia, problemaMasFrecuente } from '../utils/resumenColonia';
 
 export default function Informe() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,17 +25,12 @@ export default function Informe() {
   const data = getColoniaResumen(coloniaId);
   const salud = calcularEstadisticasSalud(data.reportes);
 
+  const tendencia = calcularTendencia(data.reportes);
+  const simuladosCount = data.reportes.filter(r => r.simulado).length;
+
+  // CSV agregado por colonia (una fila, sin datos individuales de reportes)
   const handleDescargarCSV = () => {
-    const filas = data.reportes.map(r => ({
-      id: r.id,
-      colonia: data.nombre,
-      municipio: data.municipio,
-      tipo_problema: r.tipo,
-      fecha: r.fecha,
-      sintomas_salud: r.sintomas === null ? 'No respondio' : r.sintomas ? 'Si' : 'No',
-      simulado: r.simulado ? 'Si' : 'No'
-    }));
-    descargarCSV(filas, `informe_${coloniaId}_aguaclara.csv`);
+    descargarCSV([construirFilaResumen(data)], `informe_${coloniaId}_aguaclara.csv`);
   };
 
   const handleImprimir = () => {
@@ -190,6 +186,16 @@ export default function Informe() {
                   <td className="py-2.5 px-3 text-xs text-slate-500">Fórmula de ponderación comunitaria</td>
                 </tr>
                 <tr>
+                  <td className="py-2.5 px-3 font-semibold">Tendencia (últimos 15 días vs. 15 anteriores)</td>
+                  <td className="py-2.5 px-3 font-bold capitalize">{tendencia}</td>
+                  <td className="py-2.5 px-3 text-xs text-slate-500">Calculada con los reportes de calidad</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 px-3 font-semibold">Problema más frecuente</td>
+                  <td className="py-2.5 px-3 font-bold">{problemaMasFrecuente(data.reportes)}</td>
+                  <td className="py-2.5 px-3 text-xs text-slate-500">Reportes ciudadanos vecinales</td>
+                </tr>
+                <tr>
                   <td className="py-2.5 px-3 font-semibold">Total de viviendas registradas</td>
                   <td className="py-2.5 px-3 font-bold">
                     {data.viviendas ? data.viviendas.toLocaleString() : 'Sin dato'}
@@ -212,12 +218,12 @@ export default function Informe() {
             </table>
           </div>
 
-          {/* Desglose por tipo de falla */}
+          {/* Desglose por tipo de problema de calidad */}
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
             <span className="text-xs uppercase font-bold text-slate-600 tracking-wider block mb-2">
-              Desglose de problemas en la colonia (últimos 30 días)
+              Problemas de calidad del agua (últimos 30 días) · cuentan para el semáforo
             </span>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            <div className="grid grid-cols-3 gap-3 text-center">
               <div className="p-2 bg-white rounded-lg border border-slate-200">
                 <span className="text-xs text-slate-500 block">Agua turbia</span>
                 <span className="text-lg font-black text-slate-900">
@@ -236,11 +242,20 @@ export default function Informe() {
                   {data.reportes.filter(r => r.tipo === 'color').length}
                 </span>
               </div>
-              <div className="p-2 bg-white rounded-lg border border-slate-200">
-                <span className="text-xs text-slate-500 block">Falta de agua</span>
-                <span className="text-lg font-black text-slate-900">{data.faltaAguaCount}</span>
-              </div>
             </div>
+          </div>
+
+          {/* Falta de agua: se informa aparte, no entra al semáforo de calidad */}
+          <div className="bg-sky-50 p-4 rounded-xl border border-sky-200 flex items-center justify-between gap-4">
+            <div>
+              <span className="text-xs uppercase font-bold text-sky-900 tracking-wider block">
+                Falta de agua (últimos 30 días)
+              </span>
+              <span className="text-xs text-sky-900/80">
+                Corte total o presión insuficiente. Se informa aparte y no forma parte del semáforo de calidad.
+              </span>
+            </div>
+            <span className="text-2xl font-black text-sky-900 shrink-0">{data.faltaAguaCount}</span>
           </div>
 
           {/* Metodología y Límites Éticos */}
@@ -253,6 +268,11 @@ export default function Informe() {
               El semáforo indica el <strong>volumen de reportes ciudadanos</strong> registrados en la plataforma y no determina 
               si el agua es potable, segura o contaminada químicamente. Los datos de viviendas y riesgo son provisionales basados en fuentes abiertas.
             </p>
+            {simuladosCount > 0 && (
+              <p className="font-semibold text-amber-700">
+                Este informe incluye datos de demostración: {simuladosCount} de {data.reportes.length} reportes son simulados.
+              </p>
+            )}
             <p className="text-slate-500">
               * Para reportes y solicitudes de servicio en domicilio particular, acuda al SIAPA Bot por WhatsApp: (33) 5164 4440 o marcación 073.
             </p>

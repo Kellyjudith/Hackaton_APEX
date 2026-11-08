@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, Marker, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 
 // Componente para recentrar el mapa cuando se selecciona una colonia
@@ -39,65 +39,31 @@ export default function MapaLeaflet({
     return map;
   }, [resumenTodasColonias]);
 
+  // Contorno tenue de cada colonia. El color fuerte y el tamaño los llevan los círculos.
   const styleFeature = (feature) => {
     const id = feature.properties?.id;
     const colData = dataPorColonia[id];
     const isSelected = id === coloniaSeleccionadaId;
 
-    // 1. Si el filtro activo es "Falta de agua"
     if (filtroTipo === 'falta_agua') {
       const count = colData?.faltaAguaCount || 0;
-
-      if (count === 0) {
-        // Colonias sin reportes de falta de agua se atenúan
-        return {
-          fillColor: '#F8FAFC',
-          weight: 1,
-          opacity: 0.3,
-          color: '#94A3B8',
-          fillOpacity: 0.1,
-          dashArray: '4',
-        };
-      }
-
-      // Escala propia de azul para falta de agua
-      let blueFill = '#BAE6FD'; // 1-2
-      let blueBorder = '#0284C7';
-
-      if (count >= 5) {
-        blueFill = '#0284C7';
-        blueBorder = '#075985';
-      } else if (count >= 3) {
-        blueFill = '#38BDF8';
-        blueBorder = '#0369A1';
-      }
-
       return {
-        fillColor: blueFill,
-        weight: isSelected ? 4 : 2.5,
-        opacity: 1,
-        color: isSelected ? '#002020' : blueBorder,
-        fillOpacity: isSelected ? 0.9 : 0.75,
-        dashArray: '',
+        fillColor: count > 0 ? '#BAE6FD' : '#F8FAFC',
+        weight: isSelected ? 3.5 : 1.5,
+        opacity: count > 0 ? 0.9 : 0.4,
+        color: isSelected ? '#075985' : count > 0 ? '#0284C7' : '#94A3B8',
+        fillOpacity: count > 0 ? 0.18 : 0.06,
+        dashArray: count > 0 ? '' : '4',
       };
     }
 
-    // 2. Filtro "Todas las colonias" (Semáforo de calidad normal)
     const estado = colData?.estado;
-    let fillColor = '#F1F5F9';
-    let borderColor = '#64748B';
-
-    if (estado) {
-      fillColor = estado.bg;
-      borderColor = estado.color;
-    }
-
     return {
-      fillColor: fillColor,
-      weight: isSelected ? 4 : 2,
-      opacity: 1,
-      color: isSelected ? '#00477F' : borderColor,
-      fillOpacity: isSelected ? 0.85 : 0.65,
+      fillColor: estado ? estado.bg : '#F1F5F9',
+      weight: isSelected ? 3.5 : 1.5,
+      opacity: 0.9,
+      color: isSelected ? '#00477F' : estado ? estado.color : '#64748B',
+      fillOpacity: 0.2,
       dashArray: isSelected ? '' : '3',
     };
   };
@@ -148,6 +114,59 @@ export default function MapaLeaflet({
     });
   };
 
+  // Centro de cada colonia, calculado a partir de su polígono (si cambian los polígonos, se recalcula solo)
+  const centros = React.useMemo(() => {
+    const out = {};
+    (geojsonData?.features || []).forEach((f) => {
+      try {
+        const b = L.geoJSON(f).getBounds();
+        if (b.isValid()) {
+          const c = b.getCenter();
+          out[f.properties?.id] = [c.lat, c.lng];
+        }
+      } catch (e) {
+        console.error('Centro no calculado:', e);
+      }
+    });
+    return out;
+  }, [geojsonData]);
+
+  // Un círculo por colonia: tamaño = número de reportes; color = semáforo (o azul en falta de agua)
+  const circulos = React.useMemo(() => {
+    const lista = (resumenTodasColonias || [])
+      .map((c) => {
+        const esFalta = filtroTipo === 'falta_agua';
+        const n = esFalta ? c.faltaAguaCount || 0 : c.estado?.n || 0;
+        return { c, n, esFalta };
+      })
+      .filter((x) => centros[x.c.id] && !(x.esFalta && x.n === 0));
+    const nMax = Math.max(1, ...lista.map((x) => x.n));
+    return lista.map(({ c, n, esFalta }) => {
+      const diametro = n === 0 ? 26 : Math.round(26 + 30 * Math.sqrt(n / nMax)); // 26 a 56 px
+      let relleno;
+      let borde;
+      if (esFalta) {
+        relleno = n >= 5 ? '#0284C7' : n >= 3 ? '#38BDF8' : '#7DD3FC';
+        borde = '#075985';
+      } else {
+        relleno = c.estado?.color || '#64748B';
+        borde = relleno;
+      }
+      return { id: c.id, nombre: c.nombre, n, esFalta, diametro, relleno, borde, estado: c.estado };
+    });
+  }, [resumenTodasColonias, filtroTipo, centros]);
+
+  const crearIcono = (circ, seleccionado) => {
+    const d = circ.diametro;
+    const textoOscuro = circ.esFalta && circ.n < 3;
+    return L.divIcon({
+      className: 'aguaclara-circulo',
+      iconSize: [d, d],
+      iconAnchor: [d / 2, d / 2],
+      html: `<div style="width:${d}px;height:${d}px;border-radius:50%;background:${circ.relleno}CC;border:${seleccionado ? 4 : 2}px solid ${seleccionado ? '#00477F' : circ.borde};box-shadow:0 1px 4px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;font:800 ${d >= 40 ? 15 : 13}px Inter,sans-serif;color:${textoOscuro ? '#0C4A6E' : '#fff'};text-shadow:${textoOscuro ? 'none' : '0 1px 2px rgba(0,0,0,.45)'};">${circ.n}</div>`,
+    });
+  };
+
   const selectedFeature = geojsonData?.features?.find(
     f => f.properties?.id === coloniaSeleccionadaId
   );
@@ -175,14 +194,36 @@ export default function MapaLeaflet({
           />
         )}
 
+        {circulos.map((circ) => (
+          <Marker
+            key={`${circ.id}-${filtroTipo}-${circ.n}-${circ.id === coloniaSeleccionadaId}`}
+            position={centros[circ.id]}
+            icon={crearIcono(circ, circ.id === coloniaSeleccionadaId)}
+            eventHandlers={{ click: () => onSelectColonia && onSelectColonia(circ.id) }}
+            keyboard={false}
+          >
+            <Tooltip direction="top" offset={[0, -circ.diametro / 2]}>
+              <div style={{ fontFamily: 'Inter, sans-serif', padding: 2 }}>
+                <strong style={{ fontSize: 14 }}>{circ.nombre}</strong>
+                <br />
+                <span style={{ fontSize: 12, fontWeight: 700, color: circ.esFalta ? '#0284C7' : circ.estado?.color }}>
+                  {circ.esFalta
+                    ? `${circ.n} avisos de falta de agua`
+                    : `${circ.estado?.nombre || 'Sin datos'} (${circ.n} reportes de calidad)`}
+                </span>
+              </div>
+            </Tooltip>
+          </Marker>
+        ))}
+
         <MapController selectedFeature={selectedFeature} />
       </MapContainer>
 
       {/* Indicador de capa en el mapa */}
       <div className="absolute bottom-2 left-2 z-20 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-md text-[11px] font-semibold text-on-surface-variant shadow-sm border border-outline-variant/30">
         {filtroTipo === 'falta_agua'
-          ? 'Capa: Falta de agua (escala azul independiente)'
-          : 'Capa: Semáforo de calidad de agua vecinal'}
+          ? 'Capa: Falta de agua · el tamaño del círculo es el número de avisos'
+          : 'Capa: Semáforo de reportes · el tamaño del círculo es el número de reportes'}
       </div>
     </div>
   );

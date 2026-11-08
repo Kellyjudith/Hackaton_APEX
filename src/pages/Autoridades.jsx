@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { descargarCSV } from '../utils/exportarCSV';
+import { construirFilaResumen } from '../utils/resumenColonia';
 import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import { SERIE_SEMANAL } from '../utils/reportesStore';
 
@@ -28,17 +29,8 @@ export default function Autoridades() {
     });
 
   const handleExportarTodoCSV = () => {
-    const filas = (resumenTodasColonias || []).map(c => ({
-      colonia: c.nombre,
-      municipio: c.municipio,
-      estado_semaforo: c.estado.nombre,
-      reportes_calidad_30d: c.reportesCalidad,
-      tasa_por_1000_viviendas: c.estado.tasa !== null ? c.estado.tasa : 'Sin dato',
-      viviendas_inegi: c.viviendas || 'Sin dato',
-      riesgo_atlas: c.riesgo || 'Sin dato',
-      reportes_falta_agua: c.faltaAguaCount,
-      fecha_corte: new Date().toISOString().split('T')[0]
-    }));
+    // Mismo formato agregado que el informe de cada colonia (sin datos individuales)
+    const filas = (resumenTodasColonias || []).map(c => construirFilaResumen(c));
     descargarCSV(filas, 'aguaclara_panel_autoridades_guadalajara.csv');
   };
 

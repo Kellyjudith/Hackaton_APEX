@@ -41,3 +41,9 @@
     page-break-inside: avoid;
   }
 }
+
+/* Círculos proporcionales del mapa (divIcon de Leaflet sin fondo ni borde por defecto) */
+.aguaclara-circulo {
+  background: transparent !important;
+  border: none !important;
+}
