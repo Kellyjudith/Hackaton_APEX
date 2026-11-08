@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import MapaLeaflet from '../components/MapaLeaflet';
@@ -13,6 +13,7 @@ export default function Home() {
   const [filtroTipo, setFiltroTipo] = useState('todos'); // 'todos' | 'falta_agua'
   const [coloniaSeleccionadaId, setColoniaSeleccionadaId] = useState('oblatos');
   const [mostrarSugerencias, setMostrarSugerencias] = useState(false);
+  const contenidoRef = useRef(null);
 
   useEffect(() => {
     const v = searchParams.get('vista');
@@ -43,10 +44,32 @@ export default function Home() {
     c.nombre.toLowerCase().includes(busqueda.toLowerCase())
   );
 
+  // Baja a la sección del mapa/lista (útil en celular, donde el buscador queda arriba y el mapa abajo)
+  const irAlContenido = () => {
+    if (document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur(); // cierra el teclado en el celular
+    }
+    setTimeout(() => {
+      if (contenidoRef.current) {
+        contenidoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
+  };
+
   const seleccionarColoniaDesdeBuscador = (colonia) => {
     setColoniaSeleccionadaId(colonia.id);
     setBusqueda('');
     setMostrarSugerencias(false);
+    irAlContenido();
+  };
+
+  const manejarTeclaBuscador = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (sugerenciasBusqueda.length > 0) {
+        seleccionarColoniaDesdeBuscador(sugerenciasBusqueda[0]);
+      }
+    }
   };
 
   const coloniaSeleccionada = resumenTodasColonias?.find(c => c.id === coloniaSeleccionadaId) || resumenTodasColonias?.[0];
@@ -94,6 +117,8 @@ export default function Home() {
                   setMostrarSugerencias(true);
                 }}
                 onFocus={() => setMostrarSugerencias(true)}
+                onKeyDown={manejarTeclaBuscador}
+                enterKeyHint="search"
                 placeholder="Buscar tu colonia"
                 className="w-full min-h-[50px] pl-11 pr-10 rounded-xl bg-surface-container-low text-on-surface text-base placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all border border-transparent focus:border-secondary"
               />
@@ -133,33 +158,39 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              {/* Filtro: Todas las colonias */}
-              <button
-                type="button"
-                onClick={() => setFiltroTipo('todos')}
-                className={`min-h-[46px] px-4 rounded-xl text-sm font-semibold flex items-center gap-1.5 transition-all ${
-                  filtroTipo === 'todos'
-                    ? 'bg-primary text-on-primary shadow-sm'
-                    : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'
-                }`}
+              {/* Capa del mapa: Calidad del agua | Falta de agua */}
+              <div
+                role="group"
+                aria-label="Capa del mapa"
+                className="flex items-center bg-surface-container rounded-xl p-1 gap-1"
               >
-                <span className="material-symbols-outlined text-[18px]">tune</span>
-                <span>Todas las colonias</span>
-              </button>
-
-              {/* Filtro: Falta de agua */}
-              <button
-                type="button"
-                onClick={() => setFiltroTipo(filtroTipo === 'falta_agua' ? 'todos' : 'falta_agua')}
-                className={`min-h-[46px] px-4 rounded-xl text-sm font-semibold flex items-center gap-1.5 transition-all ${
-                  filtroTipo === 'falta_agua'
-                    ? 'bg-sky-700 text-white shadow-sm ring-2 ring-sky-300'
-                    : 'bg-sky-100 text-sky-900 hover:bg-sky-200'
-                }`}
-              >
-                <span className="material-symbols-outlined text-[18px]">water_damage</span>
-                <span>Falta de agua</span>
-              </button>
+                <button
+                  type="button"
+                  onClick={() => setFiltroTipo('todos')}
+                  aria-pressed={filtroTipo === 'todos'}
+                  className={`min-h-[40px] px-3.5 py-1 rounded-lg text-sm font-bold flex items-center gap-1.5 transition-all ${
+                    filtroTipo === 'todos'
+                      ? 'bg-primary text-on-primary shadow-sm'
+                      : 'text-on-surface-variant hover:text-on-surface'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-[18px]">water_drop</span>
+                  <span>Calidad del agua</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFiltroTipo('falta_agua')}
+                  aria-pressed={filtroTipo === 'falta_agua'}
+                  className={`min-h-[40px] px-3.5 py-1 rounded-lg text-sm font-bold flex items-center gap-1.5 transition-all ${
+                    filtroTipo === 'falta_agua'
+                      ? 'bg-sky-700 text-white shadow-sm'
+                      : 'text-on-surface-variant hover:text-on-surface'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-[18px]">water_damage</span>
+                  <span>Falta de agua</span>
+                </button>
+              </div>
 
               {/* Interruptor Accesible Mapa | Lista */}
               <div className="flex items-center bg-surface-container rounded-xl p-1 ml-auto">
@@ -307,6 +338,9 @@ export default function Home() {
             </div>
           </section>
         )}
+
+        {/* Ancla de desplazamiento: aquí llega el usuario al elegir una colonia */}
+        <div ref={contenidoRef} aria-hidden="true" className="scroll-mt-28 h-0 -mb-4" />
 
         {/* Contenido Principal: Alternancia Mapa / Lista */}
         {cargando ? (
