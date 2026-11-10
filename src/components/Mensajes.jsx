@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Mensajes({ tipo, onSeleccionarColonia, horasRestantes = 36 }) {
+export default function Mensajes({ tipo, onSeleccionarColonia, onReintentar, horasRestantes = 36 }) {
   if (tipo === 'fuera_de_zona') {
     return (
       <article className="bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-sm flex flex-col gap-space-lg transition-all border border-outline-variant/40">
@@ -21,10 +21,21 @@ export default function Mensajes({ tipo, onSeleccionarColonia, horasRestantes = 
           </h2>
           <p className="text-base text-on-surface-variant leading-relaxed">
             Por ahora aceptamos reportes de: Chapalita, Oblatos, Jardines de la Paz, Miravalle, Santa Cecilia, San Rafael, Santa Teresita y Centro.
+            {!onSeleccionarColonia && ' Si estás dentro de una de ellas, intenta de nuevo con el GPS activado y al aire libre.'}
           </p>
         </div>
 
         <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-start gap-space-md pt-space-xs">
+          {!onSeleccionarColonia && onReintentar && (
+            <button
+              type="button"
+              onClick={onReintentar}
+              className="inline-flex items-center justify-center min-h-[52px] px-space-lg bg-primary hover:bg-primary-container active:scale-[0.99] text-on-primary font-semibold text-base rounded-xl shadow-sm transition-all"
+            >
+              <span className="material-symbols-outlined mr-2 text-[20px]">my_location</span>
+              Reintentar con el GPS
+            </button>
+          )}
           {onSeleccionarColonia && (
             <button
               type="button"
@@ -107,11 +118,23 @@ export default function Mensajes({ tipo, onSeleccionarColonia, horasRestantes = 
           No pudimos detectar tu ubicación automáticamente
         </h2>
         <p className="text-base text-on-surface-variant leading-relaxed">
-          Para ubicar tu reporte puedes habilitar la ubicación en tu navegador o seleccionar tu colonia directamente con un toque de la lista de colonias piloto.
+          {onSeleccionarColonia
+            ? 'Para ubicar tu reporte puedes habilitar la ubicación en tu navegador o seleccionar tu colonia directamente con un toque de la lista de colonias piloto.'
+            : 'Para evitar reportes falsos necesitamos verificar que estás en una colonia piloto. Activa el permiso de ubicación en tu navegador (toca el candado junto a la dirección → Ubicación → Permitir) y vuelve a intentarlo.'}
         </p>
       </div>
 
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-space-md pt-space-xs">
+        {!onSeleccionarColonia && onReintentar && (
+          <button
+            type="button"
+            onClick={onReintentar}
+            className="inline-flex items-center justify-center min-h-[52px] px-space-lg bg-primary hover:bg-primary-container active:scale-[0.99] text-on-primary font-semibold text-base rounded-xl shadow-sm transition-all"
+          >
+            <span className="material-symbols-outlined mr-2 text-[20px]">my_location</span>
+            Reintentar con el GPS
+          </button>
+        )}
         {onSeleccionarColonia && (
           <button
             type="button"

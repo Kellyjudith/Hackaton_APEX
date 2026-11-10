@@ -71,6 +71,7 @@ export function suscribirReportes(callback, onError) {
           tipo: x.tipo,
           sintomas: x.sintomas === undefined ? null : x.sintomas,
           fecha: aFechaISO(fecha),
+          timestamp: fecha.getTime(),
           simulado: x.simulado === true,
           origen: 'firestore',
         };
@@ -127,6 +128,7 @@ export async function crearReporteFirestore({ colonia, tipo, sintomas }) {
     tipo,
     sintomas: sintomas === undefined ? null : sintomas,
     fecha: aFechaISO(new Date()),
+    timestamp: Date.now(),
     simulado: false,
     origen: 'firestore',
   };

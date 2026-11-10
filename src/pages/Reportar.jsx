@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { buscarColoniaPorPunto } from '../utils/geofencing';
@@ -12,7 +12,10 @@ export default function Reportar() {
   const { modoDemo, coloniasPiloto, geojsonData, agregarReporte } = useApp();
 
   // Estados del formulario
-  const [coloniaId, setColoniaId] = useState('oblatos');
+  // La colonia se elige con las píldoras o con el GPS (en modo normal no hay colonia por defecto).
+  const [coloniaId, setColoniaId] = useState(modoDemo ? 'oblatos' : null);
+  const [ubicacionVerificada, setUbicacionVerificada] = useState(false);
+  const [errorGps, setErrorGps] = useState(null);
   const [pestaña, setPestaña] = useState('calidad'); // 'calidad' | 'falta'
   const [tipoSeleccionado, setTipoSeleccionado] = useState(null); // 'turbia' | 'olor' | 'color' | 'falta_agua' | null
   const [sintomas, setSintomas] = useState(null); // true | false | null
@@ -21,47 +24,82 @@ export default function Reportar() {
   // Estados de geolocalización y mensajes
   const [detectandoGps, setDetectandoGps] = useState(false);
   const [estadoMensaje, setEstadoMensaje] = useState(null); // null | 'fuera_de_zona' | 'ubicacion_no_permitida' | 'limite_48h'
-  const [coloniaDetectadaNombre, setColoniaDetectadaNombre] = useState('Colonia Oblatos, Guadalajara');
   const [horasRestantes, setHorasRestantes] = useState(0);
   const [enviando, setEnviando] = useState(false);
   const [errorEnvio, setErrorEnvio] = useState(null);
 
-  // Detección GPS
+  // Al activar/desactivar el Modo Demostración se ajusta la colonia por defecto.
+  useEffect(() => {
+    if (modoDemo) {
+      setColoniaId(prev => prev || 'oblatos');
+    } else if (!ubicacionVerificada) {
+      setColoniaId(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [modoDemo]);
+
+  // Precisión máxima aceptada (metros). Más allá, la ubicación no es confiable (p. ej. PC con ubicación por IP).
+  const PRECISION_MAX_M = 1500;
+
+  // Detección y validación por GPS (el punto solo se usa en el dispositivo; no se guarda)
   const handleDetectarUbicacion = () => {
+    setEstadoMensaje(null);
+    setErrorGps(null);
+
     if (!navigator.geolocation) {
       setEstadoMensaje('ubicacion_no_permitida');
       return;
     }
+    if (!geojsonData) {
+      setErrorGps('Aún no cargan los datos del mapa. Espera un momento e inténtalo de nuevo.');
+      return;
+    }
 
     setDetectandoGps(true);
-    setEstadoMensaje(null);
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         setDetectandoGps(false);
-        const { longitude, latitude } = pos.coords;
+        const { longitude, latitude, accuracy } = pos.coords;
 
-        if (modoDemo) {
-          setColoniaDetectadaNombre('Ubicación verificada (Modo Demostración)');
+        if (accuracy && accuracy > PRECISION_MAX_M) {
+          setErrorGps(
+            `Tu dispositivo dio una ubicación muy poco precisa (±${Math.round(accuracy)} m). ` +
+            'Prueba desde el celular, con el GPS activado y de preferencia al aire libre.'
+          );
           return;
         }
 
-        // Validación real con Turf.js
         const colEncontrada = buscarColoniaPorPunto(longitude, latitude, geojsonData);
         if (colEncontrada) {
           setColoniaId(colEncontrada.id);
-          setColoniaDetectadaNombre(`${colEncontrada.nombre}, Guadalajara`);
+          setUbicacionVerificada(true);
         } else {
+          setUbicacionVerificada(false);
+          if (!modoDemo) setColoniaId(null);
           setEstadoMensaje('fuera_de_zona');
         }
       },
       (err) => {
         setDetectandoGps(false);
         console.warn('Error GPS:', err);
-        setEstadoMensaje('ubicacion_no_permitida');
+        if (err && err.code === 1) {
+          setEstadoMensaje('ubicacion_no_permitida');
+        } else if (err && err.code === 3) {
+          setErrorGps('Tardó demasiado en obtener tu ubicación. Revisa que el GPS esté activo e inténtalo de nuevo.');
+        } else {
+          setErrorGps('No pudimos obtener tu ubicación en este momento. Inténtalo de nuevo en un lugar con mejor señal.');
+        }
       },
-      { timeout: 10000, enableHighAccuracy: true }
+      { timeout: 15000, enableHighAccuracy: true, maximumAge: 0 }
     );
+  };
+
+  const elegirColoniaDemo = (id) => {
+    setColoniaId(id);
+    setUbicacionVerificada(false);
+    setEstadoMensaje(null);
+    setErrorGps(null);
   };
 
   const cambiarPestaña = (nuevaPestaña) => {
@@ -86,6 +124,12 @@ export default function Reportar() {
       return;
     }
 
+    // Sin colonia validada no se envía (en modo normal solo la fija el GPS)
+    if (!coloniaId) {
+      setErrorEnvio('Primero elige tu colonia (paso 1) para poder enviar el reporte.');
+      return;
+    }
+
     setErrorEnvio(null);
 
     // Límite de 48 h (no se valida en Modo Demostración)
@@ -104,7 +148,8 @@ export default function Reportar() {
       }
     }
 
-    const hoy = new Date().toISOString().split('T')[0];
+    const ahora = new Date();
+    const hoy = `${ahora.getFullYear()}-${String(ahora.getMonth() + 1).padStart(2, '0')}-${String(ahora.getDate()).padStart(2, '0')}`;
 
     const nuevo = {
       colonia: coloniaId,
@@ -171,6 +216,7 @@ export default function Reportar() {
             tipo={estadoMensaje}
             horasRestantes={horasRestantes}
             onSeleccionarColonia={() => setEstadoMensaje(null)}
+            onReintentar={estadoMensaje === 'limite_48h' ? undefined : handleDetectarUbicacion}
           />
         )}
 
@@ -195,10 +241,12 @@ export default function Reportar() {
                 </div>
                 <div>
                   <span className="text-[11px] uppercase tracking-wider text-on-surface-variant font-bold block">
-                    Colonia seleccionada
+                    {ubicacionVerificada ? 'Ubicación verificada por GPS' : 'Colonia seleccionada'}
                   </span>
                   <span className="text-base sm:text-lg font-bold text-on-surface">
-                    {coloniasPiloto.find(c => c.id === coloniaId)?.nombre || coloniaId}, Guadalajara
+                    {coloniaId
+                      ? `${coloniasPiloto.find(c => c.id === coloniaId)?.nombre || coloniaId}, Guadalajara`
+                      : 'Elige tu colonia'}
                   </span>
                 </div>
               </div>
@@ -207,29 +255,46 @@ export default function Reportar() {
                 type="button"
                 onClick={handleDetectarUbicacion}
                 disabled={detectandoGps}
-                className="min-h-[46px] px-4 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-primary font-semibold text-xs sm:text-sm shadow-sm flex items-center justify-center gap-1.5 transition-colors border border-outline-variant/40"
+                className={`min-h-[46px] px-4 rounded-xl font-semibold text-xs sm:text-sm shadow-sm flex items-center justify-center gap-1.5 transition-colors border ${
+                  false
+                    ? ''
+                    : 'bg-surface-container-lowest hover:bg-surface-container-high text-primary border-outline-variant/40'
+                }`}
               >
                 <span className="material-symbols-outlined text-[18px]">
-                  {detectandoGps ? 'sync' : 'my_location'}
+                  {detectandoGps ? 'sync' : ubicacionVerificada ? 'check_circle' : 'my_location'}
                 </span>
-                <span>{detectandoGps ? 'Detectando GPS...' : 'Usar mi GPS'}</span>
+                <span>
+                  {detectandoGps ? 'Detectando GPS...' : ubicacionVerificada ? 'Verificar de nuevo' : 'Usar mi GPS'}
+                </span>
               </button>
             </div>
 
+            {errorGps && (
+              <div role="alert" className="rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-sm p-3 font-medium">
+                {errorGps}
+              </div>
+            )}
+
+            <p className="text-xs text-on-surface-variant flex items-start gap-1.5">
+              <span className="material-symbols-outlined text-[16px] text-primary shrink-0">shield</span>
+              <span>
+                Solo aceptamos reportes de las 8 colonias piloto. El GPS es opcional y se usa solo en tu dispositivo: no se guarda ni se comparte.
+              </span>
+            </p>
+
             {/* Píldoras de las 8 colonias piloto */}
+            {(
             <div className="space-y-2 pt-1">
               <span className="text-xs sm:text-sm text-on-surface-variant font-medium block">
-                O selecciona con un toque entre las 8 colonias piloto:
+                Elige tu colonia con un toque entre las 8 colonias piloto, o usa el GPS:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {coloniasPiloto.map((c) => (
                   <button
                     key={c.id}
                     type="button"
-                    onClick={() => {
-                      setColoniaId(c.id);
-                      setColoniaDetectadaNombre(`${c.nombre}, Guadalajara`);
-                    }}
+                    onClick={() => elegirColoniaDemo(c.id)}
                     className={`min-h-[44px] px-3.5 py-1 rounded-full text-xs sm:text-sm font-semibold transition-all ${
                       coloniaId === c.id
                         ? 'bg-primary text-on-primary shadow-sm'
@@ -241,6 +306,7 @@ export default function Reportar() {
                 ))}
               </div>
             </div>
+            )}
           </section>
 
           {/* PASO 2: Tipo de problema (3. Texto actualizado: "Elige el problema principal", UN solo tipo) */}
@@ -388,33 +454,6 @@ export default function Reportar() {
                 })()}
               </div>
             )}
-
-            {/* Botón Continuar de Paso 2 */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-outline-variant/20">
-              <span className="text-xs text-on-surface-variant font-medium">
-                {tipoSeleccionado
-                  ? '✓ Opción seleccionada. Puedes pulsar Continuar.'
-                  : 'Toca una opción para seleccionarla (pulsa de nuevo para desmarcar).'}
-              </span>
-              <button
-                type="button"
-                disabled={!tipoSeleccionado}
-                onClick={() => {
-                  const paso3 = document.getElementById('paso-3-section');
-                  if (paso3) {
-                    paso3.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className={`min-h-[46px] px-6 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all ${
-                  tipoSeleccionado
-                    ? 'bg-primary hover:bg-primary-container text-on-primary shadow-sm cursor-pointer active:scale-95'
-                    : 'bg-surface-container-high text-on-surface-variant/40 cursor-not-allowed border border-outline-variant/30'
-                }`}
-              >
-                <span>Continuar</span>
-                <span className="material-symbols-outlined text-[18px]">arrow_downward</span>
-              </button>
-            </div>
           </section>
 
           {/* PASO 3: Pregunta opcional de salud + Aviso */}
@@ -493,6 +532,12 @@ export default function Reportar() {
             </div>
           </section>
 
+          {!coloniaId && (
+            <p className="text-xs sm:text-sm text-on-surface-variant font-medium text-center sm:text-right">
+              Para enviar, elige tu colonia en el paso 1.
+            </p>
+          )}
+
           {errorEnvio && (
             <div role="alert" className="rounded-xl border border-red-300 bg-red-50 text-red-900 text-sm p-3 font-medium">
               {errorEnvio}
@@ -510,9 +555,9 @@ export default function Reportar() {
 
             <button
               type="submit"
-              disabled={!avisoAceptado || !tipoSeleccionado || enviando}
+              disabled={!avisoAceptado || !tipoSeleccionado || !coloniaId || enviando}
               className={`w-full sm:w-auto min-h-[52px] px-8 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99] ${
-                avisoAceptado && tipoSeleccionado && !enviando
+                avisoAceptado && tipoSeleccionado && coloniaId && !enviando
                   ? 'bg-primary hover:bg-primary-container text-on-primary cursor-pointer'
                   : 'bg-surface-container-high text-outline cursor-not-allowed'
               }`}

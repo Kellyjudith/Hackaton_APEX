@@ -4,6 +4,7 @@ import { useApp } from '../context/AppContext';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, CartesianGrid } from 'recharts';
 import { SERIE_SEMANAL, calcularEstadisticasSalud, marcarEvidenciaEnviada, getEstadoEvidenciaEnviada } from '../utils/reportesStore';
 import { descargarCSV } from '../utils/exportarCSV';
+import { ETIQUETA_TIPO, tiempoRelativo, ultimosReportes, contarUltimas24h } from '../utils/tiempo';
 
 export default function Colonia() {
   const { id } = useParams();
@@ -39,6 +40,10 @@ export default function Colonia() {
     { tipo: 'Con Color', reportes: colorCount, fill: '#D97706' },
     { tipo: 'Falta Agua', reportes: faltaAguaCount, fill: '#0284C7' },
   ];
+
+  // Actividad reciente (solo tipo y tiempo; nunca datos de salud)
+  const reportes24h = contarUltimas24h(dataColonia.reportes);
+  const ultimos3 = ultimosReportes(dataColonia.reportes, 3);
 
   // Salud
   const statsSalud = calcularEstadisticasSalud(dataColonia.reportes);
@@ -209,6 +214,37 @@ export default function Colonia() {
             </span>
             <span className="text-[11px] text-on-surface-variant mt-0.5 block">Dataset 05 (Atlas Riesgos)</span>
           </div>
+        </div>
+
+        {/* Actividad reciente */}
+        <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-[24px]">schedule</span>
+              <h3 className="font-bold text-base sm:text-lg text-on-surface">Actividad reciente</h3>
+            </div>
+            <span className="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-xs sm:text-sm font-bold">
+              {reportes24h} {reportes24h === 1 ? 'reporte' : 'reportes'} en las últimas 24 horas
+            </span>
+          </div>
+
+          {ultimos3.length > 0 ? (
+            <ul className="flex flex-col divide-y divide-surface-container-high">
+              {ultimos3.map((r) => (
+                <li key={r.id} className="flex items-center justify-between gap-3 py-2 text-sm">
+                  <span className="font-semibold text-on-surface">{ETIQUETA_TIPO[r.tipo] || r.tipo}</span>
+                  <span className="text-on-surface-variant text-xs sm:text-sm shrink-0">{tiempoRelativo(r)}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-sm text-on-surface-variant">Aún no hay reportes en esta colonia.</p>
+          )}
+
+          <p className="text-[11px] text-on-surface-variant">
+            Solo se muestra el tipo de problema y cuándo se reportó. Los reportes son anónimos.
+            {dataColonia.reportes.some(r => r.simulado) && ' Incluye datos simulados de demostración.'}
+          </p>
         </div>
 
         {/* Sección de Gráficas con Recharts */}

@@ -25,7 +25,8 @@ export async function getTodosLosReportes() {
     d.setDate(d.getDate() - (r.diasAtras || 0));
     return {
       ...r,
-      fecha: d.toISOString().split('T')[0]
+      // Fecha local (YYYY-MM-DD), igual que los reportes de Firestore
+      fecha: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
     };
   });
 

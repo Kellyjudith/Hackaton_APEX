@@ -501,18 +501,24 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {coloniasFiltradas.map((c) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4">
+              {[...coloniasFiltradas]
+                .sort((a, b) =>
+                  filtroTipo === 'falta_agua'
+                    ? b.faltaAguaCount - a.faltaAguaCount
+                    : b.reportesCalidad - a.reportesCalidad
+                )
+                .map((c) => (
                 <div
                   key={c.id}
-                  className={`bg-surface-container-lowest rounded-2xl p-5 shadow-sm border flex flex-col justify-between gap-4 text-left hover:shadow-md transition-all ${
+                  className={`bg-surface-container-lowest rounded-2xl p-3.5 sm:p-5 shadow-sm border flex flex-col justify-between gap-2.5 sm:gap-4 text-left hover:shadow-md transition-all ${
                     filtroTipo === 'falta_agua' ? 'border-sky-200' : 'border-outline-variant/30'
                   }`}
                 >
                   <div className="flex flex-col gap-2">
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <h3 className="text-xl font-bold text-on-surface">{c.nombre}</h3>
+                        <h3 className="text-base sm:text-xl font-bold text-on-surface">{c.nombre}</h3>
                         <span className="text-xs text-on-surface-variant">{c.municipio}, Jalisco</span>
                       </div>
 
@@ -536,31 +542,31 @@ export default function Home() {
                       )}
                     </div>
 
-                    <p className="text-xs text-on-surface-variant leading-relaxed">
+                    <p className="hidden sm:block text-xs text-on-surface-variant leading-relaxed">
                       {filtroTipo === 'falta_agua'
                         ? `${c.faltaAguaCount} reportes de falta de agua o presión insuficiente en los últimos 30 días.`
                         : c.estado.descripcion}
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 py-2 border-y border-surface-container-high">
+                  <div className="grid grid-cols-2 gap-2 py-1.5 sm:py-2 border-y border-surface-container-high">
                     <div>
                       <span className="text-[11px] text-on-surface-variant block">
                         {filtroTipo === 'falta_agua' ? 'Avisos de corte' : 'Reportes calidad'}
                       </span>
-                      <span className="text-xl font-black text-primary">
+                      <span className="text-lg sm:text-xl font-black text-primary">
                         {filtroTipo === 'falta_agua' ? c.faltaAguaCount : c.reportesCalidad}
                       </span>
                     </div>
                     <div>
                       <span className="text-[11px] text-on-surface-variant block">Por 1k viviendas</span>
-                      <span className="text-xl font-black text-on-surface">
+                      <span className="text-lg sm:text-xl font-black text-on-surface">
                         {c.estado.tasa !== null ? c.estado.tasa : 'Sin dato'}
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 pt-1">
+                  <div className="flex items-center gap-2">
                     <Link
                       to={`/colonia/${c.id}`}
                       className="flex-1 min-h-[44px] px-3 py-2 bg-primary text-on-primary rounded-xl font-semibold text-xs flex items-center justify-center gap-1.5 hover:bg-primary-container transition-all"
