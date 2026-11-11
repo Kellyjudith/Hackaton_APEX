@@ -1,5 +1,6 @@
-import { signInAnonymously, onAuthStateChanged } from 'firebase/auth';
+import { signInAnonymously, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import {
+  addDoc,
   collection,
   doc,
   getDoc,
@@ -132,4 +133,100 @@ export async function crearReporteFirestore({ colonia, tipo, sintomas }) {
     simulado: false,
     origen: 'firestore',
   };
+}
+
+/* ------------------------------------------------------------------ */
+/* Portal de autoridades: sesión y actualizaciones públicas            */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Escucha la sesión de la persona autorizada. Llama a callback con
+ * { uid, nombre, cargo } si la cuenta está en /autoridades, o con null.
+ * Las sesiones anónimas (ciudadanía) se ignoran.
+ */
+export function escucharAutoridad(callback) {
+  if (!firebaseConfigurado) {
+    callback(null);
+    return () => {};
+  }
+  return onAuthStateChanged(auth, async (user) => {
+    if (!user || user.isAnonymous) {
+      callback(null);
+      return;
+    }
+    try {
+      const snap = await getDoc(doc(db, 'autoridades', user.uid));
+      if (snap.exists()) {
+        const d = snap.data();
+        callback({ uid: user.uid, nombre: d.nombre || 'Personal autorizado', cargo: d.cargo || '' });
+      } else {
+        await signOut(auth); // cuenta válida en Firebase pero no autorizada para este portal
+        callback(null);
+      }
+    } catch (err) {
+      console.error('Error verificando autorización:', err);
+      callback(null);
+    }
+  });
+}
+
+export async function iniciarSesionAutoridad(correo, clave) {
+  if (!firebaseConfigurado) throw new Error('sin_firebase');
+  await signInWithEmailAndPassword(auth, correo.trim(), clave);
+}
+
+export async function cerrarSesionAutoridad() {
+  if (!firebaseConfigurado) return;
+  await signOut(auth);
+}
+
+/** Escucha las actualizaciones públicas (más recientes primero). */
+export function suscribirActualizaciones(callback, onError) {
+  if (!firebaseConfigurado) return () => {};
+  const q = query(collection(db, 'actualizaciones'), orderBy('fecha', 'desc'));
+  return onSnapshot(
+    q,
+    (snap) => {
+      callback(
+        snap.docs.map((d) => {
+          const x = d.data();
+          const f = x.fecha && x.fecha.toDate ? x.fecha.toDate() : new Date();
+          return {
+            id: d.id,
+            colonia: x.colonia,
+            tipoProblema: x.tipoProblema,
+            estado: x.estado,
+            accion: x.accion,
+            nota: x.nota,
+            autorNombre: x.autorNombre,
+            corrigeA: x.corrigeA || null,
+            timestamp: f.getTime(),
+            origen: 'firestore',
+          };
+        })
+      );
+    },
+    (err) => {
+      console.error('Error escuchando actualizaciones:', err);
+      if (onError) onError(err);
+    }
+  );
+}
+
+/** Publica una actualización (solo cuentas autorizadas; las reglas lo verifican). */
+export async function crearActualizacionFirestore(datos, autor) {
+  if (!firebaseConfigurado) throw new Error('sin_firebase');
+  const payload = {
+    colonia: datos.colonia,
+    tipoProblema: datos.tipoProblema,
+    estado: datos.estado,
+    accion: datos.accion,
+    nota: datos.nota.trim(),
+    fecha: serverTimestamp(),
+    autorUid: autor.uid,
+    autorNombre: autor.nombre,
+  };
+  if (datos.corrigeA) payload.corrigeA = datos.corrigeA;
+  const ref = await addDoc(collection(db, 'actualizaciones'), payload);
+  return ref.id;
 }

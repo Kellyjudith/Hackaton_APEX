@@ -57,7 +57,7 @@ export function problemaMasFrecuente(reportes) {
  * La falta de agua va en su propia columna, aparte del semáforo de calidad.
  * El malestar estomacal solo se publica con MIN_RESPUESTAS_SALUD o más respuestas.
  */
-export function construirFilaResumen(c) {
+export function construirFilaResumen(c, extra = {}) {
   const rep = c.reportes || [];
   const cuenta = (tipo) => rep.filter((r) => r.tipo === tipo).length;
   const salud = calcularEstadisticasSalud(rep);
@@ -81,6 +81,7 @@ export function construirFilaResumen(c) {
     olor: cuenta('olor'),
     color: cuenta('color'),
     falta_agua_30d: cuenta('falta_agua'),
+    ...extra,
     zona_riesgo: c.riesgo || 'sin_dato',
     malestar_si: salud.disponible ? salud.conSintomas : 'Datos insuficientes',
     malestar_total: salud.disponible ? salud.totalRespuestas : 'Datos insuficientes',

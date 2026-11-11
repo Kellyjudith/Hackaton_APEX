@@ -112,6 +112,10 @@ export default function Confirmacion() {
               <span>Llamar al 073</span>
             </a>
           </div>
+          <p className="text-xs sm:text-sm text-amber-900/90 leading-relaxed pt-1">
+            Si la autoridad registra una atención en tu colonia, la verás en la ficha de la colonia, junto a los reportes.
+            En este prototipo esas actualizaciones se publican desde un portal de demostración.
+          </p>
         </div>
 
         {/* Botones de acción */}

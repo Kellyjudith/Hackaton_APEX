@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>AguaClara Jalisco - Portal de Autoridades</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error-container":"#ffdad6","tertiary-fixed":"#ffdcc7","primary-fixed":"#d3e4ff","on-error-container":"#93000a","on-secondary-fixed":"#002020","on-surface":"#191c1e","on-secondary-container":"#006e6f","on-primary":"#ffffff","on-surface-variant":"#414751","on-tertiary-fixed-variant":"#723600","on-primary-fixed-variant":"#004881","background":"#f7f9fb","surface-dim":"#d8dadc","tertiary-fixed-dim":"#ffb787","outline":"#727782","inverse-surface":"#2d3133","surface-container-high":"#e6e8ea","secondary-fixed":"#7ff5f5","on-primary-fixed":"#001c38","primary":"#00477f","outline-variant":"#c1c7d2","on-secondary":"#ffffff","surface-container-highest":"#e0e3e5","on-tertiary-container":"#ffccac","on-error":"#ffffff","error":"#ba1a1a","inverse-on-surface":"#eff1f3","secondary-fixed-dim":"#60d8d9","primary-fixed-dim":"#a2c9ff","surface-tint":"#0e60a6","surface-container":"#eceef0","on-tertiary":"#ffffff","surface-bright":"#f7f9fb","on-tertiary-fixed":"#311300","secondary-container":"#7cf2f3","surface-container-lowest":"#ffffff","on-background":"#191c1e","surface-variant":"#e0e3e5","tertiary":"#703500","tertiary-container":"#944800","on-primary-container":"#bfd9ff","inverse-primary":"#a2c9ff","secondary":"#006a6a","primary-container":"#0b5fa5","surface-container-low":"#f2f4f6","surface":"#f7f9fb","on-secondary-fixed-variant":"#004f50"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.75rem","gutter-desktop":"1.5rem","margin-tablet":"1.5rem","space-xs":"0.5rem","space-lg":"1.5rem","margin":"1rem","space-md":"1rem","space-xl":"2rem","gutter":"1rem","margin-desktop":"2.5rem"},fontFamily:{"headline-md":["Inter"],"headline-lg":["Inter"],"headline-lg-mobile":["Inter"],"label-badge":["Inter"],"body-key-info":["Inter"],"label-prominent":["Inter"],"headline-sm":["Inter"],"body-base":["Inter"],"body-lg":["Inter"],"display-hero":["Inter"],"display-hero-mobile":["Inter"]},fontSize:{"headline-md":["22px",{lineHeight:"30px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",fontWeight:"700"}],"headline-lg-mobile":["24px",{lineHeight:"32px",fontWeight:"700"}],"label-badge":["15px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"700"}],"body-key-info":["18px",{lineHeight:"28px",fontWeight:"500"}],"label-prominent":["16px",{lineHeight:"22px",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],"body-base":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"display-hero":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"display-hero-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}]}}}}</script></head><body class="bg-surface font-body-base text-body-base text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1120px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[32px]">water_drop</span><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">AguaClara</span><span class="font-label-badge text-[11px] uppercase tracking-wider text-outline -mt-1 font-bold">Jalisco</span></div></div><div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed-variant"><span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span><span class="font-label-badge text-label-badge text-xs">Portal de Autoridades (SIAPA / CEA)</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-prominent text-label-prominent" data-path="panel-de-control" href="#">Panel de Control</a><a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-prominent text-label-prominent" data-path="reportes-y-colonias" href="#">Reportes y Colonias</a><a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-prominent text-label-prominent" data-path="bitacora-de-actualizaciones" href="#">Bitácora de Actualizaciones</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden md:flex flex-col items-end text-right"><span class="font-label-prominent text-[14px] text-on-surface leading-tight font-semibold">Operador Central GDL</span><span class="font-body-base text-xs text-outline leading-tight font-medium">ID #4402 - SIAPA</span></div><button aria-label="Cerrar sesión institucional" class="flex items-center justify-center min-h-[44px] px-3 py-2 rounded-lg text-error hover:bg-error-container hover:text-on-error-container transition-colors" title="Cerrar sesión" type="button"><span class="material-symbols-outlined text-[20px] mr-1">logout</span><span class="hidden lg:inline font-label-prominent text-xs">Salir</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface flex-1"><div class="flex flex-col w-full">
+<div class="max-w-[1120px] mx-auto w-full px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl flex flex-col gap-space-xl">
+<!-- Top Bar: Header & Primary CTA -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-1 max-w-2xl">
+<div class="flex items-center gap-space-xs text-secondary mb-1">
+<span class="material-symbols-outlined text-[20px]">history_edu</span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-xs">Registro Oficial del Área Metropolitana de Guadalajara</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Bitácora de actualizaciones publicadas</h1>
+<p class="font-body-base text-body-base text-on-surface-variant">Historial cronológico de comunicados e intervenciones oficiales emitidas hacia la ciudadanía y las fichas de colonia del AMG.</p>
+</div>
+<div class="shrink-0 flex items-center gap-space-sm">
+<a class="inline-flex items-center justify-center gap-2 min-h-[52px] px-6 rounded-lg bg-primary-container text-on-primary font-label-prominent text-label-prominent hover:bg-primary transition-all duration-150 shadow-sm active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-secondary/30" href="#">
+<span class="material-symbols-outlined text-[22px]">add_circle</span>
+<span>+ Nueva actualización</span>
+</a>
+</div>
+</div>
+<!-- Metrics Strip / Compact Summary -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed/60 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">post_add</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-badge text-xs uppercase tracking-wide text-outline">Total publicadas</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface">24</span>
+<span class="font-body-base text-xs text-on-surface-variant">actas oficiales</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed/50 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-badge text-xs uppercase tracking-wide text-outline">Últimas 24 horas</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-secondary">5</span>
+<span class="font-body-base text-xs text-on-surface-variant">comunicados emitidos</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">map</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-badge text-xs uppercase tracking-wide text-outline">Cobertura de red</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface">8 <span class="font-headline-sm text-headline-sm text-outline font-normal">/ 8</span></span>
+<span class="font-body-base text-xs text-on-surface-variant">colonias alcanzadas</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filters & Query Panel -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-space-sm flex-1">
+<!-- Quick Search -->
+<div class="relative flex-1 min-w-[240px]">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[22px] pointer-events-none">search</span>
+<input class="w-full min-h-[52px] pl-11 pr-4 bg-surface-container-low text-on-surface rounded-lg font-body-base text-body-base placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Buscar por folio o palabra clave (ej. ACT-2026, purga, fuga)..." type="search"/>
+</div>
+<!-- Colonia Selector -->
+<div class="relative min-w-[210px]">
+<select class="w-full min-h-[52px] pl-3.5 pr-10 bg-surface-container-low text-on-surface rounded-lg font-label-prominent text-label-prominent appearance-none focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all cursor-pointer">
+<option value="all">Todas las colonias (8)</option>
+<option value="oblatos">Oblatos</option>
+<option value="santa-cecilia">Santa Cecilia</option>
+<option value="jardines-paz">Jardines de la Paz</option>
+<option value="miravalle">Miravalle</option>
+<option value="santa-teresita">Santa Teresita</option>
+<option value="centro">Centro Guadalajara</option>
+<option value="chapalita">Chapalita</option>
+<option value="san-rafael">San Rafael</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[20px]">expand_more</span>
+</div>
+<!-- Segmented Status Tabs -->
+<div class="inline-flex p-1 bg-surface-container-low rounded-lg gap-0.5">
+<button class="px-3.5 py-2 rounded-md bg-surface-container-lowest text-primary font-label-prominent text-xs font-semibold shadow-sm transition-colors" type="button">Todos</button>
+<button class="px-3.5 py-2 rounded-md text-on-surface-variant hover:text-on-surface font-label-prominent text-xs transition-colors" type="button">En atención</button>
+<button class="px-3.5 py-2 rounded-md text-on-surface-variant hover:text-on-surface font-label-prominent text-xs transition-colors" type="button">Atendido</button>
+<button class="px-3.5 py-2 rounded-md text-on-surface-variant hover:text-on-surface font-label-prominent text-xs transition-colors" type="button">En revisión</button>
+</div>
+</div>
+<!-- Sorting indicator -->
+<div class="flex items-center justify-between sm:justify-end gap-space-xs text-on-surface-variant shrink-0 pl-1">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+<span class="font-label-badge text-xs">Orden: <strong>Más reciente primero</strong></span>
+</div>
+</div>
+<!-- Data List: Chronological Updates -->
+<div class="flex flex-col gap-space-sm">
+<!-- Fila 1: Oblatos (Hoy, 10:45 AM) -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-high font-mono text-xs font-bold text-on-surface tracking-wider">ACT-2026-0894</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed-variant font-label-badge text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              En atención
+            </span>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="font-label-prominent text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Limpieza de red o tanque</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline font-label-badge text-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span class="font-bold text-on-surface">Hoy, 10:45 AM</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<div class="lg:col-span-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Oblatos</span>
+<span class="font-body-base text-xs text-outline">Sector Libertad</span>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-1.5 bg-surface-container-low/60 rounded-lg p-3.5">
+<span class="font-label-badge text-[11px] uppercase tracking-wider text-outline font-bold">Nota pública al ciudadano</span>
+<p class="font-body-base text-body-base text-on-surface">
+              Cuadrilla técnica No. 4 de SIAPA realizó purga y desazolve de válvula expulsora en el cuadrante oriente de Oblatos. Se estabilizó la presión y disminuyeron los sólidos suspendidos.
+            </p>
+</div>
+<div class="lg:col-span-2 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between lg:justify-center gap-3 h-full">
+<div class="flex flex-col lg:text-right">
+<span class="font-label-badge text-[11px] uppercase text-outline">Autor del registro</span>
+<span class="font-label-prominent text-xs text-on-surface">Ing. Morales</span>
+<span class="font-body-base text-[11px] text-on-surface-variant">Cuadrilla 4 - SIAPA</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-colors font-label-prominent text-xs font-semibold" href="#" title="Corregir o emitir adenda oficial">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Corregir</span>
+</a>
+<a aria-label="Ver vista pública" class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#" title="Ver vista pública de colonia">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Fila 2: Santa Cecilia (Ayer 16:20 PM) -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-high font-mono text-xs font-bold text-on-surface tracking-wider">ACT-2026-0893</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Atendido
+            </span>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="font-label-prominent text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Reparación de fuga</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline font-label-badge text-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-medium text-on-surface-variant">Ayer, 16:20 PM</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<div class="lg:col-span-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Santa Cecilia</span>
+<span class="font-body-base text-xs text-outline">Sector Norte</span>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-1.5 bg-surface-container-low/60 rounded-lg p-3.5">
+<span class="font-label-badge text-[11px] uppercase tracking-wider text-outline font-bold">Nota pública al ciudadano</span>
+<p class="font-body-base text-body-base text-on-surface">
+              Concluyó la sustitución de tramo de tubería de 4 pulgadas en sector poniente. Se restableció la presión habitual en la red secundaria.
+            </p>
+</div>
+<div class="lg:col-span-2 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between lg:justify-center gap-3 h-full">
+<div class="flex flex-col lg:text-right">
+<span class="font-label-badge text-[11px] uppercase text-outline">Autor del registro</span>
+<span class="font-label-prominent text-xs text-on-surface">Téc. R. Solís</span>
+<span class="font-body-base text-[11px] text-on-surface-variant">Cuadrilla 11</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-colors font-label-prominent text-xs font-semibold" href="#" title="Corregir o emitir adenda oficial">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Corregir</span>
+</a>
+<a aria-label="Ver vista pública" class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#" title="Ver vista pública de colonia">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Fila 3: Jardines de la Paz (Hace 2 días, 11:00 AM) -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-high font-mono text-xs font-bold text-on-surface tracking-wider">ACT-2026-0892</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed-variant font-label-badge text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              En atención
+            </span>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="font-label-prominent text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Muestreo microbiológico</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline font-label-badge text-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-medium text-on-surface-variant">Hace 2 días, 11:00 AM</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<div class="lg:col-span-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Jardines de la Paz</span>
+<span class="font-body-base text-xs text-outline">Sector Reforma</span>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-1.5 bg-surface-container-low/60 rounded-lg p-3.5">
+<span class="font-label-badge text-[11px] uppercase tracking-wider text-outline font-bold">Nota pública al ciudadano</span>
+<p class="font-body-base text-body-base text-on-surface">
+              Personal del laboratorio móvil tomó muestras de turbidez y cloro libre residual en 6 tomas testigo domiciliarias. En análisis técnico.
+            </p>
+</div>
+<div class="lg:col-span-2 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between lg:justify-center gap-3 h-full">
+<div class="flex flex-col lg:text-right">
+<span class="font-label-badge text-[11px] uppercase text-outline">Autor del registro</span>
+<span class="font-label-prominent text-xs text-on-surface">Q.F.B. Mariana Lozano</span>
+<span class="font-body-base text-[11px] text-on-surface-variant">Laboratorio CEA</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-colors font-label-prominent text-xs font-semibold" href="#" title="Corregir o emitir adenda oficial">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Corregir</span>
+</a>
+<a aria-label="Ver vista pública" class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#" title="Ver vista pública de colonia">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Fila 4: Miravalle (Hace 3 días, 08:30 AM) -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-high font-mono text-xs font-bold text-on-surface tracking-wider">ACT-2026-0891</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-badge text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">find_in_page</span>
+              En revisión
+            </span>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="font-label-prominent text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Inspección de rebombeo</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline font-label-badge text-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-medium text-on-surface-variant">Hace 3 días, 08:30 AM</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<div class="lg:col-span-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Miravalle</span>
+<span class="font-body-base text-xs text-outline">Sector Sur - Tanque 3</span>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-1.5 bg-surface-container-low/60 rounded-lg p-3.5">
+<span class="font-label-badge text-[11px] uppercase tracking-wider text-outline font-bold">Nota pública al ciudadano</span>
+<p class="font-body-base text-body-base text-on-surface">
+              Se programó inspección de rebombeo ante variaciones de presión reportadas por vecinos del cuadrante norte.
+            </p>
+</div>
+<div class="lg:col-span-2 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between lg:justify-center gap-3 h-full">
+<div class="flex flex-col lg:text-right">
+<span class="font-label-badge text-[11px] uppercase text-outline">Autor del registro</span>
+<span class="font-label-prominent text-xs text-on-surface">Operador Central GDL</span>
+<span class="font-body-base text-[11px] text-on-surface-variant">ID #4402 - SIAPA</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-colors font-label-prominent text-xs font-semibold" href="#" title="Corregir o emitir adenda oficial">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Corregir</span>
+</a>
+<a aria-label="Ver vista pública" class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#" title="Ver vista pública de colonia">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Fila 5: Santa Teresita (Hace 4 días, 14:15 PM) -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-high font-mono text-xs font-bold text-on-surface tracking-wider">ACT-2026-0890</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Atendido
+            </span>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="font-label-prominent text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Limpieza de red o tanque</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline font-label-badge text-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-medium text-on-surface-variant">Hace 4 días, 14:15 PM</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<div class="lg:col-span-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Santa Teresita</span>
+<span class="font-body-base text-xs text-outline">Sector Hidalgo</span>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-1.5 bg-surface-container-low/60 rounded-lg p-3.5">
+<span class="font-label-badge text-[11px] uppercase tracking-wider text-outline font-bold">Nota pública al ciudadano</span>
+<p class="font-body-base text-body-base text-on-surface">
+              Lavado y desazolve de línea de distribución sobre calle Alfredo R. Plascencia. Flujo normalizado sin turbiedad visible.
+            </p>
+</div>
+<div class="lg:col-span-2 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between lg:justify-center gap-3 h-full">
+<div class="flex flex-col lg:text-right">
+<span class="font-label-badge text-[11px] uppercase text-outline">Autor del registro</span>
+<span class="font-label-prominent text-xs text-on-surface">Cuadrilla 8</span>
+<span class="font-body-base text-[11px] text-on-surface-variant">Mantenimiento SIAPA</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-colors font-label-prominent text-xs font-semibold" href="#" title="Corregir o emitir adenda oficial">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Corregir</span>
+</a>
+<a aria-label="Ver vista pública" class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#" title="Ver vista pública de colonia">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Fila 6: San Rafael (Hace 5 días, 17:50 PM) -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-high font-mono text-xs font-bold text-on-surface tracking-wider">ACT-2026-0889</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Atendido
+            </span>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="font-label-prominent text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Restablecimiento de suministro</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline font-label-badge text-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-medium text-on-surface-variant">Hace 5 días, 17:50 PM</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<div class="lg:col-span-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">San Rafael</span>
+<span class="font-body-base text-xs text-outline">Sector Oriente</span>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-1.5 bg-surface-container-low/60 rounded-lg p-3.5">
+<span class="font-label-badge text-[11px] uppercase tracking-wider text-outline font-bold">Nota pública al ciudadano</span>
+<p class="font-body-base text-body-base text-on-surface">
+              Apertura gradual de válvulas de sectorización tras labores de mantenimiento preventivo en tanque elevado.
+            </p>
+</div>
+<div class="lg:col-span-2 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between lg:justify-center gap-3 h-full">
+<div class="flex flex-col lg:text-right">
+<span class="font-label-badge text-[11px] uppercase text-outline">Autor del registro</span>
+<span class="font-label-prominent text-xs text-on-surface">Ing. D. Navarro</span>
+<span class="font-body-base text-[11px] text-on-surface-variant">SIAPA Operaciones</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-colors font-label-prominent text-xs font-semibold" href="#" title="Corregir o emitir adenda oficial">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Corregir</span>
+</a>
+<a aria-label="Ver vista pública" class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#" title="Ver vista pública de colonia">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Institutional Notice: Immutability Principle -->
+<div class="rounded-xl p-space-md bg-primary-fixed/30 flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-prominent text-xs uppercase tracking-wider text-primary font-bold">Principio institucional de inmutabilidad y transparencia</span>
+<p class="font-body-base text-xs text-on-surface-variant leading-relaxed">
+          Las actualizaciones emitidas son públicas y no pueden eliminarse para garantizar la trazabilidad ciudadana. En caso de error u omisión técnica, utilice la opción <strong>“Corregir”</strong> para emitir una fe de erratas o adenda con registro de versión auditable.
+        </p>
+</div>
+</div>
+<!-- Pagination Footer -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md py-space-sm">
+<span class="font-body-base text-xs text-on-surface-variant">
+        Mostrando <span class="font-bold text-on-surface">1 - 6</span> de <span class="font-bold text-on-surface">24</span> actualizaciones registradas
+      </span>
+<div class="inline-flex items-center gap-2">
+<button class="inline-flex items-center justify-center gap-1 min-h-[44px] px-4 rounded-lg bg-surface-container-low text-outline cursor-not-allowed font-label-prominent text-xs font-semibold opacity-60" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+<span>Anterior</span>
+</button>
+<div class="hidden sm:inline-flex items-center gap-1">
+<button class="w-10 h-10 rounded-lg bg-primary-container text-on-primary font-label-badge text-xs font-bold shadow-sm" type="button">1</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-high text-on-surface-variant font-label-badge text-xs font-bold transition-colors" type="button">2</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-high text-on-surface-variant font-label-badge text-xs font-bold transition-colors" type="button">3</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-high text-on-surface-variant font-label-badge text-xs font-bold transition-colors" type="button">4</button>
+</div>
+<button class="inline-flex items-center justify-center gap-1 min-h-[44px] px-4 rounded-lg bg-surface-container-high text-on-surface hover:bg-primary-fixed transition-colors font-label-prominent text-xs font-semibold" type="button">
+<span>Siguiente</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_6px_rgba(0,0,0,0.03)] mt-auto"><div class="max-w-[1120px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col gap-1 text-center md:text-left"><div class="flex items-center justify-center md:justify-start gap-space-sm"><span class="font-label-prominent text-label-prominent text-on-surface font-semibold">Gobierno del Estado de Jalisco</span><span class="text-outline-variant">•</span><span class="font-label-badge text-label-badge text-secondary font-bold">SIAPA</span><span class="text-outline-variant">•</span><span class="font-label-badge text-label-badge text-primary font-bold">CEA Jalisco</span></div><p class="font-body-base text-xs text-on-surface-variant max-w-xl">Sistema Integral de Monitoreo de Suministro, Reportes Ciudadanos y Gestión Operativa Hidráulica para el Área Metropolitana de Guadalajara.</p></div><div class="flex flex-col md:flex-row items-center gap-space-md text-xs text-outline"><span class="font-body-base text-xs">Centro de Mando Operativo © 2024</span><span class="hidden md:inline text-outline-variant">|</span><span class="inline-flex items-center gap-1 font-body-base text-xs text-secondary"><span class="material-symbols-outlined text-[14px]">gpp_maybe</span>Conexión Segura Red Jalisco</span></div></div></footer></body></html>

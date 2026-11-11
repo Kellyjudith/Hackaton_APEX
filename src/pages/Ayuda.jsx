@@ -236,6 +236,33 @@ export default function Ayuda() {
           </div>
         </section>
 
+        {/* Sección 4: Actualizaciones de la autoridad */}
+        <section id="actualizaciones-autoridad" className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-4">
+          <div className="border-b border-surface-container-high pb-3">
+            <h2 className="text-xl sm:text-2xl font-bold text-on-surface">4. ¿Qué son las actualizaciones de la autoridad?</h2>
+            <p className="text-xs sm:text-sm text-on-surface-variant mt-1">
+              Un espacio para que la autoridad informe qué se está haciendo en cada colonia.
+            </p>
+          </div>
+          <ul className="flex flex-col gap-2 text-sm text-on-surface list-disc pl-5">
+            <li>
+              Personal autorizado puede publicar actualizaciones (por ejemplo, "En atención: limpieza de red") desde un portal con acceso restringido.
+              Se ven en el mapa y en la ficha de la colonia.
+            </li>
+            <li>
+              <strong>No cambian ni borran los reportes ciudadanos.</strong> Se muestran junto a ellos, y se compara cuántos reportes del mismo problema hubo
+              15 días antes y desde la actualización.
+            </li>
+            <li>
+              Esa comparación es solo informativa: no demuestra que una acción haya causado un cambio, y las actualizaciones no sustituyen la atención
+              por los canales oficiales del SIAPA.
+            </li>
+            <li>
+              En este prototipo, las cuentas y las actualizaciones son de demostración. AguaClara no está conectada con el SIAPA ni con ninguna dependencia.
+            </li>
+          </ul>
+        </section>
+
       </div>
     </div>
   );

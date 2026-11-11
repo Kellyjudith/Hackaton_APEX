@@ -2,6 +2,12 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+    // ¿La sesión pertenece a una persona autorizada (documento en /autoridades/{uid})?
+    function esAutoridad() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/autoridades/$(request.auth.uid));
+    }
+
     match /reportes_publicos/{id} {
       allow read: if true;
       allow create: if request.auth != null
@@ -26,6 +32,35 @@ service cloud.firestore {
         && request.resource.data.ultimoReporte == request.time
         && request.time > resource.data.ultimoReporte + duration.value(48, 'h');
       allow delete: if false;
+    }
+
+    // Lista de personas autorizadas: se crea a mano en la consola de Firebase.
+    // Cada persona solo puede leer su propio documento; nadie puede escribirlo desde la app.
+    match /autoridades/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    // Actualizaciones públicas de la autoridad. Lectura abierta; solo se crean (no se editan ni se borran).
+    // Una corrección se publica como una actualización nueva que apunta a la anterior (corrigeA).
+    match /actualizaciones/{id} {
+      allow read: if true;
+      allow create: if esAutoridad()
+        && request.resource.data.keys().hasAll(['colonia','tipoProblema','estado','accion','nota','fecha','autorUid','autorNombre'])
+        && request.resource.data.keys().hasOnly(['colonia','tipoProblema','estado','accion','nota','fecha','autorUid','autorNombre','corrigeA'])
+        && request.resource.data.colonia in ['chapalita','oblatos','jardines_de_la_paz','miravalle',
+                                              'santa_cecilia','san_rafael','santa_teresita','centro']
+        && request.resource.data.tipoProblema in ['turbia','olor','color','falta_agua']
+        && request.resource.data.estado in ['en_revision','en_atencion','atendido']
+        && request.resource.data.accion in ['reparacion_fuga','limpieza_red','restablecimiento','muestreo','inspeccion','otra']
+        && request.resource.data.nota is string
+        && request.resource.data.nota.size() >= 10
+        && request.resource.data.nota.size() <= 280
+        && request.resource.data.autorUid == request.auth.uid
+        && request.resource.data.autorNombre is string
+        && request.resource.data.autorNombre.size() <= 80
+        && request.resource.data.fecha == request.time;
+      allow update, delete: if false;
     }
   }
 }

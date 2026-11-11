@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, CartesianGrid } from 'recharts';
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, CartesianGrid, ReferenceLine } from 'recharts';
 import { SERIE_SEMANAL, calcularEstadisticasSalud, marcarEvidenciaEnviada, getEstadoEvidenciaEnviada } from '../utils/reportesStore';
 import { descargarCSV } from '../utils/exportarCSV';
+import { ACCIONES as ACCIONES_ACT, ESTADOS_ACTUALIZACION, TIPOS_PROBLEMA as TIPOS_ACT, actualizacionesVigentes, compararAntesDespues, fechaCorta, serieDiaria, etiquetaDia } from '../utils/actualizaciones';
 import { ETIQUETA_TIPO, tiempoRelativo, ultimosReportes, contarUltimas24h } from '../utils/tiempo';
 
 export default function Colonia() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { coloniasPiloto, getColoniaResumen } = useApp();
+  const { coloniasPiloto, getColoniaResumen, reportes, actualizaciones } = useApp();
 
   const coloniaActualId = id || 'oblatos';
   const dataColonia = getColoniaResumen(coloniaActualId);
@@ -40,6 +41,18 @@ export default function Colonia() {
     { tipo: 'Con Color', reportes: colorCount, fill: '#D97706' },
     { tipo: 'Falta Agua', reportes: faltaAguaCount, fill: '#0284C7' },
   ];
+
+  // Actualizaciones públicas de la autoridad para esta colonia
+  const actsColonia = actualizacionesVigentes((actualizaciones || []).filter(a => a.colonia === coloniaActualId)).slice(0, 3);
+  const reportesColoniaTodos = (reportes || []).filter(r => r.colonia === coloniaActualId);
+
+  // Serie diaria (30 días) y marcas de las actualizaciones de la autoridad
+  const serieDia = serieDiaria(reportesColoniaTodos, 30);
+  const diasSerie = new Set(serieDia.map(d => d.dia));
+  const marcasAct = actualizacionesVigentes((actualizaciones || []).filter(a => a.colonia === coloniaActualId))
+    .map(a => ({ id: a.id, dia: etiquetaDia(a.timestamp), estado: a.estado }))
+    .filter(m => diasSerie.has(m.dia));
+  const COLOR_MARCA = { atendido: '#16A34A', en_atencion: '#0284C7', en_revision: '#D97706' };
 
   // Actividad reciente (solo tipo y tiempo; nunca datos de salud)
   const reportes24h = contarUltimas24h(dataColonia.reportes);
@@ -216,6 +229,61 @@ export default function Colonia() {
           </div>
         </div>
 
+        {/* Actualizaciones de la autoridad */}
+        <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[24px]">engineering</span>
+            <h3 className="font-bold text-base sm:text-lg text-on-surface">Actualizaciones de la autoridad</h3>
+          </div>
+
+          {actsColonia.length === 0 ? (
+            <p className="text-sm text-on-surface-variant">
+              Aún no hay actualizaciones de la autoridad para esta colonia. Los reportes ciudadanos se muestran igualmente.
+            </p>
+          ) : (
+            <ul className="flex flex-col gap-4">
+              {actsColonia.map((a) => {
+                const meta = ESTADOS_ACTUALIZACION[a.estado];
+                const cmp = compararAntesDespues(reportesColoniaTodos, a);
+                return (
+                  <li key={a.id} className="flex flex-col gap-2 border-l-4 border-primary/40 pl-3">
+                    <div className="flex flex-wrap items-center gap-2 text-xs">
+                      <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-bold border ${meta.clases}`}>
+                        <span className="material-symbols-outlined text-[14px]">{meta.icono}</span>
+                        {meta.nombre}
+                      </span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-surface-container font-semibold text-on-surface">
+                        {TIPOS_ACT[a.tipoProblema]}
+                      </span>
+                      <span className="text-on-surface-variant">{fechaCorta(a.timestamp)}</span>
+                    </div>
+                    <div className="text-sm text-on-surface">
+                      <span className="font-semibold">{ACCIONES_ACT[a.accion]}.</span> {a.nota}
+                    </div>
+                    <div className="rounded-xl bg-surface-container-low p-3 text-xs text-on-surface-variant flex flex-col gap-1">
+                      <div className="flex flex-wrap gap-x-4 gap-y-0.5">
+                        <span>15 días antes: <strong className="text-on-surface">{cmp.previos}</strong> {cmp.previos === 1 ? 'reporte' : 'reportes'}</span>
+                        <span>
+                          Desde la actualización ({cmp.diasTranscurridos} {cmp.diasTranscurridos === 1 ? 'día' : 'días'}):{' '}
+                          <strong className="text-on-surface">{cmp.desde}</strong> {cmp.desde === 1 ? 'reporte' : 'reportes'}
+                        </span>
+                      </div>
+                      <span>{cmp.lectura}</span>
+                    </div>
+                    <span className="text-[11px] text-on-surface-variant">Registrado por {a.autorNombre}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+
+          <p className="text-[11px] text-on-surface-variant">
+            Las actualizaciones las publica el portal de autoridades del prototipo (datos de demostración). Los reportes
+            ciudadanos no se modifican; la comparación solo cuenta reportes del mismo problema y no demuestra que una
+            acción sea la causa de un cambio.
+          </p>
+        </div>
+
         {/* Actividad reciente */}
         <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col gap-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -300,6 +368,53 @@ export default function Colonia() {
               <span className="material-symbols-outlined text-[16px] text-error">trending_up</span>
               <span>Serie de referencia histórica de 8 semanas.</span>
             </div>
+          </div>
+        </div>
+
+        {/* Gráfica 3: Reportes por día con marcas de actualizaciones de la autoridad */}
+        <div className="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col gap-4">
+          <div>
+            <h3 className="font-bold text-base sm:text-lg text-on-surface">Reportes por día y atención de la autoridad</h3>
+            <p className="text-xs text-on-surface-variant">
+              Reportes de los últimos 30 días en esta colonia. Las líneas verticales marcan el día en que la autoridad publicó una actualización.
+            </p>
+          </div>
+
+          <div className="h-64 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={serieDia} margin={{ top: 18, right: 12, left: 4, bottom: 24 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#ECEEF0" />
+                <XAxis
+                  dataKey="dia"
+                  interval={4}
+                  tick={{ fontSize: 12, fill: '#414751' }}
+                  label={{ value: 'Día (día/mes)', position: 'insideBottom', offset: -14, fontSize: 12, fill: '#414751' }}
+                />
+                <YAxis
+                  allowDecimals={false}
+                  tick={{ fontSize: 12, fill: '#414751' }}
+                  label={{ value: 'Reportes por día', angle: -90, position: 'insideLeft', offset: 6, style: { textAnchor: 'middle' }, fontSize: 12, fill: '#414751' }}
+                />
+                <Tooltip contentStyle={{ borderRadius: '8px', border: '1px solid #CBD5E1', fontSize: '13px' }} />
+                <Bar dataKey="reportes" name="Reportes" fill="#0B5FA5" radius={[4, 4, 0, 0]} />
+                {marcasAct.map((m) => (
+                  <ReferenceLine
+                    key={m.id}
+                    x={m.dia}
+                    stroke={COLOR_MARCA[m.estado]}
+                    strokeWidth={2}
+                    strokeDasharray="5 3"
+                    label={{ value: ESTADOS_ACTUALIZACION[m.estado].nombre, position: 'top', fontSize: 11, fill: COLOR_MARCA[m.estado] }}
+                  />
+                ))}
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="text-[11px] text-on-surface-variant pt-2 border-t border-surface-container-high">
+            {marcasAct.length > 0
+              ? 'Las marcas son informativas: no demuestran que una acción sea la causa de un cambio en los reportes.'
+              : 'No hay actualizaciones de la autoridad en los últimos 30 días para esta colonia.'}
           </div>
         </div>
 

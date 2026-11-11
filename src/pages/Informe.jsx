@@ -4,10 +4,11 @@ import { useApp } from '../context/AppContext';
 import { descargarCSV } from '../utils/exportarCSV';
 import { calcularEstadisticasSalud } from '../utils/reportesStore';
 import { construirFilaResumen, calcularTendencia, problemaMasFrecuente } from '../utils/resumenColonia';
+import { camposActualizacionCSV, ACCIONES as ACCIONES_ACT, ESTADOS_ACTUALIZACION, TIPOS_PROBLEMA as TIPOS_ACT, actualizacionesVigentes, compararAntesDespues, fechaCorta } from '../utils/actualizaciones';
 
 export default function Informe() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { coloniasPiloto, getColoniaResumen } = useApp();
+  const { coloniasPiloto, getColoniaResumen, reportes, actualizaciones } = useApp();
 
   const coloniaUrl = searchParams.get('colonia') || 'oblatos';
   const [coloniaId, setColoniaId] = useState(coloniaUrl);
@@ -26,11 +27,13 @@ export default function Informe() {
   const salud = calcularEstadisticasSalud(data.reportes);
 
   const tendencia = calcularTendencia(data.reportes);
+  const actsInforme = actualizacionesVigentes((actualizaciones || []).filter(a => a.colonia === coloniaId)).slice(0, 3);
+  const reportesColoniaTodos = (reportes || []).filter(r => r.colonia === coloniaId);
   const simuladosCount = data.reportes.filter(r => r.simulado).length;
 
   // CSV agregado por colonia (una fila, sin datos individuales de reportes)
   const handleDescargarCSV = () => {
-    descargarCSV([construirFilaResumen(data)], `informe_${coloniaId}_aguaclara.csv`);
+    descargarCSV([construirFilaResumen(data, camposActualizacionCSV((actualizaciones || []).filter(a => a.colonia === coloniaId), reportesColoniaTodos))], `informe_${coloniaId}_aguaclara.csv`);
   };
 
   const handleImprimir = () => {
@@ -257,6 +260,30 @@ export default function Informe() {
             </div>
             <span className="text-2xl font-black text-sky-900 shrink-0">{data.faltaAguaCount}</span>
           </div>
+
+          {/* Actualizaciones de la autoridad */}
+          {actsInforme.length > 0 && (
+            <div className="border-t border-slate-200 pt-4 flex flex-col gap-2 text-xs text-slate-700 leading-relaxed">
+              <h3 className="font-bold text-sm text-slate-900">Actualizaciones de la autoridad</h3>
+              {actsInforme.map((a) => {
+                const cmp = compararAntesDespues(reportesColoniaTodos, a);
+                return (
+                  <div key={a.id} className="border border-slate-200 rounded-lg p-3 flex flex-col gap-1">
+                    <span>
+                      <strong>{ESTADOS_ACTUALIZACION[a.estado].nombre}</strong> · {TIPOS_ACT[a.tipoProblema]} · {ACCIONES_ACT[a.accion]} · {fechaCorta(a.timestamp)}
+                    </span>
+                    <span>{a.nota}</span>
+                    <span className="text-slate-500">
+                      Reportes del mismo problema: {cmp.previos} en los 15 días previos y {cmp.desde} desde la actualización ({cmp.diasTranscurridos} días). {cmp.lectura}
+                    </span>
+                  </div>
+                );
+              })}
+              <p className="text-slate-500">
+                Actualizaciones publicadas desde el portal de autoridades del prototipo (datos de demostración). No modifican los reportes ciudadanos.
+              </p>
+            </div>
+          )}
 
           {/* Metodología y Límites Éticos */}
           <div className="border-t border-slate-200 pt-4 flex flex-col gap-2 text-xs text-slate-600 leading-relaxed">

@@ -6,6 +6,11 @@ import {
   firebaseConfigurado,
   suscribirReportes,
   crearReporteFirestore,
+  escucharAutoridad,
+  iniciarSesionAutoridad as iniciarSesionFS,
+  cerrarSesionAutoridad as cerrarSesionFS,
+  suscribirActualizaciones,
+  crearActualizacionFirestore,
 } from '../firebase/firestoreService';
 
 const AppContext = createContext();
@@ -26,6 +31,10 @@ export function AppProvider({ children }) {
   const [riesgo, setRiesgo] = useState({});
   const [geojsonData, setGeojsonData] = useState(null);
   const [cargando, setCargando] = useState(true);
+  const [actualizacionesNube, setActualizacionesNube] = useState([]);
+  const [actualizacionesDemo, setActualizacionesDemo] = useState([]);
+  const [autoridad, setAutoridad] = useState(null); // { uid, nombre, cargo } | null
+  const [cargandoAuth, setCargandoAuth] = useState(firebaseConfigurado);
 
   // Con Firebase activo, los reportes reales vienen de la nube; en el navegador solo quedan los simulados.
   const soloSimulados = (reps) => (firebaseConfigurado ? reps.filter((r) => r.simulado === true) : reps);
@@ -45,6 +54,17 @@ export function AppProvider({ children }) {
         setViviendas(vivRes);
         setRiesgo(riesRes);
         setGeojsonData(geoRes);
+
+        const actDemo = await fetch('/data/actualizaciones_demo.json').then(r => r.json()).catch(() => []);
+        const ahora = Date.now();
+        setActualizacionesDemo(
+          actDemo.map(a => ({
+            ...a,
+            timestamp: ahora - (a.diasAtras || 0) * 24 * 3600 * 1000,
+            corrigeA: null,
+            origen: 'demo',
+          }))
+        );
       } catch (err) {
         console.error('Error cargando datos iniciales:', err);
       } finally {
@@ -67,6 +87,32 @@ export function AppProvider({ children }) {
     );
     return cancelar;
   }, []);
+
+  // Actualizaciones públicas de la autoridad (Firestore) y sesión de la persona autorizada
+  useEffect(() => {
+    if (!firebaseConfigurado) return undefined;
+    const cancelar = suscribirActualizaciones((acts) => setActualizacionesNube(acts));
+    return cancelar;
+  }, []);
+
+  useEffect(() => {
+    if (!firebaseConfigurado) return undefined;
+    const cancelar = escucharAutoridad((a) => {
+      setAutoridad(a);
+      setCargandoAuth(false);
+    });
+    return cancelar;
+  }, []);
+
+  const iniciarSesionAutoridad = (correo, clave) => iniciarSesionFS(correo, clave);
+  const cerrarSesionAutoridad = () => cerrarSesionFS();
+  const publicarActualizacion = (datos) => crearActualizacionFirestore(datos, autoridad);
+
+  // En Modo Demostración también se muestran las actualizaciones de ejemplo
+  const actualizaciones = useMemo(
+    () => (modoDemo ? [...actualizacionesNube, ...actualizacionesDemo] : actualizacionesNube),
+    [modoDemo, actualizacionesNube, actualizacionesDemo]
+  );
 
   const reportes = useMemo(() => [...reportesNube, ...reportesBase], [reportesNube, reportesBase]);
 
@@ -135,6 +181,12 @@ export function AppProvider({ children }) {
         getColoniaResumen,
         resumenTodasColonias,
         coloniasPiloto: COLONIAS_PILOTO,
+        actualizaciones,
+        autoridad,
+        cargandoAuth,
+        iniciarSesionAutoridad,
+        cerrarSesionAutoridad,
+        publicarActualizacion,
       }}
     >
       {children}

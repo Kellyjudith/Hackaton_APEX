@@ -160,7 +160,7 @@ export default function Navbar() {
             }`}
           >
             <span className="material-symbols-outlined text-[18px]">policy</span>
-            <span>Panel de autoridades (solo lectura)</span>
+            <span>Panel de consulta (solo lectura)</span>
           </Link>
           <Link
             to="/ayuda"

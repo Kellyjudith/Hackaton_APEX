@@ -10,6 +10,11 @@ import Informe from './pages/Informe';
 import Autoridades from './pages/Autoridades';
 import Ayuda from './pages/Ayuda';
 import MensajesPage from './pages/MensajesPage';
+import PanelAcceso from './pages/PanelAcceso';
+import Panel from './pages/Panel';
+import PanelNueva from './pages/PanelNueva';
+import PanelBitacora from './pages/PanelBitacora';
+import { Link } from 'react-router-dom';
 
 // Al cambiar de página (ruta), regresa al inicio. Cambios solo de ?query (p. ej. Mapa|Lista) no mueven el scroll.
 function ScrollToTop() {
@@ -38,6 +43,10 @@ export default function App() {
               <Route path="/autoridades" element={<Autoridades />} />
               <Route path="/ayuda" element={<Ayuda />} />
               <Route path="/mensajes" element={<MensajesPage />} />
+              <Route path="/panel/acceso" element={<PanelAcceso />} />
+              <Route path="/panel" element={<Panel />} />
+              <Route path="/panel/nueva" element={<PanelNueva />} />
+              <Route path="/panel/bitacora" element={<PanelBitacora />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
@@ -45,7 +54,10 @@ export default function App() {
           <footer className="w-full bg-surface-container-low border-t border-surface-container-high py-4 px-4 text-center text-xs text-on-surface-variant no-print">
             <div className="max-w-[1120px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
               <span>AguaClara Jalisco · Monitoreo vecinal independiente</span>
-              <span>Guadalajara, Jalisco · 2026</span>
+              <span className="flex items-center gap-3">
+                <Link to="/panel/acceso" className="underline hover:text-primary">Acceso autoridades</Link>
+                <span>Guadalajara, Jalisco · 2026</span>
+              </span>
             </div>
           </footer>
         </div>

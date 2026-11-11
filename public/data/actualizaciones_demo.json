@@ -1,0 +1,32 @@
+[
+  {
+    "id": "demo-act-1",
+    "colonia": "santa_cecilia",
+    "tipoProblema": "turbia",
+    "estado": "atendido",
+    "accion": "limpieza_red",
+    "nota": "Se realizó la purga y limpieza de la línea de distribución de la zona. Se normalizó la presión y el agua sale clara.",
+    "diasAtras": 6,
+    "autorNombre": "Cuadrilla técnica (demostración)"
+  },
+  {
+    "id": "demo-act-2",
+    "colonia": "oblatos",
+    "tipoProblema": "olor",
+    "estado": "en_atencion",
+    "accion": "muestreo",
+    "nota": "Se tomaron muestras en varios puntos de la colonia. Los resultados se publicarán cuando estén listos.",
+    "diasAtras": 2,
+    "autorNombre": "Laboratorio móvil (demostración)"
+  },
+  {
+    "id": "demo-act-3",
+    "colonia": "miravalle",
+    "tipoProblema": "falta_agua",
+    "estado": "en_revision",
+    "accion": "inspeccion",
+    "nota": "Se programó una inspección de la red por variaciones de presión reportadas por vecinos.",
+    "diasAtras": 3,
+    "autorNombre": "Operación de red (demostración)"
+  }
+]

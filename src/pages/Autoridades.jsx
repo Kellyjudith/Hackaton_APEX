@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { descargarCSV } from '../utils/exportarCSV';
-import { construirFilaResumen } from '../utils/resumenColonia';
+import { construirFilaResumen, problemaMasFrecuente } from '../utils/resumenColonia';
 import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import { SERIE_SEMANAL } from '../utils/reportesStore';
+import { camposActualizacionCSV } from '../utils/actualizaciones';
 
 export default function Autoridades() {
-  const { resumenTodasColonias } = useApp();
+  const { resumenTodasColonias, reportes, actualizaciones } = useApp();
   const [busqueda, setBusqueda] = useState('');
   const [ordenarPor, setOrdenarPor] = useState('reportes'); // 'reportes' | 'nombre' | 'tasa'
 
@@ -28,22 +29,41 @@ export default function Autoridades() {
       return 0;
     });
 
+  // Resumen dinámico (se recalcula con los datos actuales)
+  const listaColonias = resumenTodasColonias || [];
+  const coloniasRojas = listaColonias.filter(c => c.estado.id === 'muchos');
+  const problemaFrecuente = problemaMasFrecuente(listaColonias.flatMap(c => c.reportes || []));
+  const mayorTasa = [...listaColonias]
+    .filter(c => c.estado.tasa !== null && c.estado.tasa !== undefined)
+    .sort((a, b) => b.estado.tasa - a.estado.tasa)
+    .slice(0, 2);
+  const nombres = (arr) => arr.map(c => c.nombre).join(' y ');
+
   const handleExportarTodoCSV = () => {
     // Mismo formato agregado que el informe de cada colonia (sin datos individuales)
-    const filas = (resumenTodasColonias || []).map(c => construirFilaResumen(c));
+    const filas = (resumenTodasColonias || []).map(c => construirFilaResumen(
+      c,
+      camposActualizacionCSV(
+        (actualizaciones || []).filter(a => a.colonia === c.id),
+        (reportes || []).filter(r => r.colonia === c.id)
+      )
+    ));
     descargarCSV(filas, 'aguaclara_panel_autoridades_guadalajara.csv');
   };
 
   return (
     <div className="w-full pt-28 sm:pt-32 bg-background flex-1 text-left">
-      {/* 2. Banner de Solo Lectura: En flujo normal, despejado del menú superior */}
+      {/* 2. Banner de consulta (solo lectura) */}
       <section className="w-full bg-surface-container-high border-b border-surface-container-highest no-print">
         <div className="max-w-[1120px] mx-auto px-4 sm:px-margin-desktop py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm text-on-surface">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[20px] text-primary fill-1 shrink-0">visibility</span>
             <span className="font-semibold">
-              Vista de solo lectura institucional. Datos agregados; sin domicilios particulares ni fotos.
+              Panel de consulta de solo lectura. Datos agregados; sin domicilios particulares ni fotos.
             </span>
+            <Link to="/panel/acceso" className="underline text-primary font-semibold whitespace-nowrap">
+              ¿Personal autorizado? Portal de autoridades
+            </Link>
           </div>
           <div className="flex items-center gap-1.5 text-on-surface-variant text-xs shrink-0">
             <span className="material-symbols-outlined text-[16px]">calendar_today</span>
@@ -66,7 +86,7 @@ export default function Autoridades() {
               Panel de consulta de evidencia
             </h1>
             <p className="text-xs sm:text-base text-on-surface-variant leading-relaxed">
-              Evidencia ciudadana organizada para consulta colectiva y seguimiento público. Muestra reportes acumulados durante los <strong className="font-semibold text-on-surface">últimos 30 días</strong> sin incluir domicilios particulares ni datos personales.
+              Evidencia ciudadana organizada para consulta colectiva y seguimiento público. Muestra reportes acumulados durante los <strong className="font-semibold text-on-surface">últimos 30 días</strong> sin incluir domicilios particulares ni datos personales. Las actualizaciones de atención que publique la autoridad se muestran en la ficha de cada colonia.
             </p>
           </div>
 
@@ -99,19 +119,25 @@ export default function Autoridades() {
             <div className="flex items-start gap-2">
               <span className="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">warning</span>
               <p className="text-on-surface">
-                <strong>2 de 8 colonias</strong> tienen Muchos reportes: Oblatos y Santa Cecilia.
+                {coloniasRojas.length > 0
+                  ? <><strong>{coloniasRojas.length} de {listaColonias.length} colonias</strong> tienen Muchos reportes: {nombres(coloniasRojas)}.</>
+                  : <>Ninguna de las {listaColonias.length} colonias tiene Muchos reportes en este momento.</>}
               </p>
             </div>
             <div className="flex items-start gap-2">
               <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">water_drop</span>
               <p className="text-on-surface">
-                El problema más frecuente señalado por los vecinos es el <strong>agua turbia</strong>.
+                {problemaFrecuente === 'Sin datos'
+                  ? <>Aún no hay datos suficientes para identificar el problema más frecuente.</>
+                  : <>El problema más frecuente señalado por los vecinos es: <strong>{problemaFrecuente.toLowerCase()}</strong>.</>}
               </p>
             </div>
             <div className="flex items-start gap-2">
               <span className="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">trending_up</span>
               <p className="text-on-surface">
-                Oblatos y Santa Cecilia <strong>concentran la mayor tasa</strong> por 1,000 viviendas.
+                {mayorTasa.length > 0
+                  ? <>{nombres(mayorTasa)} <strong>{mayorTasa.length > 1 ? 'concentran' : 'concentra'} la mayor tasa</strong> por 1,000 viviendas.</>
+                  : <>Aún no hay tasa por 1,000 viviendas calculable (datos insuficientes).</>}
               </p>
             </div>
           </div>
@@ -162,14 +188,14 @@ export default function Autoridades() {
 
             <div className="h-56 w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={SERIE_SEMANAL} margin={{ top: 10, right: 12, left: 4, bottom: 24 }}>
+                <LineChart data={SERIE_SEMANAL} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ECEEF0" />
-                  <XAxis dataKey="semana" tick={{ fontSize: 12, fill: '#414751' }} label={{ value: 'Semana (de la más antigua a la más reciente)', position: 'insideBottom', offset: -14, fontSize: 12, fill: '#414751' }} />
-                  <YAxis tick={{ fontSize: 12, fill: '#414751' }} label={{ value: 'Reportes por semana', angle: -90, position: 'insideLeft', offset: 6, style: { textAnchor: 'middle' }, fontSize: 12, fill: '#414751' }} />
+                  <XAxis dataKey="semana" tick={{ fontSize: 12, fill: '#414751' }} />
+                  <YAxis tick={{ fontSize: 12, fill: '#414751' }} />
                   <Tooltip
                     contentStyle={{ borderRadius: '8px', border: '1px solid #CBD5E1', fontSize: '13px' }}
                   />
-                  <Line type="monotone" dataKey="reportes" name="Reportes" stroke="#00477F" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="reportes" stroke="#00477F" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
                 </LineChart>
               </ResponsiveContainer>
             </div>

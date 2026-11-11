@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import MapaLeaflet from '../components/MapaLeaflet';
+import { ESTADOS_ACTUALIZACION, ACCIONES as ACCIONES_ACT, ultimaDeColonia, fechaCorta } from '../utils/actualizaciones';
 import { ETIQUETA_TIPO, tiempoRelativo, ultimosReportes } from '../utils/tiempo';
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { geojsonData, resumenTodasColonias, cargando } = useApp();
+  const { geojsonData, resumenTodasColonias, cargando, actualizaciones } = useApp();
 
   const vistaInicial = searchParams.get('vista') || 'mapa';
   const [vista, setVista] = useState(vistaInicial);
@@ -432,6 +433,22 @@ export default function Home() {
                       <span className="text-[11px] text-on-surface-variant block mt-0.5">por 1k viviendas</span>
                     </div>
                   </div>
+
+                  {/* Atención registrada por la autoridad */}
+                  {(() => {
+                    const act = ultimaDeColonia(actualizaciones, coloniaSeleccionada.id);
+                    if (!act) return null;
+                    const meta = ESTADOS_ACTUALIZACION[act.estado];
+                    return (
+                      <div className={`flex items-start gap-2 p-3 rounded-xl border text-sm ${meta.clases}`}>
+                        <span className="material-symbols-outlined text-[20px] shrink-0">{meta.icono}</span>
+                        <div className="flex flex-col leading-snug">
+                          <span className="font-bold">Atención registrada · {fechaCorta(act.timestamp)}</span>
+                          <span className="text-xs">{meta.nombre}: {ACCIONES_ACT[act.accion]}</span>
+                        </div>
+                      </div>
+                    );
+                  })()}
 
                   {/* Último reporte registrado (solo tipo y tiempo) */}
                   {(() => {

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>AguaClara Jalisco - Portal de Autoridades</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "background": "#f7f9fb",
+        "on-primary": "#ffffff",
+        "surface-container": "#eceef0",
+        "surface-container-low": "#f2f4f6",
+        "secondary-fixed": "#7ff5f5",
+        "on-tertiary-fixed": "#311300",
+        "error-container": "#ffdad6",
+        "outline-variant": "#c1c7d2",
+        "secondary-fixed-dim": "#60d8d9",
+        "on-primary-fixed-variant": "#004881",
+        "primary-container": "#0b5fa5",
+        "surface-container-lowest": "#ffffff",
+        "tertiary-container": "#944800",
+        "on-tertiary-fixed-variant": "#723600",
+        "surface-container-highest": "#e0e3e5",
+        "tertiary-fixed-dim": "#ffb787",
+        "surface-tint": "#0e60a6",
+        "on-primary-container": "#bfd9ff",
+        "error": "#ba1a1a",
+        "on-secondary-fixed-variant": "#004f50",
+        "inverse-on-surface": "#eff1f3",
+        "surface-container-high": "#e6e8ea",
+        "on-tertiary-container": "#ffccac",
+        "on-secondary-container": "#006e6f",
+        "primary": "#00477f",
+        "secondary-container": "#7cf2f3",
+        "on-surface-variant": "#414751",
+        "primary-fixed": "#d3e4ff",
+        "on-secondary": "#ffffff",
+        "surface": "#f7f9fb",
+        "inverse-surface": "#2d3133",
+        "surface-bright": "#f7f9fb",
+        "on-error": "#ffffff",
+        "on-background": "#191c1e",
+        "primary-fixed-dim": "#a2c9ff",
+        "inverse-primary": "#a2c9ff",
+        "tertiary-fixed": "#ffdcc7",
+        "surface-variant": "#e0e3e5",
+        "tertiary": "#703500",
+        "on-surface": "#191c1e",
+        "on-secondary-fixed": "#002020",
+        "surface-dim": "#d8dadc",
+        "secondary": "#006a6a",
+        "outline": "#727782",
+        "on-error-container": "#93000a",
+        "on-tertiary": "#ffffff",
+        "on-primary-fixed": "#001c38"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "gutter-desktop": "1.5rem",
+        "margin-desktop": "2.5rem",
+        "margin-tablet": "1.5rem",
+        "space-xl": "2rem",
+        "margin": "1rem",
+        "gutter": "1rem",
+        "space-lg": "1.5rem",
+        "space-xs": "0.5rem",
+        "space-md": "1rem",
+        "space-sm": "0.75rem"
+      },
+      "fontFamily": {
+        "headline-md": ["Inter"],
+        "body-lg": ["Inter"],
+        "label-badge": ["Inter"],
+        "display-hero": ["Inter"],
+        "body-base": ["Inter"],
+        "display-hero-mobile": ["Inter"],
+        "headline-lg-mobile": ["Inter"],
+        "body-key-info": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-lg": ["Inter"],
+        "label-prominent": ["Inter"]
+      },
+      "fontSize": {
+        "headline-md": ["22px", {"lineHeight": "30px", "fontWeight": "600"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "label-badge": ["15px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+        "display-hero": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-base": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+        "display-hero-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+        "body-key-info": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+        "label-prominent": ["16px", {"lineHeight": "22px", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-base text-body-base text-on-surface min-h-screen flex flex-col antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1120px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[24px]">water_drop</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">AguaClara</span><span class="font-label-badge text-[11px] text-on-surface-variant uppercase tracking-wider leading-none">Jalisco</span></div></div><div class="h-7 w-[1px] bg-outline-variant hidden sm:block"></div><span class="hidden sm:inline-flex items-center px-space-sm py-1 rounded bg-secondary-fixed/50 text-on-secondary-container font-label-badge text-[12px] leading-tight font-semibold">Portal de Autoridades (SIAPA / CEA)</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold"><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-prominent text-label-prominent hover:bg-surface-container-high hover:text-on-surface transition-all duration-150" data-path="panel-de-control" href="#">Panel de Control</a><a aria-current="page" class="px-space-md py-space-xs rounded-lg transition-all duration-150 bg-primary-container text-on-primary font-semibold" data-path="reportes-y-colonias" href="#">Reportes y Colonias</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-prominent text-label-prominent hover:bg-surface-container-high hover:text-on-surface transition-all duration-150" data-path="bitacora-de-actualizaciones" href="#">Bitácora de Actualizaciones</a></nav><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-prominent text-[14px] text-on-surface leading-tight font-semibold">Operador Central GDL</span><span class="font-body-base text-[12px] text-on-surface-variant leading-tight">ID #4402 • SIAPA</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div><div class="h-6 w-[1px] bg-outline-variant hidden md:block"></div><a class="inline-flex items-center justify-center p-2 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors" data-path="login" href="#" title="Cerrar sesión"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></header><main class="w-full pt-20 bg-surface flex-1"><div class="max-w-[1120px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg"><div class="flex flex-col w-full">
+<!-- Cabecera de la página -->
+<div class="w-full flex flex-col gap-space-sm mb-space-lg">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<a class="inline-flex items-center gap-space-xs text-primary hover:text-primary-container font-label-prominent text-label-prominent group transition-colors" data-path="panel-de-control" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span>Volver al Panel de Control de Autoridades</span>
+</a>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary-fixed/40 text-on-secondary-fixed font-label-badge text-[12px]">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span>Mesa de Operación Técnica • SIAPA / CEA</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mt-space-xs">
+<div class="max-w-3xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Registrar actualización pública</h1>
+<p class="font-body-base text-body-base text-on-surface-variant mt-1">
+          Emite una respuesta o reporte de intervención oficial para conocimiento y tranquilidad de los vecinos de la colonia seleccionada.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-md py-space-xs rounded-lg self-start md:self-auto">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-badge text-[12px] text-on-surface-variant font-semibold">Sincronización en vivo activa</span>
+</div>
+</div>
+</div>
+<!-- Layout Principal a 2 Columnas -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<!-- Columna Izquierda: Formulario de Captura -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<form class="bg-surface-container-lowest rounded-xl p-space-md sm:p-space-lg shadow-sm flex flex-col gap-space-lg" id="public-update-form">
+<!-- Campo 1: Colonia -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-prominent text-label-prominent text-on-surface flex items-center gap-1.5" for="colonia-select">
+<span>Colonia del Área Metropolitana</span>
+<span class="text-error font-bold">*</span>
+</label>
+<span class="text-[12px] text-on-surface-variant">8 colonias piloto monitoreadas</span>
+</div>
+<div class="relative">
+<select class="w-full h-[52px] bg-surface-container-low text-on-surface rounded-lg px-space-md pr-10 font-body-base text-body-base appearance-none focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary shadow-inner" id="colonia-select">
+<option data-reports="38" data-status="Muchos reportes" selected="" value="Oblatos">Oblatos (Guadalajara)</option>
+<option data-reports="29" data-status="Muchos reportes" value="Santa Cecilia">Santa Cecilia (Guadalajara)</option>
+<option data-reports="14" data-status="Reportes moderados" value="Jardines de la Paz">Jardines de la Paz (Guadalajara)</option>
+<option data-reports="22" data-status="Muchos reportes" value="Miravalle">Miravalle (Guadalajara / Tlaquepaque)</option>
+<option data-reports="8" data-status="Reportes moderados" value="Santa Teresita">Santa Teresita (Guadalajara)</option>
+<option data-reports="12" data-status="Reportes moderados" value="Centro">Centro (Guadalajara)</option>
+<option data-reports="3" data-status="Pocos reportes" value="Chapalita">Chapalita (Guadalajara / Zapopan)</option>
+<option data-reports="17" data-status="Reportes moderados" value="San Rafael">San Rafael (Guadalajara)</option>
+</select>
+<div class="absolute right-space-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[24px]">expand_more</span>
+</div>
+</div>
+<!-- Badge semáforo actual de la colonia -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-error-container/40 text-on-error-container mt-1" id="colonia-status-banner">
+<div class="flex items-center gap-space-xs font-label-badge text-[13px]">
+<span class="material-symbols-outlined text-[18px] text-error">warning</span>
+<span class="font-bold" id="colonia-badge-text">Muchos reportes activos</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-error font-bold text-[12px] shadow-sm" id="colonia-count-badge">
+              38 reportes ciudadanos
+            </span>
+</div>
+</div>
+<!-- Campo 2: Problema relacionado -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-prominent text-label-prominent text-on-surface flex items-center gap-1.5">
+<span>Problema relacionado reportado</span>
+<span class="text-error font-bold">*</span>
+</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs" id="problem-selector">
+<button aria-pressed="true" class="problem-btn flex flex-col items-center justify-center p-space-sm rounded-lg text-center transition-all bg-primary-container text-on-primary shadow-sm" data-problem="Agua turbia" type="button">
+<span class="material-symbols-outlined text-[24px] mb-1">water_bottle</span>
+<span class="font-label-prominent text-[13px] leading-tight">Agua turbia</span>
+</button>
+<button aria-pressed="false" class="problem-btn flex flex-col items-center justify-center p-space-sm rounded-lg text-center transition-all bg-surface-container text-on-surface-variant hover:bg-surface-container-high" data-problem="Mal olor" type="button">
+<span class="material-symbols-outlined text-[24px] mb-1">air</span>
+<span class="font-label-prominent text-[13px] leading-tight">Mal olor</span>
+</button>
+<button aria-pressed="false" class="problem-btn flex flex-col items-center justify-center p-space-sm rounded-lg text-center transition-all bg-surface-container text-on-surface-variant hover:bg-surface-container-high" data-problem="Cambio de color" type="button">
+<span class="material-symbols-outlined text-[24px] mb-1">palette</span>
+<span class="font-label-prominent text-[13px] leading-tight">Coloración</span>
+</button>
+<button aria-pressed="false" class="problem-btn flex flex-col items-center justify-center p-space-sm rounded-lg text-center transition-all bg-surface-container text-on-surface-variant hover:bg-surface-container-high" data-problem="Falta de agua" type="button">
+<span class="material-symbols-outlined text-[24px] mb-1">water_drop</span>
+<span class="font-label-prominent text-[13px] leading-tight">Falta de agua</span>
+</button>
+</div>
+</div>
+<!-- Campo 3: Estado de la intervención -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-prominent text-label-prominent text-on-surface flex items-center gap-1.5">
+<span>Estado de la intervención técnica</span>
+<span class="text-error font-bold">*</span>
+</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs p-1 bg-surface-container rounded-xl" id="status-selector">
+<button class="status-btn flex items-center justify-center gap-space-xs h-[48px] rounded-lg text-on-surface-variant hover:text-on-surface font-label-prominent text-[14px] transition-all" data-chip-class="bg-tertiary-fixed text-on-tertiary-fixed" data-status="En revisión" type="button">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span>En revisión</span>
+</button>
+<button class="status-btn active flex items-center justify-center gap-space-xs h-[48px] rounded-lg bg-surface-container-lowest text-primary shadow font-label-prominent text-[14px] transition-all" data-chip-class="bg-primary-container text-on-primary" data-status="En atención" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">engineering</span>
+<span class="font-bold">En atención</span>
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+</button>
+<button class="status-btn flex items-center justify-center gap-space-xs h-[48px] rounded-lg text-on-surface-variant hover:text-on-surface font-label-prominent text-[14px] transition-all" data-chip-class="bg-secondary-fixed text-on-secondary-fixed" data-status="Atendido" type="button">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+<span>Atendido</span>
+</button>
+</div>
+</div>
+<!-- Campo 4: Acción realizada -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-prominent text-label-prominent text-on-surface flex items-center gap-1.5" for="action-select">
+<span>Acción realizada o en proceso</span>
+<span class="text-error font-bold">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-[52px] bg-surface-container-low text-on-surface rounded-lg px-space-md pr-10 font-body-base text-body-base appearance-none focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary shadow-inner" id="action-select">
+<option selected="" value="Limpieza de red o tanque">Limpieza de red o tanque</option>
+<option value="Reparación de fuga mayor">Reparación de fuga mayor</option>
+<option value="Restablecimiento progresivo de suministro">Restablecimiento progresivo de suministro</option>
+<option value="Muestreo microbiológico y cloración">Muestreo microbiológico y cloración</option>
+<option value="Purga emergente en red secundaria">Purga emergente en red secundaria</option>
+<option value="Otra acción técnica institucional">Otra acción técnica institucional</option>
+</select>
+<div class="absolute right-space-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[24px]">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Campo 5: Nota pública para la colonia -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-prominent text-label-prominent text-on-surface flex items-center gap-1.5" for="public-note">
+<span>Nota pública para la colonia</span>
+<span class="text-error font-bold">*</span>
+</label>
+<span class="text-[12px] text-on-surface-variant">Redacción clara y sin tecnicismos</span>
+</div>
+<textarea class="w-full p-space-md bg-surface-container-low text-on-surface rounded-lg font-body-base text-body-base leading-relaxed focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary transition-all resize-none shadow-inner" id="public-note" maxlength="280" placeholder="Explica detalladamente qué maniobra realizó la cuadrilla y qué esperar en las próximas horas..." rows="4">Cuadrilla técnica No. 4 de SIAPA realizó purga y desazolve de válvula expulsora en el cuadrante oriente de Oblatos. Se estabilizó la presión y disminuyeron los sólidos suspendidos.</textarea>
+<div class="flex items-center justify-between text-[12px] text-on-surface-variant pt-1">
+<div class="w-3/5 bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full transition-all" id="char-progress" style="width: 70.7%;"></div>
+</div>
+<span class="font-semibold text-on-surface" id="char-counter"><span id="char-current">198</span> / 280 caracteres</span>
+</div>
+</div>
+<!-- Aviso de transparencia institucional -->
+<div class="p-space-md rounded-xl bg-surface-container-low text-on-surface flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-prominent text-[13px] text-on-surface font-semibold">Aviso institucional de datos y transparencia</span>
+<p class="font-body-base text-[13px] leading-snug text-on-surface-variant mt-0.5">
+              Esta actualización será visible de inmediato para toda la ciudadanía en el portal, mapa y fichas de colonia. No incluyas nombres de vecinos, teléfonos ni datos personales sujetos a protección.
+            </p>
+</div>
+</div>
+<!-- Botones de Acción -->
+<div class="pt-space-xs flex flex-col sm:flex-row items-center gap-space-sm justify-between">
+<button class="w-full sm:w-auto h-[52px] px-space-md text-on-surface-variant hover:text-error hover:bg-error-container/30 rounded-lg font-label-prominent text-label-prominent transition-colors" id="btn-cancel" type="button">
+            Descartar
+          </button>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto h-[52px] px-space-lg rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-prominent text-label-prominent transition-all" id="btn-draft" type="button">
+              Guardar borrador
+            </button>
+<button class="w-full sm:w-auto h-[52px] px-space-xl rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-prominent text-label-prominent shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-space-xs active:scale-[0.99]" id="btn-publish" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>Publicar actualización</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+<!-- Columna Derecha: Vista Previa en Vivo & Contexto -->
+<div class="lg:col-span-5 flex flex-col gap-space-md sticky top-24">
+<!-- Indicador de vista previa -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">visibility</span>
+<span class="font-label-prominent text-[14px] text-on-surface">Vista previa ciudadana en vivo</span>
+</div>
+<span class="text-[12px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">Ficha pública</span>
+</div>
+<p class="font-body-base text-[13px] text-on-surface-variant -mt-2">
+        Así es como los ciudadanos verán esta respuesta oficial en la ficha web y móvil de su colonia:
+      </p>
+<!-- Tarjeta Simulada Ciudadana (AguaClara Jalisco) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md sm:p-space-lg shadow-md flex flex-col gap-space-md relative overflow-hidden">
+<!-- Franja superior decorativa institucional -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-secondary to-primary-fixed"></div>
+<!-- Encabezado de la Ficha Ciudadana -->
+<div class="flex items-start justify-between gap-space-sm pt-1">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-prominent text-[13px] text-primary font-semibold leading-tight">Comunicado Oficial SIAPA</span>
+<span class="text-[11px] text-on-surface-variant">Portal Público AguaClara Jalisco</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-secondary-fixed/50 text-on-secondary-fixed font-label-badge text-[11px] shrink-0 font-semibold">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+<span>Verificado</span>
+</span>
+</div>
+<!-- Meta de Ubicación y Timestamp -->
+<div class="flex items-baseline justify-between flex-wrap gap-1 bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+<span class="font-headline-sm text-[16px] text-on-surface font-semibold" id="preview-colonia-title">Oblatos, Guadalajara</span>
+</div>
+<span class="text-[12px] text-on-surface-variant font-medium">Hoy • En este instante</span>
+</div>
+<!-- Status Chip & Acciones Técnicas -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-primary-container text-on-primary font-label-badge text-[12px]" id="preview-status-chip">
+<span class="material-symbols-outlined text-[16px]" id="preview-status-icon" style="font-variation-settings: 'FILL' 1;">engineering</span>
+<span id="preview-status-text">En atención</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-badge text-[12px]" id="preview-problem-chip">
+<span class="material-symbols-outlined text-[14px]">water_bottle</span>
+<span id="preview-problem-text">Agua turbia</span>
+</span>
+</div>
+<div class="text-[13px] text-on-surface-variant font-medium mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">build</span>
+<span>Acción:</span>
+<span class="text-on-surface font-semibold" id="preview-action-text">Limpieza de red o tanque</span>
+</div>
+</div>
+<!-- Cuerpo del Mensaje Oficial -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-inner">
+<p class="font-body-base text-[14px] text-on-surface leading-relaxed" id="preview-message-body">
+            Cuadrilla técnica No. 4 de SIAPA realizó purga y desazolve de válvula expulsora en el cuadrante oriente de Oblatos. Se estabilizó la presión y disminuyeron los sólidos suspendidos.
+          </p>
+</div>
+<!-- Pie de la Ficha Ciudadana -->
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-space-xs">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">badge</span>
+<span>Op. Central #4402 • Red Hidráulica</span>
+</div>
+<span class="text-secondary font-semibold">Folio: ACT-2026-0894</span>
+</div>
+</div>
+<!-- Tarjeta Informativa de Impacto Institucional -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm">
+<span class="font-label-prominent text-[13px] text-on-surface font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">bolt</span>
+<span>Impacto estimado al emitir publicación</span>
+</span>
+<ul class="flex flex-col gap-space-xs text-[13px] text-on-surface-variant">
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">notifications_active</span>
+<span>Notifica en la app a los <strong class="text-on-surface font-semibold" id="impact-reports-count">38 reportes activos</strong> de la colonia.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">sync_alt</span>
+<span>Se refleja inmediatamente en el semáforo y la bitácora pública de Oblatos.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[18px] shrink-0 mt-0.5">receipt_long</span>
+<span>Genera folio institucional auditable por la Contraloría Ciudadana del Agua.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Toast de Confirmación Oculto -->
+<div class="fixed bottom-6 right-6 bg-inverse-surface text-inverse-on-surface px-space-lg py-space-md rounded-xl shadow-xl flex items-center gap-space-md transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 z-50" id="toast-success">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-prominent text-[14px] font-semibold text-white">Actualización emitida correctamente</span>
+<span class="text-[12px] text-inverse-on-surface/80">Visible de inmediato en la ficha de la colonia.</span>
+</div>
+</div>
+<!-- Script interactivo con soporte de eventos y reactividad en tiempo real -->
+<script>
+    (function initOfficialUpdatePortal() {
+      const coloniaSelect = document.getElementById('colonia-select');
+      const actionSelect = document.getElementById('action-select');
+      const publicNote = document.getElementById('public-note');
+      const charCounter = document.getElementById('char-current');
+      const charProgress = document.getElementById('char-progress');
+      
+      // Preview Elements
+      const previewColoniaTitle = document.getElementById('preview-colonia-title');
+      const previewActionText = document.getElementById('preview-action-text');
+      const previewMessageBody = document.getElementById('preview-message-body');
+      const previewProblemText = document.getElementById('preview-problem-text');
+      const previewStatusText = document.getElementById('preview-status-text');
+      const previewStatusIcon = document.getElementById('preview-status-icon');
+      const previewStatusChip = document.getElementById('preview-status-chip');
+      const impactCount = document.getElementById('impact-reports-count');
+      const coloniaBadgeText = document.getElementById('colonia-badge-text');
+      const coloniaCountBadge = document.getElementById('colonia-count-badge');
+      const coloniaStatusBanner = document.getElementById('colonia-status-banner');
+
+      // 1. Selector de Colonia y Actualización de Impacto
+      coloniaSelect.addEventListener('change', (e) => {
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        const coloniaName = selectedOption.value;
+        const reports = selectedOption.dataset.reports || '0';
+        const status = selectedOption.dataset.status || 'Reportes moderados';
+
+        previewColoniaTitle.textContent = `${coloniaName}, Guadalajara`;
+        impactCount.textContent = `${reports} reportes activos`;
+        coloniaCountBadge.textContent = `${reports} reportes ciudadanos`;
+        coloniaBadgeText.textContent = `${status} activos`;
+
+        // Ajuste de colores del semáforo en el formulario
+        if (status === 'Pocos reportes') {
+          coloniaStatusBanner.className = 'flex items-center justify-between p-space-sm rounded-lg bg-surface-container text-on-surface mt-1';
+          coloniaCountBadge.className = 'px-2 py-0.5 rounded bg-surface-container-lowest text-secondary font-bold text-[12px] shadow-sm';
+        } else if (status === 'Reportes moderados') {
+          coloniaStatusBanner.className = 'flex items-center justify-between p-space-sm rounded-lg bg-tertiary-fixed text-on-tertiary-fixed mt-1';
+          coloniaCountBadge.className = 'px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary font-bold text-[12px] shadow-sm';
+        } else {
+          coloniaStatusBanner.className = 'flex items-center justify-between p-space-sm rounded-lg bg-error-container/40 text-on-error-container mt-1';
+          coloniaCountBadge.className = 'px-2 py-0.5 rounded bg-surface-container-lowest text-error font-bold text-[12px] shadow-sm';
+        }
+      });
+
+      // 2. Selector de Problemas (Pills)
+      const problemBtns = document.querySelectorAll('.problem-btn');
+      problemBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          problemBtns.forEach(b => {
+            b.className = 'problem-btn flex flex-col items-center justify-center p-space-sm rounded-lg text-center transition-all bg-surface-container text-on-surface-variant hover:bg-surface-container-high';
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.className = 'problem-btn flex flex-col items-center justify-center p-space-sm rounded-lg text-center transition-all bg-primary-container text-on-primary shadow-sm';
+          btn.setAttribute('aria-pressed', 'true');
+          
+          const problemVal = btn.dataset.problem;
+          previewProblemText.textContent = problemVal;
+        });
+      });
+
+      // 3. Selector de Estado (Segmented Control)
+      const statusBtns = document.querySelectorAll('.status-btn');
+      statusBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          statusBtns.forEach(b => {
+            b.className = 'status-btn flex items-center justify-center gap-space-xs h-[48px] rounded-lg text-on-surface-variant hover:text-on-surface font-label-prominent text-[14px] transition-all';
+            const check = b.querySelector('.material-symbols-outlined:last-child');
+            if (check && check.textContent === 'check_circle') check.remove();
+          });
+
+          btn.className = 'status-btn active flex items-center justify-center gap-space-xs h-[48px] rounded-lg bg-surface-container-lowest text-primary shadow font-label-prominent text-[14px] transition-all';
+          const checkIcon = document.createElement('span');
+          checkIcon.className = 'material-symbols-outlined text-[16px] text-primary';
+          checkIcon.textContent = 'check_circle';
+          btn.appendChild(checkIcon);
+
+          const statusVal = btn.dataset.status;
+          previewStatusText.textContent = statusVal;
+
+          if (statusVal === 'En revisión') {
+            previewStatusIcon.textContent = 'search';
+            previewStatusChip.className = 'inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-badge text-[12px]';
+          } else if (statusVal === 'En atención') {
+            previewStatusIcon.textContent = 'engineering';
+            previewStatusChip.className = 'inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-primary-container text-on-primary font-label-badge text-[12px]';
+          } else {
+            previewStatusIcon.textContent = 'task_alt';
+            previewStatusChip.className = 'inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-[12px]';
+          }
+        });
+      });
+
+      // 4. Selector de Acción
+      actionSelect.addEventListener('change', (e) => {
+        previewActionText.textContent = e.target.value;
+      });
+
+      // 5. Nota Pública y Contador Dinámico
+      publicNote.addEventListener('input', (e) => {
+        const text = e.target.value;
+        const len = text.length;
+        charCounter.textContent = len;
+        const percent = Math.min((len / 280) * 100, 100);
+        charProgress.style.width = `${percent}%`;
+
+        if (len > 250) {
+          charProgress.className = 'bg-error h-full transition-all';
+        } else {
+          charProgress.className = 'bg-primary h-full transition-all';
+        }
+
+        previewMessageBody.textContent = text.trim() || 'Esperando redacción de la nota oficial...';
+      });
+
+      // 6. Notificación Toast y Envío
+      const form = document.getElementById('public-update-form');
+      const toast = document.getElementById('toast-success');
+      const btnPublish = document.getElementById('btn-publish');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        btnPublish.disabled = true;
+        btnPublish.classList.add('opacity-80');
+        
+        // Simular llamada de guardado y feedback
+        setTimeout(() => {
+          toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+          toast.classList.add('translate-y-0', 'opacity-100');
+          btnPublish.disabled = false;
+          btnPublish.classList.remove('opacity-80');
+
+          setTimeout(() => {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+          }, 3500);
+        }, 300);
+      });
+
+      // Botón borrador
+      document.getElementById('btn-draft').addEventListener('click', () => {
+        alert('Borrador interno guardado localmente en la mesa de operación.');
+      });
+    })();
+  </script>
+</div></div></main><footer class="w-full bg-surface-container-low mt-auto"><div class="max-w-[1120px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-base text-[13px]"><div class="flex flex-wrap items-center gap-space-md justify-center md:justify-start"><span class="font-semibold text-on-surface">Gobierno del Estado de Jalisco</span><span>•</span><span>SIAPA Guadalajara</span><span>•</span><span>Comisión Estatal del Agua (CEA)</span></div><div class="flex items-center gap-space-lg text-[12px]"><span>Canal Oficial de Operación de Red Hidráulica</span><span class="text-outline">© 2025</span></div></div></footer></body></html>
