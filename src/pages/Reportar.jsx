@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { buscarColoniaPorPunto } from '../utils/geofencing';
+import SelectorColoniaMapa from '../components/SelectorColoniaMapa';
 import Mensajes from '../components/Mensajes';
 import { verificarLimiteReporte } from '../utils/reportesStore';
 import { firebaseConfigurado, verificarLimiteFirestore } from '../firebase/firestoreService';
@@ -76,7 +77,6 @@ export default function Reportar() {
           setUbicacionVerificada(true);
         } else {
           setUbicacionVerificada(false);
-          if (!modoDemo) setColoniaId(null);
           setEstadoMensaje('fuera_de_zona');
         }
       },
@@ -305,6 +305,15 @@ export default function Reportar() {
                   </button>
                 ))}
               </div>
+
+              <span className="text-xs sm:text-sm text-on-surface-variant font-medium block pt-2">
+                O toca tu colonia en el mapa (se elige la zona, no un punto exacto):
+              </span>
+              <SelectorColoniaMapa
+                geojsonData={geojsonData}
+                coloniaId={coloniaId}
+                onSelect={elegirColoniaDemo}
+              />
             </div>
             )}
           </section>

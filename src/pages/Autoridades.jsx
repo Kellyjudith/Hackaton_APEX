@@ -162,14 +162,14 @@ export default function Autoridades() {
 
             <div className="h-56 w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={SERIE_SEMANAL} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                <LineChart data={SERIE_SEMANAL} margin={{ top: 10, right: 12, left: 4, bottom: 24 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ECEEF0" />
-                  <XAxis dataKey="semana" tick={{ fontSize: 12, fill: '#414751' }} />
-                  <YAxis tick={{ fontSize: 12, fill: '#414751' }} />
+                  <XAxis dataKey="semana" tick={{ fontSize: 12, fill: '#414751' }} label={{ value: 'Semana (de la más antigua a la más reciente)', position: 'insideBottom', offset: -14, fontSize: 12, fill: '#414751' }} />
+                  <YAxis tick={{ fontSize: 12, fill: '#414751' }} label={{ value: 'Reportes por semana', angle: -90, position: 'insideLeft', offset: 6, style: { textAnchor: 'middle' }, fontSize: 12, fill: '#414751' }} />
                   <Tooltip
                     contentStyle={{ borderRadius: '8px', border: '1px solid #CBD5E1', fontSize: '13px' }}
                   />
-                  <Line type="monotone" dataKey="reportes" stroke="#00477F" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="reportes" name="Reportes" stroke="#00477F" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
                 </LineChart>
               </ResponsiveContainer>
             </div>

@@ -164,7 +164,7 @@ export default function Colonia() {
               </div>
 
               <h2 className="text-base sm:text-xl font-bold pt-0.5" style={{ color: dataColonia.estado.text }}>
-                En los últimos 30 días, {dataColonia.nombre} tiene {dataColonia.estado.nombre.toLowerCase()}.
+                En los últimos 30 días, {dataColonia.nombre} tiene {/^sin datos/i.test(dataColonia.estado.nombre) ? 'datos insuficientes' : dataColonia.estado.nombre.toLowerCase()}.
               </h2>
               <p className="text-xs sm:text-sm leading-relaxed" style={{ color: dataColonia.estado.text }}>
                 {dataColonia.estado.descripcion}
@@ -258,13 +258,13 @@ export default function Colonia() {
 
             <div className="h-64 w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={datosBarras} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                  <XAxis dataKey="tipo" tick={{ fontSize: 12, fill: '#414751' }} />
-                  <YAxis allowDecimals={false} tick={{ fontSize: 12, fill: '#414751' }} />
+                <BarChart data={datosBarras} margin={{ top: 10, right: 12, left: 4, bottom: 24 }}>
+                  <XAxis dataKey="tipo" tick={{ fontSize: 12, fill: '#414751' }} label={{ value: 'Tipo de problema', position: 'insideBottom', offset: -14, fontSize: 12, fill: '#414751' }} />
+                  <YAxis allowDecimals={false} tick={{ fontSize: 12, fill: '#414751' }} label={{ value: 'Número de reportes', angle: -90, position: 'insideLeft', offset: 6, style: { textAnchor: 'middle' }, fontSize: 12, fill: '#414751' }} />
                   <Tooltip
                     contentStyle={{ borderRadius: '8px', border: '1px solid #CBD5E1', fontSize: '13px' }}
                   />
-                  <Bar dataKey="reportes" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="reportes" name="Reportes" radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -284,14 +284,14 @@ export default function Colonia() {
 
             <div className="h-64 w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={SERIE_SEMANAL} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                <LineChart data={SERIE_SEMANAL} margin={{ top: 10, right: 12, left: 4, bottom: 24 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ECEEF0" />
-                  <XAxis dataKey="semana" tick={{ fontSize: 12, fill: '#414751' }} />
-                  <YAxis tick={{ fontSize: 12, fill: '#414751' }} />
+                  <XAxis dataKey="semana" tick={{ fontSize: 12, fill: '#414751' }} label={{ value: 'Semana (de la más antigua a la más reciente)', position: 'insideBottom', offset: -14, fontSize: 12, fill: '#414751' }} />
+                  <YAxis tick={{ fontSize: 12, fill: '#414751' }} label={{ value: 'Reportes por semana', angle: -90, position: 'insideLeft', offset: 6, style: { textAnchor: 'middle' }, fontSize: 12, fill: '#414751' }} />
                   <Tooltip
                     contentStyle={{ borderRadius: '8px', border: '1px solid #CBD5E1', fontSize: '13px' }}
                   />
-                  <Line type="monotone" dataKey="reportes" stroke="#00477F" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="reportes" name="Reportes" stroke="#00477F" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
                 </LineChart>
               </ResponsiveContainer>
             </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import MapaLeaflet from '../components/MapaLeaflet';
+import { ETIQUETA_TIPO, tiempoRelativo, ultimosReportes } from '../utils/tiempo';
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -432,6 +433,19 @@ export default function Home() {
                     </div>
                   </div>
 
+                  {/* Último reporte registrado (solo tipo y tiempo) */}
+                  {(() => {
+                    const ultimo = ultimosReportes(coloniaSeleccionada.reportes, 1)[0];
+                    return (
+                      <div className="flex items-center justify-between gap-2 p-3 bg-surface-container-low rounded-xl text-sm">
+                        <span className="text-xs text-on-surface-variant font-medium">Último reporte registrado:</span>
+                        <span className="font-semibold text-on-surface text-right">
+                          {ultimo ? `${ETIQUETA_TIPO[ultimo.tipo] || ultimo.tipo} · ${tiempoRelativo(ultimo)}` : 'Sin reportes aún'}
+                        </span>
+                      </div>
+                    );
+                  })()}
+
                   {/* Acciones principales */}
                   <div className="flex flex-col gap-2 pt-2">
                     <Link
@@ -467,7 +481,10 @@ export default function Home() {
                       <button
                         key={c.id}
                         type="button"
-                        onClick={() => setColoniaSeleccionadaId(c.id)}
+                        onClick={() => {
+                          setColoniaSeleccionadaId(c.id);
+                          irAlContenido();
+                        }}
                         className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1 ${
                           isSelected
                             ? 'bg-primary text-on-primary shadow-sm'
