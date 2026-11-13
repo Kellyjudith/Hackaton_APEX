@@ -1,9 +1,9 @@
 import { CONFIG } from '../config';
 import { calcularEstadisticasSalud, getEstadoEvidenciaEnviada } from './reportesStore';
 
-// Mientras viviendas.json y riesgo.json sean valores de demostración, se declara en cada exportación.
-// Cuando se reemplacen por los datos reales del INEGI y del Atlas, cambiar a false.
-export const DATOS_VIVIENDAS_RIESGO_PROVISIONALES = true;
+// Viviendas (INEGI, Censo 2020, por manzana) y riesgo (Atlas Nacional de Riesgos, CENAPRED) ya son datos reales.
+// El riesgo es un indicador MUNICIPAL: vale igual para todo Guadalajara y no distingue entre colonias.
+export const DATOS_VIVIENDAS_RIESGO_PROVISIONALES = false;
 
 const NOMBRE_PROBLEMA = {
   turbia: 'Agua turbia',
@@ -72,6 +72,7 @@ export function construirFilaResumen(c, extra = {}) {
     colonia: c.nombre,
     municipio: c.municipio,
     viviendas: c.viviendas || 'Sin dato',
+    viviendas_sin_agua_entubada: c.sinAguaEntubada ?? 'Sin dato',
     reportes_calidad_30d: c.reportesCalidad,
     reportes_por_1000: c.estado.tasa !== null && c.estado.tasa !== undefined ? c.estado.tasa : 'Sin dato suficiente',
     estado: c.estado.nombre,
@@ -90,6 +91,6 @@ export function construirFilaResumen(c, extra = {}) {
     simulado,
     nota: DATOS_VIVIENDAS_RIESGO_PROVISIONALES
       ? 'Viviendas (Dataset 01) y zona de riesgo (Dataset 05) provisionales. El semaforo mide reportes ciudadanos, no la calidad del agua. Malestar: autorreporte, no es diagnostico ni prueba de causa.'
-      : 'El semaforo mide reportes ciudadanos, no la calidad del agua. Malestar: autorreporte, no es diagnostico ni prueba de causa.',
+      : 'Viviendas: INEGI Censo 2020 (Dataset 01). Zona de riesgo: indicador municipal de peligro por inundacion del Atlas Nacional de Riesgos (Dataset 05), igual para todo el municipio. El semaforo mide reportes ciudadanos, no la calidad del agua. Malestar: autorreporte, no es diagnostico ni prueba de causa.',
   };
 }

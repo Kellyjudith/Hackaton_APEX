@@ -154,6 +154,7 @@ export function AppProvider({ children }) {
       nombre: viviendas[coloniaId]?.nombre || coloniaId,
       municipio: viviendas[coloniaId]?.municipio || 'Guadalajara',
       viviendas: viv,
+      sinAguaEntubada: viviendas[coloniaId]?.viviendas_sin_agua_entubada ?? null,
       riesgo: ries,
       reportesCalidad: estado.n,
       faltaAguaCount,

@@ -209,23 +209,26 @@ export default function Colonia() {
           <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/30 shadow-sm">
             <div className="flex items-center justify-between">
               <span className="text-xs text-on-surface-variant font-medium block">Viviendas (INEGI)</span>
-              <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">Provisional</span>
             </div>
             <span className="text-2xl sm:text-3xl font-black text-on-surface mt-1 block">
               {dataColonia.viviendas ? dataColonia.viviendas.toLocaleString() : 'Sin dato'}
             </span>
             <span className="text-[11px] text-on-surface-variant mt-0.5 block">Dataset 01 (Censo 2020)</span>
+            {dataColonia.sinAguaEntubada !== null && dataColonia.sinAguaEntubada !== undefined && (
+              <span className="text-[11px] text-on-surface-variant mt-0.5 block">
+                {dataColonia.sinAguaEntubada.toLocaleString()} sin agua entubada
+              </span>
+            )}
           </div>
 
           <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/30 shadow-sm">
             <div className="flex items-center justify-between">
               <span className="text-xs text-on-surface-variant font-medium block">Zona de Riesgo</span>
-              <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">Provisional</span>
             </div>
             <span className="text-2xl sm:text-3xl font-black text-on-surface mt-1 block uppercase">
               {dataColonia.riesgo || 'Sin dato'}
             </span>
-            <span className="text-[11px] text-on-surface-variant mt-0.5 block">Dataset 05 (Atlas Riesgos)</span>
+            <span className="text-[11px] text-on-surface-variant mt-0.5 block">Dataset 05 (Atlas de Riesgos): peligro por inundación, dato municipal</span>
           </div>
         </div>
 

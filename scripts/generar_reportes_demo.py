@@ -4,29 +4,27 @@ import random
 # Semilla fija para reproducibilidad determinista
 random.seed(42)
 
-# 109 reportes de calidad según distribución exacta de CONTEXTO / CORRECCION
-colonias_calidad = {
-    "oblatos": 38,
-    "santa_cecilia": 29,
-    "jardines_de_la_paz": 16,
-    "miravalle": 14,
-    "centro": 5,
-    "santa_teresita": 4,
-    "chapalita": 3,
-    "san_rafael": 0
+# Regla fija y transparente (no ajustada para obtener colores concretos):
+# reportes de calidad = redondeo(incidencia x viviendas / 1000), con las VIVIENDAS REALES
+# del Dataset 01 (INEGI, Censo 2020) de public/data/viviendas.json.
+# La incidencia (reportes por 1,000 viviendas) es un supuesto de la demostración, no un dato real.
+with open("public/data/viviendas.json", encoding="utf-8") as fv:
+    viviendas = json.load(fv)
+
+INCIDENCIA_CALIDAD = {
+    "oblatos": 4.1, "santa_cecilia": 3.8, "jardines_de_la_paz": 2.4, "miravalle": 2.1,
+    "centro": 0.9, "santa_teresita": 0.7, "chapalita": 0.5, "san_rafael": 0.0,
+}
+INCIDENCIA_FALTA_AGUA = {
+    "oblatos": 0.65, "santa_cecilia": 0.52, "miravalle": 0.45, "jardines_de_la_paz": 0.30,
+    "centro": 0.0, "santa_teresita": 0.0, "chapalita": 0.0, "san_rafael": 0.0,
 }
 
-# Avisos independientes de falta de agua (fuera del semáforo de calidad)
-colonias_falta_agua = {
-    "oblatos": 6,
-    "santa_cecilia": 4,
-    "miravalle": 3,
-    "jardines_de_la_paz": 2,
-    "centro": 0,
-    "santa_teresita": 0,
-    "chapalita": 0,
-    "san_rafael": 0
-}
+def conteo(incidencia, colonia):
+    return round(incidencia * viviendas[colonia]["viviendas"] / 1000)
+
+colonias_calidad = {c: conteo(i, c) for c, i in INCIDENCIA_CALIDAD.items()}
+colonias_falta_agua = {c: conteo(i, c) for c, i in INCIDENCIA_FALTA_AGUA.items()}
 
 tipos_calidad = ["turbia", "olor", "color"]
 tipo_pesos = [0.55, 0.30, 0.15]

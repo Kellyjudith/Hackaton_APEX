@@ -1,0 +1,56 @@
+{
+  "_metadata": {
+    "dataset": "Dataset 05 (Atlas Nacional de Riesgos, CENAPRED - Indicadores municipales)",
+    "municipio": "Guadalajara, Jalisco",
+    "estado": "REAL (nivel municipal)",
+    "nota": "Grado de peligro por inundación del municipio (GP_INUNDAC). Es un valor único para todo el municipio, por lo que no distingue entre colonias."
+  },
+  "oblatos": {
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
+  },
+  "santa_cecilia": {
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
+  },
+  "jardines_de_la_paz": {
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
+  },
+  "miravalle": {
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
+  },
+  "centro": {
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
+  },
+  "santa_teresita": {
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
+  },
+  "chapalita": {
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
+  },
+  "san_rafael": {
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
+  }
+}

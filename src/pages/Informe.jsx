@@ -203,12 +203,12 @@ export default function Informe() {
                   <td className="py-2.5 px-3 font-bold">
                     {data.viviendas ? data.viviendas.toLocaleString() : 'Sin dato'}
                   </td>
-                  <td className="py-2.5 px-3 text-xs text-slate-500">INEGI Censo 2020 por AGEB (Dataset 01 - Provisional)</td>
+                  <td className="py-2.5 px-3 text-xs text-slate-500">INEGI Censo 2020, por manzana (Dataset 01)</td>
                 </tr>
                 <tr>
-                  <td className="py-2.5 px-3 font-semibold">Nivel de riesgo de inundación/hundimiento</td>
+                  <td className="py-2.5 px-3 font-semibold">Peligro por inundación (nivel municipal)</td>
                   <td className="py-2.5 px-3 font-bold uppercase">{data.riesgo || 'Sin dato'}</td>
-                  <td className="py-2.5 px-3 text-xs text-slate-500">Atlas de Riesgos Jalisco (Dataset 05 - Provisional)</td>
+                  <td className="py-2.5 px-3 text-xs text-slate-500">Atlas Nacional de Riesgos, CENAPRED (Dataset 05); igual para todo el municipio</td>
                 </tr>
                 <tr>
                   <td className="py-2.5 px-3 font-semibold">Autorreporte de malestar estomacal</td>
@@ -293,7 +293,7 @@ export default function Informe() {
             </p>
             <p>
               El semáforo indica el <strong>volumen de reportes ciudadanos</strong> registrados en la plataforma y no determina 
-              si el agua es potable, segura o contaminada químicamente. Los datos de viviendas y riesgo son provisionales basados en fuentes abiertas.
+              si el agua es potable, segura o contaminada químicamente. Las viviendas provienen del Censo 2020 del INEGI y el riesgo es un indicador municipal de inundación, igual para todas las colonias del municipio; los polígonos de colonias provienen del IIEG Jalisco.
             </p>
             {simuladosCount > 0 && (
               <p className="font-semibold text-amber-700">

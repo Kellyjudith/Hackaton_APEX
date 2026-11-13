@@ -1,0 +1,9 @@
+﻿id,nombre,municipio,nombre_en_shapefile,viviendas,viviendas_sin_agua_entubada,pct_sin_agua_entubada,fuente
+oblatos,Oblatos,Guadalajara,OBLATOS,7121,4,0.06,INEGI Censo 2020 (manzanas) - Dataset 01
+santa_cecilia,Santa Cecilia,Guadalajara,SANTA CECILIA,5993,8,0.13,INEGI Censo 2020 (manzanas) - Dataset 01
+jardines_de_la_paz,Jardines de la Paz,Guadalajara,JARDINES DE LA PAZ,2050,1,0.05,INEGI Censo 2020 (manzanas) - Dataset 01
+miravalle,Miravalle,Guadalajara,MIRAVALLE,5209,0,0.0,INEGI Censo 2020 (manzanas) - Dataset 01
+centro,Centro,Guadalajara,CENTRO,830,0,0.0,INEGI Censo 2020 (manzanas) - Dataset 01
+santa_teresita,Santa Teresita,Guadalajara,VILLASEÑOR (SANTA TERESITA),4251,0,0.0,INEGI Censo 2020 (manzanas) - Dataset 01
+chapalita,Chapalita,Guadalajara,CHAPALITA,1898,0,0.0,INEGI Censo 2020 (manzanas) - Dataset 01
+san_rafael,San Rafael,Guadalajara,SAN RAFAEL,2456,3,0.12,INEGI Censo 2020 (manzanas) - Dataset 01

@@ -136,17 +136,17 @@ export function getEstadoEvidenciaEnviada(coloniaId) {
 }
 
 /**
- * Serie fija semanal de 8 semanas según directriz de CONTEXTO / CORRECCION.
+ * Serie semanal simulada de 8 semanas (demostración). Las últimas cuatro semanas suman los reportes de calidad de la demo.
  */
 export const SERIE_SEMANAL = [
-  { semana: 'Sem 1', reportes: 8 },
-  { semana: 'Sem 2', reportes: 10 },
-  { semana: 'Sem 3', reportes: 12 },
-  { semana: 'Sem 4', reportes: 15 },
-  { semana: 'Sem 5', reportes: 22 },
-  { semana: 'Sem 6', reportes: 25 },
-  { semana: 'Sem 7', reportes: 27 },
-  { semana: 'Sem 8', reportes: 35 },
+  { semana: 'Sem 1', reportes: 5 },
+  { semana: 'Sem 2', reportes: 6 },
+  { semana: 'Sem 3', reportes: 8 },
+  { semana: 'Sem 4', reportes: 10 },
+  { semana: 'Sem 5', reportes: 14 },
+  { semana: 'Sem 6', reportes: 16 },
+  { semana: 'Sem 7', reportes: 18 },
+  { semana: 'Sem 8', reportes: 25 },
 ];
 
 /**

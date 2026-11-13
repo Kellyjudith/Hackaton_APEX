@@ -233,7 +233,7 @@
   },
   {
     "id": "demo-030",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "turbia",
     "sintomas": true,
     "diasAtras": 3,
@@ -241,7 +241,7 @@
   },
   {
     "id": "demo-031",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "turbia",
     "sintomas": null,
     "diasAtras": 12,
@@ -249,7 +249,7 @@
   },
   {
     "id": "demo-032",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "turbia",
     "sintomas": false,
     "diasAtras": 3,
@@ -257,7 +257,7 @@
   },
   {
     "id": "demo-033",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "color",
     "sintomas": null,
     "diasAtras": 10,
@@ -265,7 +265,7 @@
   },
   {
     "id": "demo-034",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "color",
     "sintomas": false,
     "diasAtras": 1,
@@ -273,7 +273,7 @@
   },
   {
     "id": "demo-035",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "olor",
     "sintomas": true,
     "diasAtras": 11,
@@ -281,7 +281,7 @@
   },
   {
     "id": "demo-036",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "olor",
     "sintomas": false,
     "diasAtras": 4,
@@ -289,7 +289,7 @@
   },
   {
     "id": "demo-037",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "turbia",
     "sintomas": null,
     "diasAtras": 23,
@@ -297,7 +297,7 @@
   },
   {
     "id": "demo-038",
-    "colonia": "oblatos",
+    "colonia": "santa_cecilia",
     "tipo": "turbia",
     "sintomas": true,
     "diasAtras": 10,
@@ -417,470 +417,190 @@
   },
   {
     "id": "demo-053",
-    "colonia": "santa_cecilia",
+    "colonia": "jardines_de_la_paz",
     "tipo": "turbia",
-    "sintomas": true,
-    "diasAtras": 12,
+    "sintomas": false,
+    "diasAtras": 18,
     "simulado": true
   },
   {
     "id": "demo-054",
-    "colonia": "santa_cecilia",
-    "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 3,
+    "colonia": "jardines_de_la_paz",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 0,
     "simulado": true
   },
   {
     "id": "demo-055",
-    "colonia": "santa_cecilia",
-    "tipo": "turbia",
-    "sintomas": null,
-    "diasAtras": 20,
+    "colonia": "jardines_de_la_paz",
+    "tipo": "olor",
+    "sintomas": true,
+    "diasAtras": 7,
     "simulado": true
   },
   {
     "id": "demo-056",
-    "colonia": "santa_cecilia",
+    "colonia": "jardines_de_la_paz",
     "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 5,
+    "sintomas": true,
+    "diasAtras": 10,
     "simulado": true
   },
   {
     "id": "demo-057",
-    "colonia": "santa_cecilia",
-    "tipo": "turbia",
-    "sintomas": null,
-    "diasAtras": 4,
-    "simulado": true
-  },
-  {
-    "id": "demo-058",
-    "colonia": "santa_cecilia",
-    "tipo": "olor",
-    "sintomas": null,
-    "diasAtras": 9,
-    "simulado": true
-  },
-  {
-    "id": "demo-059",
-    "colonia": "santa_cecilia",
-    "tipo": "olor",
-    "sintomas": true,
-    "diasAtras": 5,
-    "simulado": true
-  },
-  {
-    "id": "demo-060",
-    "colonia": "santa_cecilia",
-    "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 8,
-    "simulado": true
-  },
-  {
-    "id": "demo-061",
-    "colonia": "santa_cecilia",
-    "tipo": "olor",
-    "sintomas": null,
-    "diasAtras": 13,
-    "simulado": true
-  },
-  {
-    "id": "demo-062",
-    "colonia": "santa_cecilia",
-    "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 8,
-    "simulado": true
-  },
-  {
-    "id": "demo-063",
-    "colonia": "santa_cecilia",
-    "tipo": "color",
-    "sintomas": true,
-    "diasAtras": 6,
-    "simulado": true
-  },
-  {
-    "id": "demo-064",
-    "colonia": "santa_cecilia",
-    "tipo": "turbia",
-    "sintomas": true,
-    "diasAtras": 8,
-    "simulado": true
-  },
-  {
-    "id": "demo-065",
-    "colonia": "santa_cecilia",
+    "colonia": "jardines_de_la_paz",
     "tipo": "turbia",
     "sintomas": false,
     "diasAtras": 21,
     "simulado": true
   },
   {
-    "id": "demo-066",
-    "colonia": "santa_cecilia",
-    "tipo": "color",
-    "sintomas": true,
-    "diasAtras": 11,
-    "simulado": true
-  },
-  {
-    "id": "demo-067",
-    "colonia": "santa_cecilia",
-    "tipo": "color",
-    "sintomas": null,
-    "diasAtras": 18,
-    "simulado": true
-  },
-  {
-    "id": "demo-068",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "color",
-    "sintomas": true,
-    "diasAtras": 27,
-    "simulado": true
-  },
-  {
-    "id": "demo-069",
-    "colonia": "jardines_de_la_paz",
+    "id": "demo-058",
+    "colonia": "miravalle",
     "tipo": "turbia",
-    "sintomas": true,
-    "diasAtras": 15,
-    "simulado": true
-  },
-  {
-    "id": "demo-070",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "turbia",
-    "sintomas": true,
-    "diasAtras": 1,
-    "simulado": true
-  },
-  {
-    "id": "demo-071",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "turbia",
-    "sintomas": true,
-    "diasAtras": 12,
-    "simulado": true
-  },
-  {
-    "id": "demo-072",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "olor",
-    "sintomas": true,
-    "diasAtras": 14,
-    "simulado": true
-  },
-  {
-    "id": "demo-073",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "olor",
     "sintomas": null,
     "diasAtras": 23,
     "simulado": true
   },
   {
-    "id": "demo-074",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "olor",
-    "sintomas": false,
-    "diasAtras": 22,
-    "simulado": true
-  },
-  {
-    "id": "demo-075",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "turbia",
-    "sintomas": null,
-    "diasAtras": 6,
-    "simulado": true
-  },
-  {
-    "id": "demo-076",
-    "colonia": "jardines_de_la_paz",
+    "id": "demo-059",
+    "colonia": "miravalle",
     "tipo": "olor",
     "sintomas": true,
-    "diasAtras": 17,
+    "diasAtras": 15,
     "simulado": true
   },
   {
-    "id": "demo-077",
-    "colonia": "jardines_de_la_paz",
+    "id": "demo-060",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 13,
+    "simulado": true
+  },
+  {
+    "id": "demo-061",
+    "colonia": "miravalle",
     "tipo": "turbia",
     "sintomas": false,
-    "diasAtras": 1,
+    "diasAtras": 13,
     "simulado": true
   },
   {
-    "id": "demo-078",
-    "colonia": "jardines_de_la_paz",
+    "id": "demo-062",
+    "colonia": "miravalle",
     "tipo": "turbia",
     "sintomas": false,
     "diasAtras": 27,
     "simulado": true
   },
   {
-    "id": "demo-079",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "turbia",
-    "sintomas": true,
-    "diasAtras": 16,
-    "simulado": true
-  },
-  {
-    "id": "demo-080",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "turbia",
-    "sintomas": true,
-    "diasAtras": 19,
-    "simulado": true
-  },
-  {
-    "id": "demo-081",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "color",
-    "sintomas": true,
-    "diasAtras": 12,
-    "simulado": true
-  },
-  {
-    "id": "demo-082",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "color",
-    "sintomas": false,
-    "diasAtras": 7,
-    "simulado": true
-  },
-  {
-    "id": "demo-083",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 2,
-    "simulado": true
-  },
-  {
-    "id": "demo-084",
-    "colonia": "miravalle",
-    "tipo": "olor",
-    "sintomas": false,
-    "diasAtras": 16,
-    "simulado": true
-  },
-  {
-    "id": "demo-085",
-    "colonia": "miravalle",
-    "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 21,
-    "simulado": true
-  },
-  {
-    "id": "demo-086",
-    "colonia": "miravalle",
-    "tipo": "turbia",
-    "sintomas": true,
-    "diasAtras": 12,
-    "simulado": true
-  },
-  {
-    "id": "demo-087",
-    "colonia": "miravalle",
-    "tipo": "olor",
-    "sintomas": false,
-    "diasAtras": 14,
-    "simulado": true
-  },
-  {
-    "id": "demo-088",
+    "id": "demo-063",
     "colonia": "miravalle",
     "tipo": "olor",
     "sintomas": true,
-    "diasAtras": 2,
-    "simulado": true
-  },
-  {
-    "id": "demo-089",
-    "colonia": "miravalle",
-    "tipo": "olor",
-    "sintomas": null,
-    "diasAtras": 18,
-    "simulado": true
-  },
-  {
-    "id": "demo-090",
-    "colonia": "miravalle",
-    "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 6,
-    "simulado": true
-  },
-  {
-    "id": "demo-091",
-    "colonia": "miravalle",
-    "tipo": "turbia",
-    "sintomas": null,
-    "diasAtras": 11,
-    "simulado": true
-  },
-  {
-    "id": "demo-092",
-    "colonia": "miravalle",
-    "tipo": "color",
-    "sintomas": true,
-    "diasAtras": 11,
-    "simulado": true
-  },
-  {
-    "id": "demo-093",
-    "colonia": "miravalle",
-    "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 17,
-    "simulado": true
-  },
-  {
-    "id": "demo-094",
-    "colonia": "miravalle",
-    "tipo": "olor",
-    "sintomas": false,
-    "diasAtras": 25,
-    "simulado": true
-  },
-  {
-    "id": "demo-095",
-    "colonia": "miravalle",
-    "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 26,
-    "simulado": true
-  },
-  {
-    "id": "demo-096",
-    "colonia": "miravalle",
-    "tipo": "color",
-    "sintomas": null,
-    "diasAtras": 3,
-    "simulado": true
-  },
-  {
-    "id": "demo-097",
-    "colonia": "miravalle",
-    "tipo": "turbia",
-    "sintomas": null,
-    "diasAtras": 3,
-    "simulado": true
-  },
-  {
-    "id": "demo-098",
-    "colonia": "centro",
-    "tipo": "olor",
-    "sintomas": true,
-    "diasAtras": 4,
-    "simulado": true
-  },
-  {
-    "id": "demo-099",
-    "colonia": "centro",
-    "tipo": "olor",
-    "sintomas": false,
-    "diasAtras": 22,
-    "simulado": true
-  },
-  {
-    "id": "demo-100",
-    "colonia": "centro",
-    "tipo": "olor",
-    "sintomas": true,
-    "diasAtras": 27,
-    "simulado": true
-  },
-  {
-    "id": "demo-101",
-    "colonia": "centro",
-    "tipo": "turbia",
-    "sintomas": null,
-    "diasAtras": 28,
-    "simulado": true
-  },
-  {
-    "id": "demo-102",
-    "colonia": "centro",
-    "tipo": "turbia",
-    "sintomas": false,
     "diasAtras": 20,
     "simulado": true
   },
   {
-    "id": "demo-103",
-    "colonia": "santa_teresita",
+    "id": "demo-064",
+    "colonia": "miravalle",
     "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 0,
+    "sintomas": null,
+    "diasAtras": 10,
     "simulado": true
   },
   {
-    "id": "demo-104",
-    "colonia": "santa_teresita",
+    "id": "demo-065",
+    "colonia": "miravalle",
     "tipo": "turbia",
     "sintomas": true,
-    "diasAtras": 8,
+    "diasAtras": 6,
     "simulado": true
   },
   {
-    "id": "demo-105",
-    "colonia": "santa_teresita",
+    "id": "demo-066",
+    "colonia": "miravalle",
     "tipo": "turbia",
-    "sintomas": false,
-    "diasAtras": 22,
+    "sintomas": true,
+    "diasAtras": 13,
     "simulado": true
   },
   {
-    "id": "demo-106",
-    "colonia": "santa_teresita",
+    "id": "demo-067",
+    "colonia": "miravalle",
     "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 27,
+    "simulado": true
+  },
+  {
+    "id": "demo-068",
+    "colonia": "miravalle",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 27,
+    "simulado": true
+  },
+  {
+    "id": "demo-069",
+    "colonia": "centro",
+    "tipo": "turbia",
+    "sintomas": null,
+    "diasAtras": 20,
+    "simulado": true
+  },
+  {
+    "id": "demo-070",
+    "colonia": "santa_teresita",
+    "tipo": "olor",
     "sintomas": null,
     "diasAtras": 2,
     "simulado": true
   },
   {
-    "id": "demo-107",
-    "colonia": "chapalita",
+    "id": "demo-071",
+    "colonia": "santa_teresita",
     "tipo": "olor",
     "sintomas": false,
-    "diasAtras": 4,
+    "diasAtras": 5,
     "simulado": true
   },
   {
-    "id": "demo-108",
-    "colonia": "chapalita",
-    "tipo": "olor",
-    "sintomas": false,
-    "diasAtras": 18,
-    "simulado": true
-  },
-  {
-    "id": "demo-109",
-    "colonia": "chapalita",
+    "id": "demo-072",
+    "colonia": "santa_teresita",
     "tipo": "turbia",
     "sintomas": false,
-    "diasAtras": 1,
+    "diasAtras": 27,
     "simulado": true
   },
   {
-    "id": "demo-fa-110",
+    "id": "demo-073",
+    "colonia": "chapalita",
+    "tipo": "turbia",
+    "sintomas": true,
+    "diasAtras": 12,
+    "simulado": true
+  },
+  {
+    "id": "demo-fa-074",
     "colonia": "oblatos",
     "tipo": "falta_agua",
     "sintomas": null,
-    "diasAtras": 28,
+    "diasAtras": 12,
     "simulado": true
   },
   {
-    "id": "demo-fa-111",
+    "id": "demo-fa-075",
+    "colonia": "oblatos",
+    "tipo": "falta_agua",
+    "sintomas": null,
+    "diasAtras": 8,
+    "simulado": true
+  },
+  {
+    "id": "demo-fa-076",
     "colonia": "oblatos",
     "tipo": "falta_agua",
     "sintomas": null,
@@ -888,7 +608,7 @@
     "simulado": true
   },
   {
-    "id": "demo-fa-112",
+    "id": "demo-fa-077",
     "colonia": "oblatos",
     "tipo": "falta_agua",
     "sintomas": null,
@@ -896,99 +616,59 @@
     "simulado": true
   },
   {
-    "id": "demo-fa-113",
+    "id": "demo-fa-078",
     "colonia": "oblatos",
     "tipo": "falta_agua",
     "sintomas": null,
-    "diasAtras": 27,
+    "diasAtras": 25,
     "simulado": true
   },
   {
-    "id": "demo-fa-114",
-    "colonia": "oblatos",
-    "tipo": "falta_agua",
-    "sintomas": null,
-    "diasAtras": 1,
-    "simulado": true
-  },
-  {
-    "id": "demo-fa-115",
-    "colonia": "oblatos",
-    "tipo": "falta_agua",
-    "sintomas": null,
-    "diasAtras": 28,
-    "simulado": true
-  },
-  {
-    "id": "demo-fa-116",
+    "id": "demo-fa-079",
     "colonia": "santa_cecilia",
     "tipo": "falta_agua",
     "sintomas": null,
-    "diasAtras": 11,
+    "diasAtras": 14,
     "simulado": true
   },
   {
-    "id": "demo-fa-117",
+    "id": "demo-fa-080",
     "colonia": "santa_cecilia",
     "tipo": "falta_agua",
     "sintomas": null,
-    "diasAtras": 6,
+    "diasAtras": 9,
     "simulado": true
   },
   {
-    "id": "demo-fa-118",
+    "id": "demo-fa-081",
     "colonia": "santa_cecilia",
     "tipo": "falta_agua",
     "sintomas": null,
-    "diasAtras": 21,
+    "diasAtras": 13,
     "simulado": true
   },
   {
-    "id": "demo-fa-119",
-    "colonia": "santa_cecilia",
-    "tipo": "falta_agua",
-    "sintomas": null,
-    "diasAtras": 7,
-    "simulado": true
-  },
-  {
-    "id": "demo-fa-120",
+    "id": "demo-fa-082",
     "colonia": "miravalle",
     "tipo": "falta_agua",
     "sintomas": null,
-    "diasAtras": 21,
+    "diasAtras": 22,
     "simulado": true
   },
   {
-    "id": "demo-fa-121",
+    "id": "demo-fa-083",
     "colonia": "miravalle",
     "tipo": "falta_agua",
     "sintomas": null,
-    "diasAtras": 3,
+    "diasAtras": 23,
     "simulado": true
   },
   {
-    "id": "demo-fa-122",
-    "colonia": "miravalle",
-    "tipo": "falta_agua",
-    "sintomas": null,
-    "diasAtras": 11,
-    "simulado": true
-  },
-  {
-    "id": "demo-fa-123",
+    "id": "demo-fa-084",
     "colonia": "jardines_de_la_paz",
     "tipo": "falta_agua",
     "sintomas": null,
-    "diasAtras": 24,
-    "simulado": true
-  },
-  {
-    "id": "demo-fa-124",
-    "colonia": "jardines_de_la_paz",
-    "tipo": "falta_agua",
-    "sintomas": null,
-    "diasAtras": 17,
+    "diasAtras": 25,
     "simulado": true
   }
 ]

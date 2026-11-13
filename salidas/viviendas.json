@@ -1,0 +1,64 @@
+{
+  "_metadata": {
+    "dataset": "Dataset 01 (INEGI, Censo de Población y Vivienda 2020, por manzana)",
+    "municipio": "Guadalajara, Jalisco",
+    "estado": "REAL",
+    "nota": "Viviendas particulares habitadas (TVIVHAB) sumadas por colonia. Cada manzana se asigna a la colonia que contiene su centroide (aproximación). Manzanas con dato confidencial (*) se toman como 0. Polígonos de colonias: IIEG Jalisco."
+  },
+  "oblatos": {
+    "nombre": "Oblatos",
+    "municipio": "Guadalajara",
+    "viviendas": 7121,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia"
+  },
+  "santa_cecilia": {
+    "nombre": "Santa Cecilia",
+    "municipio": "Guadalajara",
+    "viviendas": 5993,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia"
+  },
+  "jardines_de_la_paz": {
+    "nombre": "Jardines de la Paz",
+    "municipio": "Guadalajara",
+    "viviendas": 2050,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia"
+  },
+  "miravalle": {
+    "nombre": "Miravalle",
+    "municipio": "Guadalajara",
+    "viviendas": 5209,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia"
+  },
+  "centro": {
+    "nombre": "Centro",
+    "municipio": "Guadalajara",
+    "viviendas": 830,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia"
+  },
+  "santa_teresita": {
+    "nombre": "Santa Teresita",
+    "municipio": "Guadalajara",
+    "viviendas": 4251,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia"
+  },
+  "chapalita": {
+    "nombre": "Chapalita",
+    "municipio": "Guadalajara",
+    "viviendas": 1898,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia"
+  },
+  "san_rafael": {
+    "nombre": "San Rafael",
+    "municipio": "Guadalajara",
+    "viviendas": 2456,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia"
+  }
+}

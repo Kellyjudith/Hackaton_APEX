@@ -1,64 +1,81 @@
 {
   "_metadata": {
-    "dataset": "Dataset 01 (INEGI, Censo de Población y Vivienda 2020 por AGEB)",
+    "dataset": "Dataset 01 (INEGI, Censo de Población y Vivienda 2020, por manzana)",
     "municipio": "Guadalajara, Jalisco",
-    "estado": "PROVISIONAL",
-    "nota": "Valores provisionales de referencia hasta sustitución con cruce censal definitivo."
+    "estado": "REAL",
+    "nota": "Viviendas particulares habitadas (TVIVHAB) sumadas por colonia. Cada manzana se asigna a la colonia que contiene su centroide (aproximación). Manzanas con dato confidencial (*) se toman como 0. Polígonos de colonias: IIEG Jalisco.",
+    "nota_sin_agua": "Viviendas sin agua entubada (Dataset 01, INEGI Censo 2020): dato de contexto por colonia; no entra al semáforo."
   },
   "oblatos": {
     "nombre": "Oblatos",
     "municipio": "Guadalajara",
-    "viviendas": 8000,
-    "fuente": "INEGI Dataset 01 (Censo 2020, AGEB) - Provisional",
-    "metodo": "Agregación espacial de manzanas/AGEB dentro del polígono"
+    "viviendas": 7121,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia",
+    "viviendas_sin_agua_entubada": 4,
+    "pct_sin_agua_entubada": 0.06
   },
   "santa_cecilia": {
     "nombre": "Santa Cecilia",
     "municipio": "Guadalajara",
-    "viviendas": 7000,
-    "fuente": "INEGI Dataset 01 (Censo 2020, AGEB) - Provisional",
-    "metodo": "Agregación espacial de manzanas/AGEB dentro del polígono"
+    "viviendas": 5993,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia",
+    "viviendas_sin_agua_entubada": 8,
+    "pct_sin_agua_entubada": 0.13
   },
   "jardines_de_la_paz": {
     "nombre": "Jardines de la Paz",
     "municipio": "Guadalajara",
-    "viviendas": 6000,
-    "fuente": "INEGI Dataset 01 (Censo 2020, AGEB) - Provisional",
-    "metodo": "Agregación espacial de manzanas/AGEB dentro del polígono"
+    "viviendas": 2050,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia",
+    "viviendas_sin_agua_entubada": 1,
+    "pct_sin_agua_entubada": 0.05
   },
   "miravalle": {
     "nombre": "Miravalle",
     "municipio": "Guadalajara",
-    "viviendas": 5500,
-    "fuente": "INEGI Dataset 01 (Censo 2020, AGEB) - Provisional",
-    "metodo": "Agregación espacial de manzanas/AGEB dentro del polígono"
+    "viviendas": 5209,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia",
+    "viviendas_sin_agua_entubada": 0,
+    "pct_sin_agua_entubada": 0.0
   },
   "centro": {
     "nombre": "Centro",
     "municipio": "Guadalajara",
-    "viviendas": 5200,
-    "fuente": "INEGI Dataset 01 (Censo 2020, AGEB) - Provisional",
-    "metodo": "Agregación espacial de manzanas/AGEB dentro del polígono"
+    "viviendas": 830,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia",
+    "viviendas_sin_agua_entubada": 0,
+    "pct_sin_agua_entubada": 0.0
   },
   "santa_teresita": {
     "nombre": "Santa Teresita",
     "municipio": "Guadalajara",
-    "viviendas": 3500,
-    "fuente": "INEGI Dataset 01 (Censo 2020, AGEB) - Provisional",
-    "metodo": "Agregación espacial de manzanas/AGEB dentro del polígono"
+    "viviendas": 4251,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia",
+    "viviendas_sin_agua_entubada": 0,
+    "pct_sin_agua_entubada": 0.0
   },
   "chapalita": {
     "nombre": "Chapalita",
     "municipio": "Guadalajara",
-    "viviendas": 4820,
-    "fuente": "INEGI Dataset 01 (Censo 2020, AGEB) - Provisional",
-    "metodo": "Agregación espacial de manzanas/AGEB dentro del polígono"
+    "viviendas": 1898,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia",
+    "viviendas_sin_agua_entubada": 0,
+    "pct_sin_agua_entubada": 0.0
   },
   "san_rafael": {
     "nombre": "San Rafael",
     "municipio": "Guadalajara",
-    "viviendas": 4500,
-    "fuente": "INEGI Dataset 01 (Censo 2020, AGEB) - Provisional",
-    "metodo": "Agregación espacial de manzanas/AGEB dentro del polígono"
+    "viviendas": 2456,
+    "fuente": "INEGI Dataset 01 (Censo 2020, manzanas)",
+    "metodo": "Suma de viviendas de las manzanas cuyo centroide cae dentro del polígono de la colonia",
+    "viviendas_sin_agua_entubada": 3,
+    "pct_sin_agua_entubada": 0.12
   }
 }

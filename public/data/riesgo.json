@@ -1,48 +1,56 @@
 {
   "_metadata": {
-    "dataset": "Dataset 05 (Atlas de Riesgos de Jalisco, CENAPRED / Protección Civil)",
+    "dataset": "Dataset 05 (Atlas Nacional de Riesgos, CENAPRED - Indicadores municipales)",
     "municipio": "Guadalajara, Jalisco",
-    "estado": "PROVISIONAL",
-    "nota": "Nivel de riesgo de inundación o hundimiento por colonia. Valores provisionales de referencia."
+    "estado": "REAL (nivel municipal)",
+    "nota": "Grado de peligro por inundación del municipio (GP_INUNDAC). Es un valor único para todo el municipio, por lo que no distingue entre colonias."
   },
   "oblatos": {
-    "nivel": "bajo",
-    "capa": "Inundaciones y encharcamientos",
-    "fuente": "Atlas de Riesgos (Dataset 05) - Provisional"
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
   },
   "santa_cecilia": {
-    "nivel": "bajo",
-    "capa": "Inundaciones y encharcamientos",
-    "fuente": "Atlas de Riesgos (Dataset 05) - Provisional"
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
   },
   "jardines_de_la_paz": {
-    "nivel": "bajo",
-    "capa": "Zonas bajas de infiltración",
-    "fuente": "Atlas de Riesgos (Dataset 05) - Provisional"
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
   },
   "miravalle": {
-    "nivel": "bajo",
-    "capa": "Hundimientos / Ladera Cerro del 4",
-    "fuente": "Atlas de Riesgos (Dataset 05) - Provisional"
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
   },
   "centro": {
-    "nivel": "bajo",
-    "capa": "Antigüedad de líneas",
-    "fuente": "Atlas de Riesgos (Dataset 05) - Provisional"
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
   },
   "santa_teresita": {
-    "nivel": "bajo",
-    "capa": "Zona centro-poniente",
-    "fuente": "Atlas de Riesgos (Dataset 05) - Provisional"
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
   },
   "chapalita": {
-    "nivel": "bajo",
-    "capa": "Zona poniente",
-    "fuente": "Atlas de Riesgos (Dataset 05) - Provisional"
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
   },
   "san_rafael": {
-    "nivel": "sin_dato",
-    "capa": null,
-    "fuente": "Atlas de Riesgos (Dataset 05) - Provisional"
+    "nivel": "alto",
+    "capa": "Peligro por inundación (indicador municipal)",
+    "valor_original": "Muy alto",
+    "fuente": "Atlas Nacional de Riesgos (Dataset 05), CENAPRED"
   }
 }
